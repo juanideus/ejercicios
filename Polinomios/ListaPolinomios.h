@@ -15,8 +15,9 @@ class ListaPolinomios {
     public:
 
     ListaPolinomios();
-    void insertar(string polinomio);
-    string toString();
+    void insertar(int coef, int exp);
+    ListaPolinomios sumar(ListaPolinomios lista);
+    string toString(const string &var);
 };
 
 

@@ -1,62 +1,64 @@
-#include <iostream>
+#include "iostream"
 #include <queue>
+#include <sstream>
 #include <stack>
 
-#include "MPP.h"
+
 #include "Listas/ListaSimple.h"
+#include "Polinomios/ListaPolinomios.h"
 using namespace std;
 
 // 1. Sumar todos los elementos de un arreglo
-int sumaArreglo(int* A, int N) {
+int sumaArreglo(const int *A, int N) {
     int suma = 0;
     //T(N)=Σ(i=0,N-1) 1=N -->T(N)=O(N)
     for (int i = 0; i < N; i++) {
-        suma+=A[i];
+        suma += A[i];
     }
     return suma;
 }
 
 // 2. Suma: primer + medio + último elemento
-int sumaPrimerMedioUltimo(int* A, int N) {
+int sumaPrimerMedioUltimo(const int *A, int N) {
     //T(N)=Σ(i=0,0) 1=1 -->T(N)=O(1)
-    return A[0]+A[N/2]+A[N-1];
+    return A[0] + A[N / 2] + A[N - 1];
 }
 
 // 3. Sumar todos los elementos de una matriz NxM
-int sumaMatriz(int** A, int N, int M) {
+int sumaMatriz(int **A, int N, int M) {
     int suma = 0;
     //T(N)=Σ(i=0,N-1)Σ(i=0,M-1) 1=N*M -->T(N)=O(NM)
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
-            suma+=A[i][j];
+            suma += A[i][j];
         }
     }
     return suma;
 }
 
 // 4. Sumar diagonal principal NxN
-int sumaDiagonalPrincipal(int** A, int N) {
+int sumaDiagonalPrincipal(int **A, int N) {
     int suma = 0;
     //T(N)=Σ(i=0,N-1) 1=N -->T(N)=O(N)
     for (int i = 0; i < N; i++) {
-        suma+=A[i][i];
+        suma += A[i][i];
     }
     return suma;
 }
 
 // 5. Sumar diagonal principal y bajo ella NxN
-int sumaDiagonalYBajo(int** A, int N) {
+int sumaDiagonalYBajo(int **A, int N) {
     int suma = 0;
     for (int i = 0; i < N; i++) {
-        for (int j = 0; j < i+1; j++) {
-            suma+=A[i][j];
+        for (int j = 0; j < i + 1; j++) {
+            suma += A[i][j];
         }
     }
     return suma;
 }
 
 // 6. Buscar valor X en arreglo ordenado
-bool buscarEnArreglo(int* A, int N, int X) {
+bool buscarEnArreglo(const int *A, int N, int X) {
     for (int i = 0; i < N; i++) {
         if (A[i] == X) {
             return true;
@@ -66,9 +68,9 @@ bool buscarEnArreglo(int* A, int N, int X) {
 }
 
 // 7. Verificar si el arreglo está ordenado
-bool estaOrdenado(int* A, int N) {
+bool estaOrdenado(const int *A, int N) {
     for (int i = 0; i < N; i++) {
-        for (int j = i+1; j < N; j++) {
+        for (int j = i + 1; j < N; j++) {
             if (A[i] > A[j]) {
                 return false;
             }
@@ -76,10 +78,11 @@ bool estaOrdenado(int* A, int N) {
     }
     return true;
 }
+
 // 8. Ordenar arreglo con Bubble Sort
-void bubbleSort(int* A, int N) {
-    for (int i = 0; i < N-1; i++) {
-        for (int j = i+1; j < N; j++) {
+void bubbleSort(int *A, int N) {
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = i + 1; j < N; j++) {
             if (A[i] > A[j]) {
                 int aux = A[i];
                 A[i] = A[j];
@@ -90,12 +93,12 @@ void bubbleSort(int* A, int N) {
 }
 
 // 9. Suma de filas impares
-int sumaFilasImpares(int** A, int N, int M) {
-    int suma=0;
+int sumaFilasImpares(int **A, int N, int M) {
+    int suma = 0;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
-            if (i % 2 !=0 ) {
-                suma+=A[i][j];
+            if (i % 2 != 0) {
+                suma += A[i][j];
             }
         }
     }
@@ -103,10 +106,9 @@ int sumaFilasImpares(int** A, int N, int M) {
 }
 
 // 10. Verificar si columnas K y P son idénticas
-bool columnasIdenticas(int** A, int N, int M, int K, int P) {
-
+bool columnasIdenticas(int **A, int N, int M, int K, int P) {
     for (int i = 0; i < N; i++) {
-        if (A[i][K]!=A[i][P]) {
+        if (A[i][K] != A[i][P]) {
             return false;
         }
     }
@@ -114,89 +116,104 @@ bool columnasIdenticas(int** A, int N, int M, int K, int P) {
 }
 
 // 11. Sumar esquinas de matriz NxM
-int sumaEsquinas(int** A, int N, int M) {
-
-    return A[0][0]+A[0][M-1]+A[N-1][0]+A[N-1][M-1];
+int sumaEsquinas(int **A, int N, int M) {
+    return A[0][0] + A[0][M - 1] + A[N - 1][0] + A[N - 1][M - 1];
 }
 
 // 12. Multiplicar matrices A(PxQ) y B(QxR)
-int** multiplicarMatrices(int** A, int P, int Q, int** B, int R) {
-//TODO 
+int **multiplicarMatrices(int **A, int P, int Q, int **B, int R) {
+    //TODO
+    return nullptr;
 }
 
 //todo recursivos
 int factorial(int n) {
-    if (n==0)return 1;
-    return n*factorial(n-1);
+    if (n == 0)return 1;
+    return n * factorial(n - 1);
 }
+
 int fibonacci(int n) {
-    if (n==0)return 0;
-    if (n==1)return 1;
-    return fibonacci(n-1)+fibonacci(n-2);
+    if (n == 0)return 0;
+    if (n == 1)return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
+
 int suma(int n) {
-    if (n==0)return 0;
-    return n+suma(n-1);
+    if (n == 0)return 0;
+    return n + suma(n - 1);
 }
+
 int potencia(int base, int exponente) {
-    if (exponente==1)return base;
-    if (base==0)return 0;
-        return base*potencia(base,exponente-1);
+    if (exponente == 1)return base;
+    if (base == 0)return 0;
+    return base * potencia(base, exponente - 1);
 }
+
 int sumaDigitos(int n) {
-    if (n==0)return 0;
-    return n%10+sumaDigitos(n/10);
+    if (n == 0)return 0;
+    return n % 10 + sumaDigitos(n / 10);
 }
+
 int contarDigitos(int n) {
-
+    return 0;
 }
-int mcd(int a, int b) {
 
-}
-int mcm(int a, int b) {}
+// int mcd(int a, int b) {
+// }
+int mcm(int a, int b) { return 0; }
+
 bool esPrimo(int n, int i = 2) {
-    if (n%i==0)return true;
+    if (n % i == 0)return true;
     return false;
 }
-int contarPrimos(int n) {}
-int sumaPares(int n) {
-    if (n<2)return 0;
-    if (n%2!=0)n--;
-    return n+sumaPares(n-2);
 
+int contarPrimos(int n) {
+    return 0;
 }
+
+int sumaPares(int n) {
+    if (n < 2)return 0;
+    if (n % 2 != 0)n--;
+    return n + sumaPares(n - 2);
+}
+
 int sumaImpares(int n) {
-    if (n==1)return 1;
-    if (n%2==0)n--;
-    return n+sumaImpares(n-2);
+    if (n == 1)return 1;
+    if (n % 2 == 0)n--;
+    return n + sumaImpares(n - 2);
 }
-int invertirNumero(int n, int inv = 0) {}
+
+// int invertirNumero(int n, int inv = 0) {}
 int binarioADecimal(int n) {
     if (n == 0) return 0;
     return (n % 10) + 2 * binarioADecimal(n / 10);
 }
-int decimalABinario(int n) {}
-int combinacion(int n, int r) {}
-int permutacion(int n, int r) {}
-int sumaCuadrados(int n) {}
-int sumaCubos(int n) {}
-bool esCapicua(int n, int rev = 0) {}
+
+int decimalABinario(int n) {
+    if (n==1)return 1;
+    if (n==0)return 0;
+    return n%2 +10 * decimalABinario(n/2);
+}
+// int combinacion(int n, int r) {}
+// int permutacion(int n, int r) {}
+// int sumaCuadrados(int n) {}
+// int sumaCubos(int n) {}
+// bool esCapicua(int n, int rev = 0) {}
 
 
 //guia 2
-void invertirPila(stack<int>& s) {
+void invertirPila(stack<int> &s) {
     stack<int> aux;
     while (!s.empty()) {
         aux.push(s.top());
         s.pop();
     }
-    s=aux;
-
-
+    s = aux;
 }
-void barajar(stack<char>M, stack<char>&C, stack<char>&D, stack<char>&T, stack<char>&E) {
+
+void barajar(stack<char> M, stack<char> &C, stack<char> &D, stack<char> &T, stack<char> &E) {
     while (!M.empty()) {
-        switch(M.top()) {
+        switch (M.top()) {
             case 'C': C.push(M.top());
                 break;
             case 'D': D.push(M.top());
@@ -205,22 +222,22 @@ void barajar(stack<char>M, stack<char>&C, stack<char>&D, stack<char>&T, stack<ch
                 break;
             case 'E': E.push(M.top());
                 break;
-                default: cout<< "no";
+            default: cout << "no";
         }
         M.pop();
-
     }
 }
-void duplicar(int*numero) {
-    *numero*=2;
 
+void duplicar(int *numero) {
+    *numero *= 2;
 }
-bool esPalo(string palabra) {
+
+bool esPalo(const string &palabra) {
     queue<char> q;
     stack<char> S;
-    for (int i = 0; i < palabra.size(); i++) {
-        q.push(palabra[i]);
-        S.push(palabra[i]);
+    for (char i : palabra) {
+        q.push(i);
+        S.push(i);
     }
     while (!S.empty()) {
         if (q.front() != S.top()) {
@@ -230,15 +247,41 @@ bool esPalo(string palabra) {
         q.pop();
     }
     return true;
-
 }
+
+void insertar(ListaPolinomios &s, const string &poli2) {
+    stringstream ss(poli2);
+    string linea;
+    vector<string> numeros;
+    while (getline(ss, linea, '+')) {
+        numeros.push_back(linea);
+    }
+
+    for (const auto & numero : numeros) {
+        int coef = stoi(numero.substr(0, 1));
+
+        if (numero.find('^') != string::npos) {
+            int exp = 0;
+            exp = stoi(numero.substr(3, 4));
+            s.insertar(coef, exp);
+        } else {
+            s.insertar(coef, 0);
+        }
+    }
+}
+
 using namespace std;
-int main() {
-    string palabra="3𝑥^14+2𝑥^8+1";
-    if (esPalo(palabra)) {
-        cout<< "es palindromo";
-    }else cout << "no es palindromo";
 
+int main() {
+    ListaPolinomios s;
+    ListaPolinomios t;
+    string poli1 = "2X^10+5X^9+4X^8+3X^2+3x^1+2";
+    string poli2 = "2X^10+5X^9+4X^8+3X^2+3x^1+2";
+    insertar(s, poli1);
+    insertar(t, poli2);
+    cout << s.toString("x") << endl;
+    cout << t.toString("y") << endl;
+    s = s.sumar(t);
+    cout << s.toString("x") << endl;
 
 }
-

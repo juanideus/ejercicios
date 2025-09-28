@@ -1,6 +1,4 @@
-//
-// Created by Usuario on 09-09-2025.
-//
+
 #include <iostream>
 using namespace std;
 #include "MPP.h"
@@ -28,15 +26,15 @@ MPP::MPP(int alto, int largo):AROW(nullptr), ACOL(nullptr),largo(largo),alto(alt
 }
 
 int MPP::GetAlto() {
+    return this->alto;
 }
 
 int MPP::GetLargo() {
+    return this->largo;
 }
 
 void MPP::insertar(int dato, int fila, int col) {
-    NodoMPP *aux=this->AROW[fila]->getLeft();
-    NodoMPP *L=this->ACOL[col];
-    NodoMPP *R=new NodoMPP(dato,fila,col);
+
 
 
 }
@@ -67,6 +65,7 @@ NodoMPP * MPP::buscar(int fila, int col) {
 
 
 bool MPP::mover(int Nuevafila, int Nuevacol, int dato) {
+    return false;
 }
 
 void MPP::mostrarMatriz() {
