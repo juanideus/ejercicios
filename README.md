@@ -1,4 +1,4 @@
-# Proyecto de Estructuras y Algoritmos en C++
+# Algoritmos en C++
 
 Este proyecto en C++ contiene implementaciones de **listas enlazadas, polinomios, matrices, recursión, pilas, colas y operaciones numéricas**. Incluye ejercicios clásicos de algoritmos y estructuras de datos.
 
