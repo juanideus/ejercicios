@@ -1,5 +1,6 @@
 #pragma once
 #include "NodoMPP.h"
+using namespace std;
 
 
 class MPP {
@@ -17,6 +18,7 @@ class MPP {
 
     void insertar(int dato, int fila, int col);
 
+    string toString();
 
     void insertar(int fila, int col);
 
@@ -30,7 +32,9 @@ class MPP {
 
     void mostrarMatriz();
 
+    int sumarDiagonal();
 
+    string Posicion100();
 
 };
 

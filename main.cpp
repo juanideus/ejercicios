@@ -1,4 +1,4 @@
-#include "iostream"
+﻿#include "iostream"
 #include <queue>
 #include <sstream>
 #include <stack>
@@ -24,7 +24,8 @@ int sumaPrimerMedioUltimo(const int *A, int N) {
     return A[0] + A[N / 2] + A[N - 1];
 }
 
-// 3. Sumar todos los elementos de una matriz NxM
+// 3. Sumar todos los elementos de una M
+//NxM
 int sumaMatriz(int **A, int N, int M) {
     int suma = 0;
     //T(N)=Σ(i=0,N-1)Σ(i=0,M-1) 1=N*M -->T(N)=O(NM)
@@ -115,7 +116,8 @@ bool columnasIdenticas(int **A, int N, int M, int K, int P) {
     return true;
 }
 
-// 11. Sumar esquinas de matriz NxM
+// 11. Sumar esquinas de M
+//NxM
 int sumaEsquinas(int **A, int N, int M) {
     return A[0][0] + A[0][M - 1] + A[N - 1][0] + A[N - 1][M - 1];
 }
@@ -202,29 +204,34 @@ int decimalABinario(int n) {
 
 
 //guia 2
-void invertirPila(stack<int> &s) {
-    stack<int> aux;
-    while (!s.empty()) {
-        aux.push(s.top());
-        s.pop();
+void invertirPila(stack<int> *s) {
+    auto aux = new queue<int>;
+    while (!s->empty()) {
+        aux->push(s->top());
+        s->pop();
     }
-    s = aux;
+    while (!aux->empty()) {
+        s->push(aux->front());
+        aux->pop();
+    }
+    delete aux;
+
 }
 
-void barajar(stack<char> M, stack<char> &C, stack<char> &D, stack<char> &T, stack<char> &E) {
-    while (!M.empty()) {
-        switch (M.top()) {
-            case 'C': C.push(M.top());
+void barajar(stack<char> *M, stack<char> *C, stack<char> *D, stack<char> *T, stack<char> *E) {
+    while (!M->empty()) {
+        switch (M->top()) {
+            case 'C': C->push(M->top());
                 break;
-            case 'D': D.push(M.top());
+            case 'D': D->push(M->top());
                 break;
-            case 'T': T.push(M.top());
+            case 'T': T->push(M->top());
                 break;
-            case 'E': E.push(M.top());
+            case 'E': E->push(M->top());
                 break;
             default: cout << "no";
         }
-        M.pop();
+        M->pop();
     }
 }
 
@@ -249,39 +256,59 @@ bool esPalo(const string &palabra) {
     return true;
 }
 
-void insertar(ListaPolinomios &s, const string &poli2) {
+void insertar(ListaPolinomios *s, const string &poli2) {
     stringstream ss(poli2);
     string linea;
     vector<string> numeros;
-    while (getline(ss, linea, '+')) {
+    while (getline(ss, linea, '+') ) {
         numeros.push_back(linea);
     }
 
     for (const auto & numero : numeros) {
         int coef = stoi(numero.substr(0, 1));
-
+        if (numero.find("-") != string::npos) {
+            coef *= -1;
+        }
         if (numero.find('^') != string::npos) {
             int exp = 0;
             exp = stoi(numero.substr(3, 4));
-            s.insertar(coef, exp);
+            s->insertar(coef, exp);
         } else {
-            s.insertar(coef, 0);
+            s->insertar(coef, 0);
         }
     }
 }
+void sumar(ListaPolinomios *A,ListaPolinomios *B,ListaPolinomios *C) {
+    NodoPoli* aux=A->getInicio();
+    NodoPoli* aux2=B->getInicio();
+    while (aux != nullptr && aux2 != nullptr) {
+        if (aux->getExp() == aux2->getExp()) {
+            int suma = aux->getCoef() + aux2->getCoef();
+            C->insertar(suma, aux->getExp());
+            aux  = aux->getSig();
+            aux2 = aux2->getSig();
+        }
+        else if (aux->getExp() < aux2->getExp()) {
+            C->insertar(aux2->getCoef(), aux2->getExp());
+            aux2 = aux2->getSig();
+        }
+        else {
+            C->insertar(aux->getCoef(), aux->getExp());
+            aux = aux->getSig();
+        }
+    }
+}
+void sumarDiagonales(int**M,int N,int &suma) {
+    for (int i = 0; i < N; i++) {
+        suma += M[i][i];
+        suma+=M[i][N-i-1];
+    }
+
+}
+
 
 using namespace std;
 
-int main() {
-    ListaPolinomios s;
-    ListaPolinomios t;
-    string poli1 = "2X^10+5X^9+4X^8+3X^2+3x^1+2";
-    string poli2 = "2X^10+5X^9+4X^8+3X^2+3x^1+2";
-    insertar(s, poli1);
-    insertar(t, poli2);
-    cout << s.toString("x") << endl;
-    cout << t.toString("y") << endl;
-    s = s.sumar(t);
-    cout << s.toString("x") << endl;
+int main(){
 
 }

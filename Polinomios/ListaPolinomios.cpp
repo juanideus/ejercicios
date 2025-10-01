@@ -31,22 +31,22 @@ ListaPolinomios ListaPolinomios::sumar(ListaPolinomios lista) {
     ListaPolinomios listaPolinomios;
 
 
-    while (aux != nullptr && aux2 != nullptr) {
-        if (aux->getExp() == aux2->getExp()) {
-            int suma = aux->getCoef() + aux2->getCoef();
-            listaPolinomios.insertar(suma, aux->getExp());
-            aux  = aux->getSig();
-            aux2 = aux2->getSig();
+        while (aux != nullptr && aux2 != nullptr) {
+            if (aux->getExp() == aux2->getExp()) {
+                int suma = aux->getCoef() + aux2->getCoef();
+                listaPolinomios.insertar(suma, aux->getExp());
+                aux  = aux->getSig();
+                aux2 = aux2->getSig();
+            }
+            else if (aux->getExp() < aux2->getExp()) {
+                listaPolinomios.insertar(aux2->getCoef(), aux2->getExp());
+                aux2 = aux2->getSig();
+            }
+            else { // aux->getExp() > aux2->getExp()
+                listaPolinomios.insertar(aux->getCoef(), aux->getExp());
+                aux = aux->getSig();
+            }
         }
-        else if (aux->getExp() < aux2->getExp()) {
-            listaPolinomios.insertar(aux2->getCoef(), aux2->getExp());
-            aux2 = aux2->getSig();
-        }
-        else { // aux->getExp() > aux2->getExp()
-            listaPolinomios.insertar(aux->getCoef(), aux->getExp());
-            aux = aux->getSig();
-        }
-    }
 
 
 
@@ -68,4 +68,8 @@ string ListaPolinomios::toString(const string &var) {
         aux = aux->getSig();
     }
     return str;
+}
+
+NodoPoli * ListaPolinomios::getInicio() {
+    return this->inicio;
 }

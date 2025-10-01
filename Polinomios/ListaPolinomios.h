@@ -18,6 +18,7 @@ class ListaPolinomios {
     void insertar(int coef, int exp);
     ListaPolinomios sumar(ListaPolinomios lista);
     string toString(const string &var);
+    NodoPoli* getInicio();
 };
 
 

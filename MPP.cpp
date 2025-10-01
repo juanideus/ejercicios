@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <sstream>
 using namespace std;
 #include "MPP.h"
 #define FO(i,N) for(i=1;i<=N;i++)
@@ -7,21 +8,19 @@ MPP::MPP():AROW(nullptr), ACOL(nullptr),largo(0),alto(0) {
 }
 
 MPP::MPP(int alto, int largo):AROW(nullptr), ACOL(nullptr),largo(largo),alto(alto) {
-    this->AROW=new NodoMPP *[alto];
+    this->alto = alto;
+    this->largo = largo;
+    this->AROW=new NodoMPP *[alto+1];
     int i=0;
     FO(i,alto){
-        this->AROW[i]=new NodoMPP();
-        this->AROW[i]->setRow(i);
-        this->AROW[i]->setCol(0);
+        this->AROW[i]=new NodoMPP(i,0,0);
         this->AROW[i]->setLeft(this->AROW[i]);
     }
 
-    this->ACOL=new NodoMPP *[largo];
+    this->ACOL=new NodoMPP *[largo+1];
     FO(i,largo) {
-        this->ACOL[i]=new NodoMPP();
-        this->ACOL[i]->setRow(0);
-        this->ACOL[i]->setCol(i);
-        this->ACOL[i]->setLeft(this->ACOL[i]);
+        this->ACOL[i]=new NodoMPP(0,i,0);
+        this->ACOL[i]->setUp(this->ACOL[i]);
     }
 }
 
@@ -34,10 +33,58 @@ int MPP::GetLargo() {
 }
 
 void MPP::insertar(int dato, int fila, int col) {
-
-
+    NodoMPP *aux = this->AROW[fila];
+    NodoMPP *nuevoNodo = new NodoMPP(fila, col, dato);
+    //Recorre La fila hasta uno antes de la posicion a agregar.
+    while (aux->getLeft()->getCol() > col) {
+        aux = aux->getLeft();
+    }
+    //actualizamos enlaces
+    nuevoNodo->setLeft(aux->getLeft());
+    aux->setLeft(nuevoNodo);
+    //Nos paramos en la columna agregar
+    aux = this->ACOL[col];
+    //Recorre hasta uno antes de la fila a agregar
+    while (aux->getRow() > fila) {
+        aux = aux->getUp();
+    }
+    //Actualizamos enlaces
+    nuevoNodo->setUp(aux->getUp());
+    aux->setUp(nuevoNodo);
 
 }
+
+string MPP::toString() {
+    stringstream oss;
+
+    for (int i = 1; i <= alto; i++) {
+        NodoMPP* cab = AROW[i];
+
+        for (int j = 1; j <= largo; j++) {
+            NodoMPP* fila = cab->getLeft();
+            bool encontrado = false;
+
+            // Recorremos toda la fila circular buscando la columna j
+            while (fila != cab) {
+                if (fila->getCol() == j) {
+                    oss << fila->getValor() << " ";
+                    encontrado = true;
+                    break;
+                }
+                fila = fila->getLeft();
+            }
+
+            if (!encontrado)
+                oss << "0 ";
+        }
+
+        oss << "\n";
+    }
+
+    return oss.str();
+}
+
+
 
 
 void MPP::insertar(int fila, int col) {
@@ -84,6 +131,38 @@ void MPP::mostrarMatriz() {
         }
         std::cout << std::endl;
     }
+}
+
+int MPP::sumarDiagonal() {
+    int suma=0;
+    for (int i = 1; i <= alto; i++) {
+        NodoMPP* fila = AROW[i]->getLeft();
+        while (fila->getCol()!=0) {
+            if (fila->getCol() == i) {
+                suma+=fila->getValor();
+            }
+            fila = fila->getLeft();
+        }
+
+
+    }
+    return suma;
+}
+
+string MPP::Posicion100() {
+    string respuesta;
+    for (int i = 1; i <= alto; i++) {
+        NodoMPP* aux = AROW[i]->getLeft();
+        while (aux->getCol()!=0) {
+            if (aux->getValor() == 100 ) {
+                respuesta+="fila " + to_string(aux->getRow()) + " " +"col " + to_string(aux->getCol()) + "\n";
+                return respuesta;
+            }
+            aux = aux->getLeft();
+        }
+
+    }
+    return "No se encontro el 100";
 }
 
 
