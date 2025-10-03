@@ -5,7 +5,7 @@ using namespace std;
 
 class MPP {
     NodoMPP**AROW;
-    NodoMPP** ACOL;
+    NodoMPP**ACOL;
     int alto;
     int largo;
     public:
@@ -35,6 +35,10 @@ class MPP {
     int sumarDiagonal();
 
     string Posicion100();
+
+    int sumarEsquinas();
+
+    void eliminar50();
 
 };
 

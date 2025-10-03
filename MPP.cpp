@@ -54,6 +54,7 @@ void MPP::insertar(int dato, int fila, int col) {
 
 }
 
+
 string MPP::toString() {
     stringstream oss;
 
@@ -152,17 +153,64 @@ int MPP::sumarDiagonal() {
 string MPP::Posicion100() {
     string respuesta;
     for (int i = 1; i <= alto; i++) {
-        NodoMPP* aux = AROW[i]->getLeft();
-        while (aux->getCol()!=0) {
-            if (aux->getValor() == 100 ) {
-                respuesta+="fila " + to_string(aux->getRow()) + " " +"col " + to_string(aux->getCol()) + "\n";
+        NodoMPP* fila = AROW[i]->getLeft();
+        while (fila->getCol()!=0) {
+            if (fila->getValor() == 100 ) {
+                respuesta+="fila " + to_string(fila->getRow()) + " " +"col " + to_string(fila->getCol()) + "\n";
                 return respuesta;
             }
-            aux = aux->getLeft();
+            fila = fila->getLeft();
         }
 
     }
     return "No se encontro el 100";
 }
+
+int MPP::sumarEsquinas() {
+    int suma = 0;
+    for (int i = 1; i <= alto; i++) {
+        NodoMPP* fila = this->AROW[i];
+        while (fila->getLeft()->getCol()!=0) {
+            //esquina derecha arriba
+            if (fila->getLeft()->getCol() == largo && fila->getLeft()->getRow()==1) {
+                suma+=fila->getLeft()->getValor();
+            }
+            //ezquina izquierda abajo
+            if (fila->getLeft()->getCol()==1 && fila->getLeft()->getRow()==alto) {
+                suma+=fila->getLeft()->getValor();
+            }
+            //esquina izquierda arriba
+            if (fila->getLeft()->getCol()==1 && fila->getLeft()->getRow()==1) {
+                suma+=fila->getLeft()->getValor();
+            }
+            if (fila->getLeft()->getCol()==largo && fila->getLeft()->getRow()==alto) {
+                suma+=fila->getLeft()->getValor();
+            }
+            fila = fila->getLeft();
+
+
+        }
+    }
+    return suma;
+}
+
+void MPP::eliminar50() {
+    for (int i = 1; i <= alto; i++) {
+        NodoMPP* fila = this->AROW[i]->getLeft();
+        while (fila->getLeft()->getCol()!=0) {
+            if (fila->getLeft()->getValor()==50) {
+                NodoMPP* eliminar=fila->getLeft();
+
+                fila->setLeft(eliminar->getLeft());
+                delete eliminar;
+            }
+            fila = fila->getLeft();
+        }
+
+
+    }
+}
+
+
 
 
