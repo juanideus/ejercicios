@@ -311,16 +311,6 @@ void sumarDiagonales(int**M,int N,int &suma) {
 using namespace std;
 
 int main(){
-    MPP *mpp=new MPP(10,10);
-    mpp->insertar(4,10,10);
-    mpp->insertar(3,1,1);
-    mpp->insertar(2,1,10);
-    mpp->insertar(1,10,1);
-    mpp->insertar(50,2,4);
-    mpp->insertar(50,3,5);
-    cout << mpp->toString() << endl;
-    cout << mpp->sumarEsquinas();
-    mpp->eliminar50();
-    cout << mpp->toString() << endl;
+    cout << "hola" << endl;
 
 }
