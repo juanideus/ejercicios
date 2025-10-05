@@ -336,7 +336,7 @@ void sumarDiagonales(int**M,int N,int &suma) {
 
 
 int main() {
-
+    cout<< "hola";
 
 
 }
