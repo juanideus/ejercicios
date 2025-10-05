@@ -11,6 +11,9 @@ using namespace std;
 
 class ListaSimple {
     Nodo* inicio;
+    Nodo* recorrer(Nodo* aux);
+
+    Nodo *validarNodo(int dato);
     public:
     ListaSimple();
     ~ListaSimple();

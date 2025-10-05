@@ -4,6 +4,7 @@ using namespace std;
 
 
 class MPP {
+    private:
     NodoMPP**AROW;
     NodoMPP**ACOL;
     int alto;

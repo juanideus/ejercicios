@@ -2,8 +2,20 @@
 
 #include "ListaSimple.h"
 
+#include <iostream>
 #include <sstream>
 #include <stack>
+
+Nodo * ListaSimple::recorrer(Nodo* aux) {
+    while (aux->getProximo()!=nullptr) {
+        aux = aux->getProximo();
+    }
+    return aux;
+}
+
+Nodo *ListaSimple::validarNodo(int dato) {
+
+}
 
 ListaSimple::ListaSimple() {
     this->inicio = nullptr;
@@ -18,16 +30,21 @@ bool ListaSimple::estaVacia() {
 }
 
 bool ListaSimple::insertar(int dato) {
-    Nodo* nodo = new Nodo(dato);
+    Nodo* nuevoNodo=nullptr;
+    try {
+        nuevoNodo=new Nodo(dato);
+
+    } catch (...) {
+        cerr << "Error al insertar elementos" << endl;
+
+    }
     if (estaVacia()) {
-        this->inicio = nodo;
+        this->inicio = nuevoNodo;
         return true;
     }
-    Nodo* aux=this->inicio;
-    while (aux->getProximo()!=nullptr) {
-        aux = aux->getProximo();
-    }
-    aux->setProximo(nodo);
+    Nodo* aux = recorrer(this->inicio);
+
+    aux->setProximo(nuevoNodo);
     return true;
 }
 

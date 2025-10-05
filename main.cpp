@@ -1,12 +1,16 @@
-﻿#include "iostream"
+﻿#include <functional>
+
+#include "iostream"
 #include <queue>
 #include <sstream>
 #include <stack>
 
 
-#include "MPP.h"
+
 #include "Listas/ListaSimple.h"
 #include "Polinomios/ListaPolinomios.h"
+#include "template/ListaSimpleTemplate.h"
+#include "template/Persona.h"
 using namespace std;
 
 // 1. Sumar todos los elementos de un arreglo
@@ -197,11 +201,21 @@ int decimalABinario(int n) {
     if (n==0)return 0;
     return n%2 +10 * decimalABinario(n/2);
 }
-// int combinacion(int n, int r) {}
-// int permutacion(int n, int r) {}
-// int sumaCuadrados(int n) {}
-// int sumaCubos(int n) {}
-// bool esCapicua(int n, int rev = 0) {}
+ int combinacion(int n, int r) {
+    return 0;
+ }
+int permutacion(int n, int r) {
+    return n *r;
+}
+int sumaCuadrados(int n) {
+return 0;
+}
+int sumaCubos(int n) {
+    return 0;
+}
+bool esCapicua(int n, int rev = 0) {
+    return false;
+}
 
 
 //guia 2
@@ -306,21 +320,23 @@ void sumarDiagonales(int**M,int N,int &suma) {
     }
 
 }
+//Ejemplos
+ // Persona *p=new Persona("Juani",100);
+    // Persona *p2=new Persona("baltazar",90);
+    // Persona *p3=new Persona("benja",0);
+    // Persona *p4=new Persona("gean",1);
+    // ListaSimpleTemplate<Persona> *l=new ListaSimpleTemplate<Persona>();
+    // cout<<l->tostring();
+    // l->insertar(p);
+    // l->insertar(p2);
+    // l->insertar(p3);
+    // l->insertar(p4);
+    // cout<<l->tostring();
 
 
-using namespace std;
 
-int main(){
-    MPP *mpp=new MPP(10,10);
-    mpp->insertar(4,10,10);
-    mpp->insertar(3,1,1);
-    mpp->insertar(2,1,10);
-    mpp->insertar(1,10,1);
-    mpp->insertar(50,2,4);
-    mpp->insertar(50,3,5);
-    cout << mpp->toString() << endl;
-    cout << mpp->sumarEsquinas();
-    mpp->eliminar50();
-    cout << mpp->toString() << endl;
+int main() {
+
+
 
 }
