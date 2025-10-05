@@ -21,4 +21,8 @@ add_executable(Ejercicios main.cpp
         template/ListaSimpleTemplate.h
         template/ListaSimpleTemplate.tpp
         template/Persona.cpp
-        template/Persona.h)
+        template/Persona.h
+        .Arboles/ABB.cpp
+        .Arboles/ABB.h
+        .Arboles/NodoABB.cpp
+        .Arboles/NodoABB.h)

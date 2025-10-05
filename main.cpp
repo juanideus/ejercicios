@@ -6,7 +6,7 @@
 #include <stack>
 
 
-
+#include ".Arboles/ABB.h"
 #include "Listas/ListaSimple.h"
 #include "Polinomios/ListaPolinomios.h"
 #include "template/ListaSimpleTemplate.h"
@@ -336,7 +336,23 @@ void sumarDiagonales(int**M,int N,int &suma) {
 
 
 int main() {
-    cout<< "hola";
+    ABB* A = new ABB();
+    A->insertar(10);
+    A->insertar(2);
+    A->insertar(11);
+    A->insertar(20);
+    A->insertar(0);
+    A->toString(1);
+    cout<<endl;
+    A->toString(2);
+    cout<<endl;
+    A->toString(3);
+    cout<<endl;
+    A->toString(4);
+    cout<<endl;
+    A->toString(5);
+    cout<<endl;
+    A->toString(6);
 
 
 }
