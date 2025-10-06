@@ -50,49 +50,62 @@ bool ABB::isEmpty() {
 }
 
 void ABB::eliminar(int dato) {
-    NodoABB *padre=nullptr;
-    NodoABB *aux=this->root;
-    //padre = nodo anterior al que tenemos que eliminar
-    //aux=nodo a eliminar
-    while (aux->getDato()!=dato) {
-        padre=aux;
-        if(aux->getDato()<dato) {
-            aux=aux->getRight();
-        }else{
-            aux=aux->getLeft();
+    if(!existe(this->root,dato)) {
+        return;
+    }
+    NodoABB *NodoEliminar=this->root, *padre=nullptr;
+
+    while(NodoEliminar!=nullptr && NodoEliminar->getDato()!=dato ) {
+        padre=NodoEliminar;
+        if(NodoEliminar->getDato()<dato) {
+            NodoEliminar=NodoEliminar->getRight();
+        }else if(NodoEliminar->getDato()>dato) {
+            NodoEliminar=NodoEliminar->getLeft();
         }
     }
-    if (aux==nullptr) {
-        return ;
+    if (NodoEliminar==nullptr) {
+        return;//No existe el dato
     }
-    //caso con 1 hijo izq
-    if (aux->getLeft()!=nullptr && aux->getRight()==nullptr) {
-        if (padre==nullptr) {
-            return ;
-        }
-        NodoABB *hijo=nullptr;
-        if (padre->getLeft()==aux) {
-            hijo=aux->getLeft();
-            padre->setLeft(hijo);
-            delete aux;
-        }
-
-
+    if(padre==nullptr) {
+        return;
     }
+    //si es una hoja 🌿
 
+    if (NodoEliminar->getLeft()==nullptr && NodoEliminar->getRight()==nullptr) {
+        if (padre->getLeft()==NodoEliminar) {
+            padre->setLeft(nullptr);
+
+        }
+        if (padre->getRight()==NodoEliminar) {
+            padre->setRight(nullptr);
+
+        }
+        delete NodoEliminar;
+        return;
+    }
+    //Si solo tiene un hijo  👶
+    if ((NodoEliminar->getLeft()!=nullptr && NodoEliminar->getRight()==nullptr)
+        || (NodoEliminar->getRight()!=nullptr && NodoEliminar->getLeft()==nullptr)) {
+
+        if (padre->getLeft()==NodoEliminar) {
+            if (NodoEliminar->getRight()!=nullptr) {
+                padre->setLeft(NodoEliminar->getRight());
+            }
+            if (NodoEliminar->getLeft()!=nullptr) {
+                padre->setLeft(NodoEliminar->getLeft());
+            }
+        }
+        if (padre->getRight()==NodoEliminar) {
+            if (NodoEliminar->getLeft()!=nullptr) {
+                padre->setRight(NodoEliminar->getLeft());
+            }
+            if (NodoEliminar->getRight()!=nullptr) {
+                padre->setRight(NodoEliminar->getRight());
+            }
+        }
+    }
 
 }
-
-
-
-
-
-
-
-
-
-}
-
 void ABB::inorder(NodoABB *nodo) {
     if(nodo==nullptr) {
         return;
