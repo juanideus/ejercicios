@@ -12,6 +12,7 @@ class ABB {
 
     NodoABB *insertarRecursivo(NodoABB *nodo, int dato);
     void insertar(int dato);
+    bool existe(NodoABB*nodo,int dato);
     NodoABB* getRoot();
     bool isEmpty();
     void eliminar(int dato);
@@ -21,6 +22,10 @@ class ABB {
     void inorderInverso(NodoABB *nodo);
     void preorderInverso(NodoABB *nodo);
     void postorderInverso(NodoABB *nodo);
+    NodoABB* minimo(NodoABB*aux);
+    NodoABB* maximo(NodoABB*aux);
+
+
 
     void toString(int opcion);
 

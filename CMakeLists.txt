@@ -25,4 +25,6 @@ add_executable(Ejercicios main.cpp
         src/.Arboles/ABB.cpp
         src/.Arboles/ABB.h
         src/.Arboles/NodoABB.cpp
-        src/.Arboles/NodoABB.h)
+        src/.Arboles/NodoABB.h
+        src/Funciones/Ejercicios.cpp
+        src/Funciones/Ejercicios.h)
