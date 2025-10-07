@@ -98,6 +98,18 @@ void ordenarLista(int* lista, int n) {
     }
 }
 
+int sumarFilasImpares(int** matriz, int n) {
+    int sumaFilas = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i%2!=0) {
+                sumaFilas += matriz[i][j];
+            }
+        }
+    }
+}
+
 int main(){
     int* lista = new int[10];
     int** matriz = new int*[10]; //se reserva espacio para 10 filas
