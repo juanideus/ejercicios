@@ -53,6 +53,51 @@ int sumaDiagonalPrincipalMatriz(int** matriz, int n) {
     return sumaDiagonal;
 }
 
+int sumarDiagonalPrincipalYelementosDebajo(int** matriz, int n) {
+    int sumaElementos = 0;
+
+    for (int i = 0; i < n; i++) {
+        //j esta contenido dentro de las iteraciones de i
+        for (int j = 0; j <= i; j++) {
+            sumaElementos += matriz[i][j];
+        }
+    }
+
+    return sumaElementos;
+}
+
+bool buscarX(int* a, int n, int x) {
+    for (int i = 0; i < n; i++) {
+        if (a[i] == n) {
+            return true;
+        }
+    }
+    return false;
+}
+
+string validarOrdenLista(int* lista, int n) {
+    for (int i = 0; i < n; i++) {
+        if (lista[i] > lista[i+1]) {
+            return "NO";
+        }
+    }
+    return "SÍ";
+}
+
+void ordenarLista(int* lista, int n) {
+    int aux;
+    //menor a mayor
+    for (int i = 0; i < n-1; i++) {
+        for (int j = i+1; j < n; j++) {
+            if (lista[i] > lista[j]) {
+                aux = lista[i];
+                lista[i] = lista[j];
+                lista[j] = aux;
+            }
+        }
+    }
+}
+
 int main(){
     int* lista = new int[10];
     int** matriz = new int*[10]; //se reserva espacio para 10 filas
@@ -70,6 +115,15 @@ int main(){
     cout << sumarPrimerMedioUltimoElemento(lista, 10) << endl;
     cout << sumarElementosMatriz(matriz, 10, 10) << endl;
     cout << sumaDiagonalPrincipalMatriz(matriz, 10) << endl;
+    cout << sumarDiagonalPrincipalYelementosDebajo(matriz, 10) << endl;
+
+    if (buscarX(lista, 10, 5)) {
+        cout << "Si esta en la lista" << endl;
+    } else {
+        cout << "No esta en la lista" << endl;
+    }
+
+    cout << validarOrdenLista(lista, 10) << endl;
 
     delete[] lista;
     for (int i = 0; i < 10; i++) {
