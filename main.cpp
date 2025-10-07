@@ -34,7 +34,7 @@ int sumarPrimerMedioUltimoElemento(int* lista, int n) {
 int sumarElementosMatriz(int** matriz, int n, int m) {
     int sumaTotal = 0;
 
-    for (int i = 0 ; 0 < n ; i++) {
+    for (int i = 0 ; i < n ; i++) {
         for (int j = 0; j < m; j++) {
             sumaTotal += matriz[i][j];
         }
