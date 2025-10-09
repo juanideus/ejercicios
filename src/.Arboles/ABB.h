@@ -7,6 +7,8 @@
 using namespace std;
 class ABB {
     NodoABB* root;
+    NodoABB* buscarRemplazo(NodoABB*aux);
+    NodoABB* padreRemplazo(NodoABB*remplazante,NodoABB*inicio);
     public:
     ABB();
 

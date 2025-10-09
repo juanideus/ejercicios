@@ -1,321 +1,143 @@
-//
-// Created by Juani on 06-10-2025.
-//
-#pragma once
+#include "Ejercicios.h"
 
-
-#include "iostream"
-#include <queue>
-#include <sstream>
+#include <iostream>
 #include <stack>
+#include <queue>
+#include <string>
+#include <sstream>
+#include <vector>
 #include "../Polinomios/ListaPolinomios.h"
 
-#include "Ejercicios.h"
-using namespace std;
-// 1. Sumar todos los elementos de un arreglo
-int Ejercicios::sumaArreglo(const int *A, int N) {
+namespace Ejercicios {
+
+// --- Funciones con arreglos ---
+int sumaArreglo(const int *A, int N) {
     int suma = 0;
-    //T(N)=Σ(i=0,N-1) 1=N -->T(N)=O(N)
-    for (int i = 0; i < N; i++) {
-        suma += A[i];
-    }
+    for (int i = 0; i < N; i++) suma += A[i];
     return suma;
 }
 
-// 2. Suma: primer + medio + último elemento
-int Ejercicios::sumaPrimerMedioUltimo(const int *A, int N) {
-    //T(N)=Σ(i=0,0) 1=1 -->T(N)=O(1)
+int sumaPrimerMedioUltimo(const int *A, int N) {
     return A[0] + A[N / 2] + A[N - 1];
 }
 
-// 3. Sumar todos los elementos de una M
-//NxM
-int Ejercicios::sumaMatriz(int **A, int N, int M) {
-    int suma = 0;
-    //T(N)=Σ(i=0,N-1)Σ(i=0,M-1) 1=N*M -->T(N)=O(NM)
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            suma += A[i][j];
-        }
-    }
-    return suma;
-}
-
-// 4. Sumar diagonal principal NxN
-int Ejercicios::sumaDiagonalPrincipal(int **A, int N) {
-    int suma = 0;
-    //T(N)=Σ(i=0,N-1) 1=N -->T(N)=O(N)
-    for (int i = 0; i < N; i++) {
-        suma += A[i][i];
-    }
-    return suma;
-}
-
-// 5. Sumar diagonal principal y bajo ella NxN
-int Ejercicios::sumaDiagonalYBajo(int **A, int N) {
-    int suma = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < i + 1; j++) {
-            suma += A[i][j];
-        }
-    }
-    return suma;
-}
-
-// 6. Buscar valor X en arreglo ordenado
-bool Ejercicios::buscarEnArreglo(const int *A, int N, int X) {
-    for (int i = 0; i < N; i++) {
-        if (A[i] == X) {
-            return true;
-        }
-    }
+bool buscarEnArreglo(const int *A, int N, int X) {
+    for (int i = 0; i < N; i++) if (A[i] == X) return true;
     return false;
 }
 
-// 7. Verificar si el arreglo está ordenado
-bool Ejercicios::estaOrdenado(const int *A, int N) {
-    for (int i = 0; i < N; i++) {
-        for (int j = i + 1; j < N; j++) {
-            if (A[i] > A[j]) {
-                return false;
-            }
-        }
-    }
+bool estaOrdenado(const int *A, int N) {
+    for (int i = 0; i < N - 1; i++) if (A[i] > A[i + 1]) return false;
     return true;
 }
 
-// 8. Ordenar arreglo con Bubble Sort
-void Ejercicios::bubbleSort(int *A, int N) {
-    for (int i = 0; i < N - 1; i++) {
-        for (int j = i + 1; j < N; j++) {
+void bubbleSort(int *A, int N) {
+    for (int i = 0; i < N - 1; i++)
+        for (int j = i + 1; j < N; j++)
             if (A[i] > A[j]) {
                 int aux = A[i];
                 A[i] = A[j];
                 A[j] = aux;
             }
-        }
-    }
 }
 
-// 9. Suma de filas impares
-int Ejercicios::sumaFilasImpares(int **A, int N, int M) {
-    int suma = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
-            if (i % 2 != 0) {
-                suma += A[i][j];
-            }
-        }
-    }
-    return suma;
-}
-
-// 10. Verificar si columnas K y P son idénticas
-bool Ejercicios::columnasIdenticas(int **A, int N, int M, int K, int P) {
-    for (int i = 0; i < N; i++) {
-        if (A[i][K] != A[i][P]) {
-            return false;
-        }
-    }
-    return true;
-}
-
-// 11. Sumar esquinas de M
-//NxM
-int Ejercicios::sumaEsquinas(int **A, int N, int M) {
-    return A[0][0] + A[0][M - 1] + A[N - 1][0] + A[N - 1][M - 1];
-}
-
-// 12. Multiplicar matrices A(PxQ) y B(QxR)
-int **Ejercicios::multiplicarMatrices(int **A, int P, int Q, int **B, int R) {
-    //TODO
-    return nullptr;
-}
-
-//todo recursivos
-int Ejercicios::factorial(int n) {
-    if (n == 0)return 1;
-    return n * factorial(n - 1);
-}
-
-int Ejercicios::fibonacci(int n) {
-    if (n == 0)return 0;
-    if (n == 1)return 1;
-    return fibonacci(n - 1) + fibonacci(n - 2);
-}
-
-int Ejercicios::suma(int n) {
-    if (n == 0)return 0;
-    return n + suma(n - 1);
-}
-
-int Ejercicios::potencia(int base, int exponente) {
-    if (exponente == 1)return base;
-    if (base == 0)return 0;
-    return base * potencia(base, exponente - 1);
-}
-
-int Ejercicios::sumaDigitos(int n) {
-    if (n == 0)return 0;
-    return n % 10 + sumaDigitos(n / 10);
-}
-
-int Ejercicios::contarDigitos(int n) {
-    return 0;
-}
-
-// int mcd(int a, int b) {
-// }
-int Ejercicios::mcm(int a, int b) { return 0; }
-
-bool Ejercicios::esPrimo(int n, int i) {
-    if (n % i == 0)return true;
-    return false;
-}
-
-int Ejercicios::contarPrimos(int n) {
-    return 0;
-}
-
-int Ejercicios::sumaPares(int n) {
-    if (n < 2)return 0;
-    if (n % 2 != 0)n--;
-    return n + sumaPares(n - 2);
-}
-
-int Ejercicios::sumaImpares(int n) {
-    if (n == 1)return 1;
-    if (n % 2 == 0)n--;
-    return n + sumaImpares(n - 2);
-}
-
-// int invertirNumero(int n, int inv = 0) {}
-int Ejercicios::binarioADecimal(int n) {
-    if (n == 0) return 0;
-    return (n % 10) + 2 * binarioADecimal(n / 10);
-}
-
-int Ejercicios::decimalABinario(int n) {
-    if (n==1)return 1;
-    if (n==0)return 0;
-    return n%2 +10 * decimalABinario(n/2);
-}
- int Ejercicios::combinacion(int n, int r) {
-    return 0;
- }
-int Ejercicios::permutacion(int n, int r) {
-    return n *r;
-}
-int Ejercicios::sumaCuadrados(int n) {
-return 0;
-}
-int Ejercicios::sumaCubos(int n) {
-    return 0;
-}
-bool Ejercicios::esCapicua(int n, int rev) {
-    return false;
-}
-
-
-//guia 2
-void Ejercicios::invertirPila(stack<int> *s) {
-    auto aux = new queue<int>;
+// --- Funciones con pilas y colas ---
+void invertirPila(std::stack<int> *s) {
+    std::queue<int> aux;
     while (!s->empty()) {
-        aux->push(s->top());
+        aux.push(s->top());
         s->pop();
     }
-    while (!aux->empty()) {
-        s->push(aux->front());
-        aux->pop();
+    while (!aux.empty()) {
+        s->push(aux.front());
+        aux.pop();
     }
-    delete aux;
-
 }
 
-void Ejercicios::barajar(stack<char> *M, stack<char> *C, stack<char> *D, stack<char> *T, stack<char> *E) {
+void barajar(std::stack<char> *M, std::stack<char> *C, std::stack<char> *D, std::stack<char> *T, std::stack<char> *E) {
     while (!M->empty()) {
         switch (M->top()) {
-            case 'C': C->push(M->top());
-                break;
-            case 'D': D->push(M->top());
-                break;
-            case 'T': T->push(M->top());
-                break;
-            case 'E': E->push(M->top());
-                break;
-            default: cout << "no";
+            case 'C': C->push(M->top()); break;
+            case 'D': D->push(M->top()); break;
+            case 'T': T->push(M->top()); break;
+            case 'E': E->push(M->top()); break;
+            default: std::cout << "no"; break;
         }
         M->pop();
     }
 }
 
-void Ejercicios::duplicar(int *numero) {
-    *numero *= 2;
-}
-
-bool Ejercicios::esPalo(const string &palabra) {
-    queue<char> q;
-    stack<char> S;
-    for (char i : palabra) {
-        q.push(i);
-        S.push(i);
+bool esPalo(const std::string &palabra) {
+    std::stack<char> S;
+    std::queue<char> q;
+    for (char c : palabra) {
+        S.push(c);
+        q.push(c);
     }
     while (!S.empty()) {
-        if (q.front() != S.top()) {
-            return false;
-        }
+        if (S.top() != q.front()) return false;
         S.pop();
         q.pop();
     }
     return true;
 }
 
-void Ejercicios:: insertar(ListaPolinomios *s, const string &poli2) {
-    stringstream ss(poli2);
-    string linea;
-    vector<string> numeros;
-    while (getline(ss, linea, '+') ) {
-        numeros.push_back(linea);
-    }
+// --- Funciones recursivas ---
+int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
 
-    for (const auto & numero : numeros) {
+int fibonacci(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// --- Funciones con polinomios ---
+void insertar(ListaPolinomios *s, const std::string &poli2) {
+    std::stringstream ss(poli2);
+    std::string linea;
+    std::vector<std::string> numeros;
+    while (getline(ss, linea, '+')) numeros.push_back(linea);
+
+    for (const auto &numero : numeros) {
         int coef = stoi(numero.substr(0, 1));
-        if (numero.find("-") != string::npos) {
-            coef *= -1;
-        }
-        if (numero.find('^') != string::npos) {
-            int exp = 0;
-            exp = stoi(numero.substr(3, 4));
+        if (numero.find("-") != std::string::npos) coef *= -1;
+        if (numero.find('^') != std::string::npos) {
+            int exp = stoi(numero.substr(3));
             s->insertar(coef, exp);
         } else {
             s->insertar(coef, 0);
         }
     }
 }
-void Ejercicios::sumar(ListaPolinomios *A,ListaPolinomios *B,ListaPolinomios *C) {
-    NodoPoli* aux=A->getInicio();
-    NodoPoli* aux2=B->getInicio();
+
+void sumar(ListaPolinomios *A, ListaPolinomios *B, ListaPolinomios *C) {
+    NodoPoli* aux = A->getInicio();
+    NodoPoli* aux2 = B->getInicio();
     while (aux != nullptr && aux2 != nullptr) {
         if (aux->getExp() == aux2->getExp()) {
-            int suma = aux->getCoef() + aux2->getCoef();
-            C->insertar(suma, aux->getExp());
+            C->insertar(aux->getCoef() + aux2->getCoef(), aux->getExp());
             aux  = aux->getSig();
             aux2 = aux2->getSig();
-        }
-        else if (aux->getExp() < aux2->getExp()) {
+        } else if (aux->getExp() < aux2->getExp()) {
             C->insertar(aux2->getCoef(), aux2->getExp());
             aux2 = aux2->getSig();
-        }
-        else {
+        } else {
             C->insertar(aux->getCoef(), aux->getExp());
             aux = aux->getSig();
         }
     }
 }
-void Ejercicios::sumarDiagonales(int**M,int N,int &suma) {
-    for (int i = 0; i < N; i++) {
-        suma += M[i][i];
-        suma+=M[i][N-i-1];
-    }
 
+// --- Otras funciones ---
+void duplicar(int *numero) { *numero *= 2; }
+
+void sumarDiagonales(int **M, int N, int &suma) {
+    for (int i = 0; i < N; i++) {
+        suma += M[i][i] + M[i][N - i - 1];
+    }
 }
+
+} // namespace Ejercicios
