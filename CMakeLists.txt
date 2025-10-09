@@ -29,4 +29,6 @@ add_executable(Ejercicios main.cpp
         src/Funciones/Ejercicios.cpp
         src/Funciones/Ejercicios.h
         src/Heaps/MaxHeap.cpp
-        src/Heaps/MaxHeap.h)
+        src/Heaps/MaxHeap.h
+        src/Heaps/NodoHeap.cpp
+        src/Heaps/NodoHeap.h)
