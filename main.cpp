@@ -9,7 +9,7 @@
 #include "Polinomios/ListaPolinomios.h"
 
 using namespace std;
-
+// guía ejercicios complejidad algorítmica
 int sumarElementosLista(int* lista, int n) {
     int sumaElementos = 0;
 
@@ -18,7 +18,7 @@ int sumarElementosLista(int* lista, int n) {
     }
 
     return sumaElementos;
-}
+} // #1
 
 int sumarPrimerMedioUltimoElemento(int* lista, int n) {
     int sumaElementos = 0;
@@ -29,7 +29,7 @@ int sumarPrimerMedioUltimoElemento(int* lista, int n) {
     sumaElementos += lista[n-1];
 
     return sumaElementos;
-}
+} // #2
 
 int sumarElementosMatriz(int** matriz, int n, int m) {
     int sumaTotal = 0;
@@ -41,7 +41,7 @@ int sumarElementosMatriz(int** matriz, int n, int m) {
     }
 
     return sumaTotal;
-}
+} // #3
 
 int sumaDiagonalPrincipalMatriz(int** matriz, int n) {
     int sumaDiagonal = 0;
@@ -51,7 +51,7 @@ int sumaDiagonalPrincipalMatriz(int** matriz, int n) {
     }
 
     return sumaDiagonal;
-}
+} // #4
 
 int sumarDiagonalPrincipalYelementosDebajo(int** matriz, int n) {
     int sumaElementos = 0;
@@ -64,7 +64,7 @@ int sumarDiagonalPrincipalYelementosDebajo(int** matriz, int n) {
     }
 
     return sumaElementos;
-}
+} // #5
 
 bool buscarX(int* a, int n, int x) {
     for (int i = 0; i < n; i++) {
@@ -73,7 +73,7 @@ bool buscarX(int* a, int n, int x) {
         }
     }
     return false;
-}
+} // #6
 
 string validarOrdenLista(int* lista, int n) {
     for (int i = 0; i < n; i++) {
@@ -82,7 +82,7 @@ string validarOrdenLista(int* lista, int n) {
         }
     }
     return "SÍ";
-}
+} // #7
 
 void ordenarLista(int* lista, int n) {
     int aux;
@@ -96,7 +96,7 @@ void ordenarLista(int* lista, int n) {
             }
         }
     }
-}
+} // #8
 
 int sumarFilasImpares(int** matriz, int n) {
     int sumaFilas = 0;
@@ -108,18 +108,63 @@ int sumarFilasImpares(int** matriz, int n) {
             }
         }
     }
-}
 
+    return sumaFilas;
+} // #9
+
+bool semejanzaEntreColumnas(int** A, int n, int m, int k, int p) {
+    for (int i = 0; i < m; i++) {
+        if (A[i][k] != A[i][p]) {
+            return false;
+        }
+    }
+
+    return true;
+} // #10
+
+int sumarCuatroEsquinas(int** A, int n, int m) {
+    return A[0][0] + A[0][m] + A[n][0] + A[n][m];
+} // #11
+
+int** productoDeMatrices(int** A, int** B, int P, int Q, int R) {
+    int** matrizProducto = new int*[P]; // se inicializa con P filas
+
+    for (int i = 0; i < P; i++) {
+        matrizProducto[i] = new int[R]; // R columnas por cada fila
+    }
+    // la matriz A tiene la misma cantidad de columnas que la matriz B de filas
+    // por lo tanto la iteraciones estan contenidas en Q
+    for (int i = 0; i < Q; i++) {
+        for (int j = 0; j < P; j++) {
+            matrizProducto[j][i] = A[j][i];
+        }
+        for (int k = 0; k < R; k++) {
+            matrizProducto[i][k] *= B[i][k];
+        }
+    }
+
+    return matrizProducto;
+} // #12
+//...
 int main(){
     int* lista = new int[10];
     int** matriz = new int*[10]; //se reserva espacio para 10 filas
+    int** matriz2 = new int*[20];
 
     for (int i = 0; i < 10; i++) {
         lista[i] = i;
-        matriz[i] = new int[10]; //se reserva espacio de 10 columnas para cada fila
+        matriz[i] = new int[20]; //se reserva espacio de 20 columnas para cada fila
 
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 20; j++) {
             matriz[i][j] = i+j;
+        }
+    }
+
+    for (int i = 0; i < 20; i++) {
+        matriz2[i] = new int[15];
+
+        for (int j = 0; j < 15; j++) {
+            matriz2[i][j] = i+j;
         }
     }
 
@@ -137,9 +182,27 @@ int main(){
 
     cout << validarOrdenLista(lista, 10) << endl;
 
+    int** matrizProducto = productoDeMatrices(matriz, matriz2, 10, 20, 15);
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 15; j++) {
+            cout << matrizProducto[i][j] << " " << endl;
+        }
+        cout << endl;
+    }
+
     delete[] lista;
+
     for (int i = 0; i < 10; i++) {
         delete[] matriz[i];
+        delete[] matrizProducto[i];
     }
+
+    for (int i = 0; i < 20; i++) {
+        delete[] matriz2[i];
+    }
+
     delete[] matriz;
+    delete[] matriz2;
+    delete[] matrizProducto;
 }
