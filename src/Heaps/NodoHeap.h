@@ -7,6 +7,8 @@
 
 
 class NodoHeap {
+    NodoHeap* left;
+    NodoHeap* right;
 };
 
 
