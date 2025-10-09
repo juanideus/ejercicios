@@ -112,6 +112,8 @@ void ABB::eliminar(int dato) {
                 padre->setRight(NodoEliminar->getRight());
             }
         }
+        delete NodoEliminar;
+        return;
     }
     if (NodoEliminar->getLeft()!= nullptr && NodoEliminar->getRight() != nullptr) {
         NodoABB* remplazante=buscarRemplazo(NodoEliminar);
@@ -123,14 +125,38 @@ void ABB::eliminar(int dato) {
         NodoABB* padreRemplazante=padreRemplazo(remplazante,NodoEliminar);
 
 
-        if (remplazante->getRight()!=nullptr) {
-            padreRemplazante->setRight(remplazante->getRight());
+
+        if (remplazante==NodoEliminar->getRight()) {
+
+                remplazante->setLeft(subArbolizq);
+                if (padre->getRight()==NodoEliminar) {
+                    padre->setRight(remplazante);
+
+                }
+                if (padre->getLeft()==NodoEliminar) {
+                    padre->setLeft(remplazante);
+
+                    remplazante->setRight(remplazante->getRight());
+
+                }
+            return;
         }
-        remplazante->setLeft(subArbolizq);
-        remplazante->setRight(subArbolDer);
-        NodoEliminar->setLeft(nullptr);
-        NodoEliminar->setRight(nullptr);
+        //DESCONECTAR AL REMPLAZANTE
+        //PADRE APUNTE AL REMPLAZANTE
+        padreRemplazante->setLeft(nullptr);
+        if (padre->getRight()==NodoEliminar) {
+            padre->setRight(remplazante);
+            remplazante->setRight(subArbolDer);
+            remplazante->setLeft(subArbolizq);
+        }else {
+            padre->setLeft(remplazante);
+            remplazante->setRight(subArbolDer);
+            remplazante->setLeft(subArbolizq);
+        }
+
+
         delete NodoEliminar;
+
     }
 
 
