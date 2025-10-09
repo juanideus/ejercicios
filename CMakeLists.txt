@@ -27,4 +27,6 @@ add_executable(Ejercicios main.cpp
         src/.Arboles/NodoABB.cpp
         src/.Arboles/NodoABB.h
         src/Funciones/Ejercicios.cpp
-        src/Funciones/Ejercicios.h)
+        src/Funciones/Ejercicios.h
+        src/Heaps/MaxHeap.cpp
+        src/Heaps/MaxHeap.h)
