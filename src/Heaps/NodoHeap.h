@@ -7,6 +7,7 @@
 
 
 class NodoHeap {
+    int dato;
     NodoHeap* left;
     NodoHeap* right;
 };
