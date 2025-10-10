@@ -146,7 +146,14 @@ int** productoDeMatrices(int** A, int** B, int P, int Q, int R) {
     return matrizProducto;
 } // #12
 //...
+// guía ejercicios listas enlazadas
+template <typename T>
+void invertirStack(stack<T> S,T dato) {
+
+} // #2
+//...
 int main(){
+    /* guía complejidad algorítmica
     int* lista = new int[10];
     int** matriz = new int*[10]; //se reserva espacio para 10 filas
     int** matriz2 = new int*[20];
@@ -204,5 +211,5 @@ int main(){
 
     delete[] matriz;
     delete[] matriz2;
-    delete[] matrizProducto;
+    delete[] matrizProducto; */
 }
