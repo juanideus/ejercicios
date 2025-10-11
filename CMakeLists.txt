@@ -22,13 +22,17 @@ add_executable(Ejercicios main.cpp
         src/template/ListaSimpleTemplate.tpp
         src/template/Persona.cpp
         src/template/Persona.h
-        src/Arboles/ABB.cpp
-        src/Arboles/ABB.h
-        src/Arboles/NodoABB.cpp
-        src/Arboles/NodoABB.h
+        src/Arboles/ABB/ABB.cpp
+        src/Arboles/ABB/ABB.h
+        src/Arboles/ABB/NodoABB.cpp
+        src/Arboles/ABB/NodoABB.h
         src/Funciones/Ejercicios.cpp
         src/Funciones/Ejercicios.h
         src/Heaps/MaxHeap.cpp
         src/Heaps/MaxHeap.h
         src/Heaps/NodoHeap.cpp
-        src/Heaps/NodoHeap.h)
+        src/Heaps/NodoHeap.h
+        src/Arboles/ENHEBRADO/nodoEn.cpp
+        src/Arboles/ENHEBRADO/nodoEn.h
+        src/Arboles/ENHEBRADO/ThreadedBST.cpp
+        src/Arboles/ENHEBRADO/ThreadedBST.h)
