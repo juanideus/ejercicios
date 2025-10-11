@@ -17,6 +17,7 @@ class ThreadedBST {
 
     void insertar(int dato);
     void eliminar(int dato);
-    string toString();
+
+    string toStringInOrder();
 };
 

@@ -1,6 +1,9 @@
 
 #include "ThreadedBST.h"
 
+#include <iostream>
+#include <sstream>
+
 ThreadedBST::ThreadedBST() {
     NodoEn* encabezado = new NodoEn();
     encabezado->setLeftChild(encabezado);
@@ -86,5 +89,34 @@ void ThreadedBST::insertar(int dato) {
 void ThreadedBST::eliminar(int dato) {
 }
 
-string ThreadedBST::toString() {
+
+
+string ThreadedBST::toStringInOrder() {
+    stringstream ss;
+    NodoEn*aux = this->root;
+   if (aux->getLeftThread()) {
+       return "arbol Vacio";
+   }
+    aux=aux->getLeftChild();
+    while (!aux->getLeftThread()) {
+        aux=aux->getLeftChild();
+    }
+    while (aux!=this->root) {
+        ss<<aux->getDato()<<" ";
+        if (aux->getDato()==root->getLeftChild()->getDato()) {
+            aux=aux->getRightChild();
+            while (!aux->getLeftThread()) {
+                aux=aux->getLeftChild();
+            }
+
+        }else {
+            aux=aux->getRightChild();
+        }
+
+    }
+    return ss.str();
+
+
 }
+
+

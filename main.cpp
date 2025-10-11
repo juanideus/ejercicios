@@ -14,13 +14,11 @@ using namespace std;
 int main() {
 
     ThreadedBST *bst=new ThreadedBST();
-    bst->insertar(100);
-    bst->insertar(200);
-    bst->insertar(300);
-   bst->insertar(40);
-   bst->insertar(41);
-   bst->insertar(30);
-    bst->insertar(50);
-
+    bst->insertar(1);
+    bst->insertar(2);
+    bst->insertar(3);
+    bst->insertar(4);
+    bst->insertar(5);
+    cout <<bst->toStringInOrder();
 
 }
