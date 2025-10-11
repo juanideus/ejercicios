@@ -7,6 +7,7 @@ using namespace std;
 
 class ThreadedBST {
     NodoEn *root;
+    NodoEn *leftMost(NodoEn*);
     public:
     ThreadedBST();
     ~ThreadedBST();

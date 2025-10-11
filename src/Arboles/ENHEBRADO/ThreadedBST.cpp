@@ -4,6 +4,14 @@
 #include <iostream>
 #include <sstream>
 
+NodoEn * ThreadedBST::leftMost(NodoEn *aux) {
+    while (!aux->getLeftThread()) {
+        aux=aux->getLeftChild();
+    }
+    return aux;
+
+}
+
 ThreadedBST::ThreadedBST() {
     NodoEn* encabezado = new NodoEn();
     encabezado->setLeftChild(encabezado);
@@ -97,17 +105,13 @@ string ThreadedBST::toStringInOrder() {
    if (aux->getLeftThread()) {
        return "arbol Vacio";
    }
-    aux=aux->getLeftChild();
-    while (!aux->getLeftThread()) {
-        aux=aux->getLeftChild();
-    }
+    aux=leftMost(aux->getLeftChild());
     while (aux!=this->root) {
         ss<<aux->getDato()<<" ";
         if (aux->getDato()==root->getLeftChild()->getDato()) {
-            aux=aux->getRightChild();
-            while (!aux->getLeftThread()) {
-                aux=aux->getLeftChild();
-            }
+            aux=leftMost(aux->getRightChild());
+
+
 
         }else {
             aux=aux->getRightChild();
