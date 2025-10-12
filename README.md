@@ -90,7 +90,7 @@ Archivo: `ABB.h`
 | `void preorderInverso(NodoABB *nodo)` | Recorrido preOrder inverso (derecha → raíz → izquierda). |
 | `void postorderInverso(NodoABB *nodo)` | Recorrido postOrder inverso (derecha → izquierda → raíz). |
 | `void toString(int opcion)` | Permite mostrar el árbol según el tipo de recorrido elegido. |
-![Arbol binario Ejemplo](img/ABB.png)
+![Arbol binario Ejemplo](Img/ABB.png)
 ---
 
 ## 7. Árboles Avanzados 🌳
