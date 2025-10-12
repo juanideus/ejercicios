@@ -113,30 +113,30 @@ Un **Árbol AVL** es un árbol binario de búsqueda auto-balanceado, donde la di
 ### 🧩 Árbol Enhebrado (`ThreadedBST.h`)
 Un **Árbol Enhebrado** usa punteros adicionales (hebras) para apuntar al sucesor o predecesor en el recorrido in-order, eliminando la necesidad de recursión o pila.
 
-| Método                             | Descripción                                          |
-|------------------------------------|------------------------------------------------------|
-| `void insertar(int dato)`          | Inserta un nuevo nodo ajustando las hebras.          |
-| `void eliminar(int dato)`          | Elimina un nodo manteniendo la estructura enhebrada. |
-| `NodoEn* buscar(int dato)`         | Retorna el puntero al nodo que contiene el dato.     |
-| `NodoEn* sucesor(NodoEn* nodo)`    | Retorna el sucesor in-order.                         |
-| `NodoEn* predecesor(NodoEn* nodo)` | Retorna el predecesor in-order.                      |
-| `string toStringInOrder()`         | Devuelve el recorrido in-order usando hebras.        |
-![Arbol Enhebrado ejemplo](Img/Threadeds.png)
+| Método                                        | Descripción                                          |
+|-----------------------------------------------|------------------------------------------------------|
+| `void insertar(int dato)`                     | Inserta un nuevo nodo ajustando las hebras.          |
+| `void eliminar(int dato)`                     | Elimina un nodo manteniendo la estructura enhebrada. |
+| `NodoEn* buscar(int dato)`                    | Retorna el puntero al nodo que contiene el dato.     |
+| `NodoEn* sucesor(NodoEn* nodo)`               | Retorna el sucesor in-order.                         |
+| `NodoEn* predecesor(NodoEn* nodo)`            | Retorna el predecesor in-order.                      |
+| `string toStringInOrder()`                    | Devuelve el recorrido in-order usando hebras.        |
+ ![Arbol Enhebrado ejemplo](Img/Threadeds.png) 
 ---
 
 ### 🧱 Heap Binario (`Heap.h`)
 Un **Heap** es una estructura completa usada comúnmente para implementar colas de prioridad.  
 Puede ser **Max-Heap** (padres ≥ hijos) o **Min-Heap** (padres ≤ hijos).
 
-| Método                     | Descripción                                            |
-|----------------------------|--------------------------------------------------------|
-| `void insertar(int valor)` | Inserta un elemento manteniendo la propiedad del heap. |
-| `void eliminar()`          | Elimina la raíz (máximo o mínimo).                     |
-| `int obtenerRaiz()`        | Devuelve el valor de la raíz.                          |
-| `bool buscar(int valor)`   | Verifica si un valor está en el heap.                  |
-| `void heapify(int i)`      | Reestructura el árbol desde el índice `i`.             |
-| `void mostrar()`           | Imprime los elementos del heap.                        |
-
+| Método                              | Descripción                                            |
+|-------------------------------------|--------------------------------------------------------|
+| `void insertar(int valor)`          | Inserta un elemento manteniendo la propiedad del heap. |
+| `void eliminar()`                   | Elimina la raíz (máximo o mínimo).                     |
+| `int obtenerRaiz()`                 | Devuelve el valor de la raíz.                          |
+| `bool buscar(int valor)`            | Verifica si un valor está en el heap.                  |
+| `void heapify(int i)`               | Reestructura el árbol desde el índice `i`.             |
+| `void mostrar()`                    | Imprime los elementos del heap.                        |
+| ![Ejemplo maxHeap](img/maxHeap.png) | ![Ejemplo minHeap](img/minHeap.png)                    |
 ---
 
 ### 🧮 Árbol B+ (`BPlusTree.h`)
@@ -151,6 +151,7 @@ Todos los valores están almacenados en hojas, y los nodos internos solo contien
 | `vector<int> obtenerRango(int min, int max)` | Devuelve todas las claves dentro de un rango.      |
 | `void dividirNodo(NodoBPlus* nodo)`          | Divide un nodo lleno en dos.                       |
 | `void mostrar()`                             | Muestra el contenido del árbol.                    |
+| ![Ejemplo arbol B+]()                        |                                                    |
 
 ---
 
