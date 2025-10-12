@@ -90,8 +90,68 @@ Archivo: `ABB.h`
 | `void preorderInverso(NodoABB *nodo)` | Recorrido preOrder inverso (derecha → raíz → izquierda). |
 | `void postorderInverso(NodoABB *nodo)` | Recorrido postOrder inverso (derecha → izquierda → raíz). |
 | `void toString(int opcion)` | Permite mostrar el árbol según el tipo de recorrido elegido. |
+![Arbol binario Ejemplo](img/ABB.png)
+---
+
+## 7. Árboles Avanzados 🌳
+
+### 🧠 Árbol AVL (`AVL.h`)
+Un **Árbol AVL** es un árbol binario de búsqueda auto-balanceado, donde la diferencia de alturas entre los subárboles izquierdo y derecho nunca supera 1.
+
+| Método | Descripción |
+|---------|-------------|
+| `void insertar(int dato)` | Inserta un nodo y ajusta el equilibrio del árbol. |
+| `void eliminar(int dato)` | Elimina un nodo y rebalancea el árbol. |
+| `bool buscar(int dato)` | Verifica si un elemento existe en el árbol. |
+| `NodoAVL* rotacionIzquierda(NodoAVL* x)` | Realiza una rotación simple a la izquierda. |
+| `NodoAVL* rotacionDerecha(NodoAVL* y)` | Realiza una rotación simple a la derecha. |
+| `int obtenerAltura(NodoAVL* nodo)` | Retorna la altura del nodo. |
+| `int obtenerBalance(NodoAVL* nodo)` | Calcula el factor de equilibrio del nodo. |
+![Arbol AVL ejemplo](Img/AVL.png)
+---
+
+### 🧩 Árbol Enhebrado (`ThreadedBST.h`)
+Un **Árbol Enhebrado** usa punteros adicionales (hebras) para apuntar al sucesor o predecesor en el recorrido in-order, eliminando la necesidad de recursión o pila.
+
+| Método | Descripción |
+|---------|-------------|
+| `void insertar(int dato)` | Inserta un nuevo nodo ajustando las hebras. |
+| `void eliminar(int dato)` | Elimina un nodo manteniendo la estructura enhebrada. |
+| `NodoEn* buscar(int dato)` | Retorna el puntero al nodo que contiene el dato. |
+| `NodoEn* sucesor(NodoEn* nodo)` | Retorna el sucesor in-order. |
+| `NodoEn* predecesor(NodoEn* nodo)` | Retorna el predecesor in-order. |
+| `string toStringInOrder()` | Devuelve el recorrido in-order usando hebras. |
+![Arbol Enhebrado ejemplo](Img/Threadeds.png)
+---
+
+### 🧱 Heap Binario (`Heap.h`)
+Un **Heap** es una estructura completa usada comúnmente para implementar colas de prioridad.  
+Puede ser **Max-Heap** (padres ≥ hijos) o **Min-Heap** (padres ≤ hijos).
+
+| Método | Descripción |
+|---------|-------------|
+| `void insertar(int valor)` | Inserta un elemento manteniendo la propiedad del heap. |
+| `void eliminar()` | Elimina la raíz (máximo o mínimo). |
+| `int obtenerRaiz()` | Devuelve el valor de la raíz. |
+| `bool buscar(int valor)` | Verifica si un valor está en el heap. |
+| `void heapify(int i)` | Reestructura el árbol desde el índice `i`. |
+| `void mostrar()` | Imprime los elementos del heap. |
 
 ---
 
-## Estructura del proyecto
+### 🧮 Árbol B+ (`BPlusTree.h`)
+Un **Árbol B+** es una estructura de datos balanceada usada en bases de datos y sistemas de archivos.  
+Todos los valores están almacenados en hojas, y los nodos internos solo contienen claves de búsqueda.
 
+| Método | Descripción |
+|---------|-------------|
+| `void insertar(int clave, int valor)` | Inserta una clave y valor en el árbol. |
+| `void eliminar(int clave)` | Elimina una clave del árbol. |
+| `NodoBPlus* buscar(int clave)` | Busca una clave y retorna el nodo correspondiente. |
+| `vector<int> obtenerRango(int min, int max)` | Devuelve todas las claves dentro de un rango. |
+| `void dividirNodo(NodoBPlus* nodo)` | Divide un nodo lleno en dos. |
+| `void mostrar()` | Muestra el contenido del árbol. |
+
+---
+
+📘 **Nota:** Cada estructura está diseñada para ilustrar conceptos fundamentales de organización, búsqueda y balanceo en estructuras jerárquicas de datos.
