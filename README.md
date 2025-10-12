@@ -136,7 +136,7 @@ Puede ser **Max-Heap** (padres ≥ hijos) o **Min-Heap** (padres ≤ hijos).
 | `bool buscar(int valor)`            | Verifica si un valor está en el heap.                  |
 | `void heapify(int i)`               | Reestructura el árbol desde el índice `i`.             |
 | `void mostrar()`                    | Imprime los elementos del heap.                        |
- ![Ejemplo maxHeap](img/maxheap.png)  | ![Ejemplo minHeap](img/minheap.png)                    
+ ![Ejemplo maxHeap](Img/maxheap.png)  | ![Ejemplo minHeap](Img/minheap.png)                    
 ---
 
 ### 🧮 Árbol B+ (`BPlusTree.h`)
