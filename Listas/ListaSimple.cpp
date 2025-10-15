@@ -18,12 +18,12 @@ bool ListaSimple::estaVacia() {
 }
 
 bool ListaSimple::insertar(int dato) {
-    Nodo* nodo = new Nodo(dato);
+    NodoSimple* nodo = new NodoSimple(dato);
     if (estaVacia()) {
         this->inicio = nodo;
         return true;
     }
-    Nodo* aux=this->inicio;
+    NodoSimple* aux=this->inicio;
     while (aux->getProximo()!=nullptr) {
         aux = aux->getProximo();
     }
@@ -34,7 +34,7 @@ bool ListaSimple::insertar(int dato) {
 string ListaSimple::tostring() {
     std::stringstream ss;
     stack <int> s;
-    Nodo* aux=this->inicio;
+    NodoSimple* aux=this->inicio;
     while (aux!=nullptr) {
         s.push(aux->getDato());
         aux = aux->getProximo();
@@ -49,7 +49,7 @@ string ListaSimple::tostring() {
 
 string ListaSimple::tostringNormal() {
     stringstream ss;
-    Nodo* aux=this->inicio;
+    NodoSimple* aux=this->inicio;
     while (aux != nullptr) {
         ss << aux->getDato() << " ";
         aux = aux->getProximo();

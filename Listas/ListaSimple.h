@@ -6,11 +6,11 @@
 #define EJERCICIOS_LISTASIMPLE_H
 #include <string>
 using namespace std;
-#include "Nodo.h"
+#include "NodoSimple.h"
 
 
 class ListaSimple {
-    Nodo* inicio;
+    NodoSimple* inicio;
     public:
     ListaSimple();
     ~ListaSimple();
