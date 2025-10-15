@@ -208,15 +208,22 @@ bool isPalindromo(string str) {
     stack<char> pila;
     queue<char> cola;
 
-    for (int i = 0; i < str.length(); i++) {
+    for (int i = 0; i < str.length(); ++i) {
         pila.push(str[i]);
         cola.push(str[i]);
     }
 
-    while (true) {
-        if (pila.top()){}
+    while (!pila.empty() && !cola.empty()) {
+        if (pila.top() != cola.front()){
+            return false;
+        }
+
+        pila.pop();
+        cola.pop();
     }
-}
+
+    return true;
+} // #3
 //...
 int main(){
     /* guía complejidad algorítmica

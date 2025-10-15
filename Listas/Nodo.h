@@ -7,15 +7,6 @@
 
 
 class Nodo {
-    int dato;
-    Nodo* proximo;
-    public:
-    Nodo();
-    Nodo(int dato);
-    int getDato();
-    void setDato(int dato);
-    Nodo* getProximo();
-    void setProximo(Nodo* proximo);
 
 };
 
