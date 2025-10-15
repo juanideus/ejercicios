@@ -148,9 +148,63 @@ int** productoDeMatrices(int** A, int** B, int P, int Q, int R) {
 //...
 // guía ejercicios listas enlazadas
 template <typename T>
-void invertirStack(stack<T> S,T dato) {
+void invertirStack(stack<T>* S) {
+    queue<T> aux;
 
+    while (!S->empty()) {
+        aux.push(S->top()); // referencia 1er elemento
+        S->pop(); // remover elemento
+    }
+
+    while (!aux.empty()) {
+        S->push(aux.front());
+        aux.pop();
+    }
 } // #2
+
+template <typename T>
+void invertirQueue(queue<T>* Q) {
+    stack<T> aux;
+
+    while (!Q->empty()) {
+        aux.push(Q->front()); // referencia 1er elemento
+        Q->pop(); // remover elemento
+    }
+
+    while (!aux.empty()) {
+        Q->push(aux.top());
+        aux.pop();
+    }
+} // #2
+
+void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E) {
+    while (!M->empty()) {
+        if (M->top() == 'C') {
+            C->push(M->top());
+            M->pop();
+            continue;
+        }
+
+        if (M->top() == 'D') {
+            D->push(M->top());
+            M->pop();
+            continue;
+        }
+
+        if (M->top() == 't') {
+            t->push(M->top());
+            M->pop();
+            continue;
+        }
+
+        if (M->top() == 'E') {
+            E->push(M->top());
+            M->pop();
+        }
+    }
+} // #3
+
+
 //...
 int main(){
     /* guía complejidad algorítmica
