@@ -27,10 +27,10 @@ bool ListaSimple<T>::isVacia() {
 }
 
 template<typename T>
-void ListaSimple<T>::agregar(T *dato) {
+void ListaSimple<T>::agregar(T dato) {
     NodoSimple<T>* nuevoNodo = new NodoSimple<T>*(dato);
 
-    if (this->cabecera == nullptr) {
+    if (this->isVacia()) {
         this->cabecera = nuevoNodo;
         return;
     }
@@ -44,5 +44,35 @@ void ListaSimple<T>::agregar(T *dato) {
     aux->setSiguiente(nuevoNodo);
     delete aux;
 }
+
+template<typename T>
+bool ListaSimple<T>::eliminar(T dato) {
+    if (this->isVacia()) {
+        return false;
+    }
+
+    NodoSimple<T>* aux;
+
+    if (this->cabecera->getDato() == dato) {
+        aux = this->cabecera;
+        this->cabecera = this->cabecera->getSiguiente();
+        delete aux;
+        return true;
+    }
+
+    aux = this->cabecera;
+
+    while (aux->getSiguiente() != nullptr) {
+        if (aux->getSiguiente()->getDato() == dato) {
+
+            aux.
+        }
+
+        aux = aux->getSiguiente();
+    }
+
+    delete aux;
+}
+
 
 

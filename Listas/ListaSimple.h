@@ -16,9 +16,9 @@ class ListaSimple {
         ListaSimple();
         NodoSimple<T>* getCabecera();
         void setCabecera(NodoSimple<T>* nuevaCabecera);
-        void agregar(T* dato);
+        void agregar(T dato);
         bool isVacia();
-        bool eliminar(T* dato);
+        bool eliminar(T dato);
 };
 
 
