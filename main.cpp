@@ -204,7 +204,19 @@ void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<cha
     }
 } // #3
 
+bool isPalindromo(string str) {
+    stack<char> pila;
+    queue<char> cola;
 
+    for (int i = 0; i < str.length(); i++) {
+        pila.push(str[i]);
+        cola.push(str[i]);
+    }
+
+    while (true) {
+        if (pila.top()){}
+    }
+}
 //...
 int main(){
     /* guía complejidad algorítmica
