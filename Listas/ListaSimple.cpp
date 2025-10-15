@@ -55,7 +55,7 @@ bool ListaSimple<T>::eliminar(T dato) {
 
     if (this->cabecera->getDato() == dato) {
         aux = this->cabecera;
-        this->cabecera = this->cabecera->getSiguiente();
+        this->cabecera = this->cabecera->getSiguiente(); // setear el sig a la cabecera como la nueva cabecera
         delete aux;
         return true;
     }
@@ -64,14 +64,16 @@ bool ListaSimple<T>::eliminar(T dato) {
 
     while (aux->getSiguiente() != nullptr) {
         if (aux->getSiguiente()->getDato() == dato) {
-
-            aux.
+            NodoSimple<T>* nodoAeliminar = aux->getSiguiente();
+            aux->setSiguiente(nodoAeliminar->getSiguiente()); // seteamos la referencia del nodo anterior al nodo a eliminar hacia el nodo siguiente de este(NodoAeliminar)
+            delete nodoAeliminar;
+            return true;
         }
 
         aux = aux->getSiguiente();
     }
 
-    delete aux;
+    return false;
 }
 
 

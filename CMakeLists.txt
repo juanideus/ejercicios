@@ -4,10 +4,10 @@ project(Ejercicios)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Ejercicios main.cpp
-        NodoMPP.cpp
-        NodoMPP.h
-        MPP.cpp
-        MPP.h
+        MPP/NodoMPP.cpp
+        MPP/NodoMPP.h
+        MPP/MPP.cpp
+        MPP/MPP.h
         Listas/NodoSimple.cpp
         Listas/NodoSimple.h
         Listas/ListaSimple.cpp
