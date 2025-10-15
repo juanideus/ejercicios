@@ -5,54 +5,44 @@
 #include <sstream>
 #include <stack>
 
-ListaSimple::ListaSimple() {
-    this->inicio = nullptr;
+template<typename T>
+ListaSimple<T>::ListaSimple() {
+    this->cabecera = nullptr;
 }
 
-ListaSimple::~ListaSimple() {
-
+template<typename T>
+NodoSimple<T> *ListaSimple<T>::getCabecera() {
+    return this->cabecera;
 }
 
-bool ListaSimple::estaVacia() {
-    return inicio == nullptr;
+template<typename T>
+void ListaSimple<T>::setCabecera(NodoSimple<T> *nuevaCabecera) {
+    this->cabecera->setSiguiente(this->cabecera);
+    this->cabecera = nuevaCabecera;
 }
 
-bool ListaSimple::insertar(int dato) {
-    NodoSimple* nodo = new NodoSimple(dato);
-    if (estaVacia()) {
-        this->inicio = nodo;
-        return true;
+template<typename T>
+bool ListaSimple<T>::isVacia() {
+    return this->cabecera == nullptr;
+}
+
+template<typename T>
+void ListaSimple<T>::agregar(T *dato) {
+    NodoSimple<T>* nuevoNodo = new NodoSimple<T>*(dato);
+
+    if (this->cabecera == nullptr) {
+        this->cabecera = nuevoNodo;
+        return;
     }
-    NodoSimple* aux=this->inicio;
-    while (aux->getProximo()!=nullptr) {
-        aux = aux->getProximo();
+
+    NodoSimple<T>* aux = this->cabecera;
+
+    while (aux->getSiguiente() != nullptr) {
+        aux = aux->getSiguiente();
     }
-    aux->setProximo(nodo);
-    return true;
+
+    aux->setSiguiente(nuevoNodo);
+    delete aux;
 }
 
-string ListaSimple::tostring() {
-    std::stringstream ss;
-    stack <int> s;
-    NodoSimple* aux=this->inicio;
-    while (aux!=nullptr) {
-        s.push(aux->getDato());
-        aux = aux->getProximo();
-    }
-    while (!s.empty()) {
-        ss << s.top() << " ";
-        s.pop();
-    }
-    return ss.str();
 
-}
-
-string ListaSimple::tostringNormal() {
-    stringstream ss;
-    NodoSimple* aux=this->inicio;
-    while (aux != nullptr) {
-        ss << aux->getDato() << " ";
-        aux = aux->getProximo();
-    }
-    return ss.str();
-}

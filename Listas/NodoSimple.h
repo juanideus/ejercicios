@@ -9,14 +9,13 @@ template <typename T>
 class NodoSimple {
     public:
         NodoSimple();
-        NodoSimple(T dato);
-        ~NodoSimple();
-        T getDato();
-        void setDato(T dato);
+        NodoSimple(T* dato);
+        T* getDato();
+        void setDato(T* dato);
         NodoSimple* getSiguiente();
         void setSiguiente(NodoSimple* nodoSiguiente);
     private:
-        T dato;
+        T* dato;
         NodoSimple* siguiente;
 };
 

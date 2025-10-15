@@ -8,17 +8,17 @@
 using namespace std;
 #include "NodoSimple.h"
 
-
+template <typename T>
 class ListaSimple {
-    NodoSimple* inicio;
+    private:
+        NodoSimple<T>* cabecera;
     public:
-    ListaSimple();
-    ~ListaSimple();
-    bool estaVacia();
-    bool insertar(int dato);
-    string tostring();
-    string tostringNormal();
-
+        ListaSimple();
+        NodoSimple<T>* getCabecera();
+        void setCabecera(NodoSimple<T>* nuevaCabecera);
+        void agregar(T* dato);
+        bool isVacia();
+        bool eliminar(T* dato);
 };
 
 
