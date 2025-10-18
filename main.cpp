@@ -3,6 +3,7 @@
 #include <stack>
 
 #include "Guias/GuiaListasEnlazadas.h"
+#include "Listas/ListaSimple.h"
 using namespace std;
 
 int main(){
@@ -20,4 +21,13 @@ int main(){
 
     delete pila;
     delete cola; */
+
+    ListaSimple<int>* lista = new ListaSimple<int>();
+    lista->agregar(1);
+    lista->agregar(2);
+    lista->agregar(3);
+
+    GuiaListasEnlazadas::imprimirRecursivamente(lista->getCabecera());
+
+    delete lista->getCabecera();
 }

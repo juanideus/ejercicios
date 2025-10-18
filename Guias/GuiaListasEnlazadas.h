@@ -8,6 +8,8 @@
 #include <stack>
 #include <queue>
 #include <iostream>
+
+#include "../Listas/NodoSimple.h"
 using namespace std;
 
 namespace GuiaListasEnlazadas {
@@ -20,6 +22,8 @@ namespace GuiaListasEnlazadas {
     void clasificarPintas(stack<char>* M, stack<char>* C, stack<char>* D, stack<char>* t, stack<char>* E); // #3
 
     bool isPalindromo(string str); // #4
+
+    int imprimirRecursivamente(NodoSimple<int>* cabecera);
 
 }
 

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+
+#include "../Listas/NodoSimple.h"
 using namespace std;
 #include "GuiaListasEnlazadas.h"
 
@@ -96,4 +98,10 @@ bool GuiaListasEnlazadas::isPalindromo(string str) {
 
     return true;
 } // #3
+
+int imprimirRecursivamente(NodoSimple<int>* cabecera) {
+    if (cabecera->getSiguiente() == nullptr) return cabecera->getDato();
+
+    return imprimirRecursivamente(cabecera->getSiguiente());
+} // #4
 //...
