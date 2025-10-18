@@ -15,4 +15,8 @@ add_executable(Ejercicios main.cpp
         Polinomios/NodoPoli.cpp
         Polinomios/NodoPoli.h
         Polinomios/ListaPolinomios.cpp
-        Polinomios/ListaPolinomios.h)
+        Polinomios/ListaPolinomios.h
+        Guias/GuiaComplejidadAlgoritmica.cpp
+        Guias/GuiaComplejidadAlgoritmica.h
+        Guias/GuiaListasEnlazadas.tpp
+        Guias/GuiaListasEnlazadas.h)

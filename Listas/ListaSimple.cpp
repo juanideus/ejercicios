@@ -73,6 +73,8 @@ bool ListaSimple<T>::eliminar(T dato) {
         aux = aux->getSiguiente();
     }
 
+    aux = nullptr;
+    delete aux;
     return false;
 }
 

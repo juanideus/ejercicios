@@ -11,18 +11,18 @@ NodoSimple<T>::NodoSimple() {
 }
 
 template<typename T>
-NodoSimple<T>::NodoSimple(T* dato) {
+NodoSimple<T>::NodoSimple(T dato) {
     this->dato = dato;
     this->siguiente = nullptr;
 }
 
 template<typename T>
-void NodoSimple<T>::setDato(T* dato) {
+void NodoSimple<T>::setDato(T dato) {
     this->dato = dato;
 }
 
 template<typename T>
-T* NodoSimple<T>::getDato() {
+T NodoSimple<T>::getDato() {
     return this->dato;
 }
 
