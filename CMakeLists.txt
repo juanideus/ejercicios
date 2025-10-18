@@ -35,4 +35,6 @@ add_executable(Ejercicios main.cpp
         src/Arboles/ENHEBRADO/nodoEn.cpp
         src/Arboles/ENHEBRADO/nodoEn.h
         src/Arboles/ENHEBRADO/ThreadedBST.cpp
-        src/Arboles/ENHEBRADO/ThreadedBST.h)
+        src/Arboles/ENHEBRADO/ThreadedBST.h
+        src/practicaPrueba1/ejercicios.cpp
+        src/practicaPrueba1/ejercicios.h)
