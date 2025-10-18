@@ -1,27 +1,23 @@
-﻿
-#include "iostream"
-#include "src/Arboles/ABB/ABB.h"
-#include "src/Arboles/ENHEBRADO/ThreadedBST.h"
-#include "src/Funciones/Ejercicios.h"
+﻿/* // guía listas enlazadas
+stack<int>* pila = new stack<int>();
+    queue<int>* cola = new queue<int>();
 
+    for (int i = 0; i < 3; i++) {
+        pila->push(i);
+        cola->push(i);
+    }
 
-using namespace Ejercicios;
-using namespace std;
+    GuiaListasEnlazadas::invertirStack<int>(pila);
+    GuiaListasEnlazadas::invertirQueue<int>(cola);
 
+    delete pila;
+    delete cola; */
 
+    ListaSimple<int>* lista = new ListaSimple<int>();
+lista->agregar(1);
+lista->agregar(2);
+lista->agregar(3);
 
-//**Ejecuta aqui tu codigo**
-int main() {
+GuiaListasEnlazadas::imprimirRecursivamente(lista->getCabecera());
 
-    ThreadedBST *bst=new ThreadedBST();
-    bst->insertar(50);
-    bst->insertar(48);
-    bst->insertar(53);
-    bst->insertar(35);
-    bst->insertar(51);
-    bst->insertar(60);
-    bst->insertar(52);
-    cout<<bst->toStringInOrder();
-
-
-}
+delete lista->getCabecera();
