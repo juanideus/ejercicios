@@ -7,7 +7,7 @@
 #include <string>
 
 #include "NodoPoli.h"
-#include "../Listas/Nodo.h"
+#include "../Listas/Nodos/NodoSimple.h"
 using namespace std;
 
 class ListaPolinomios {

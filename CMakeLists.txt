@@ -8,10 +8,10 @@ add_executable(Ejercicios main.cpp
         src/MPP/NodoMPP.h
         src/MPP/MPP.cpp
         src/MPP/MPP.h
-        src/Listas/Nodo.cpp
-        src/Listas/Nodo.h
-        src/Listas/ListaSimple.cpp
-        src/Listas/ListaSimple.h
+        src/Listas/Nodos/NodoSimple.cpp
+        src/Listas/Nodos/NodoSimple.h
+        src/Listas/ListaNexoSimple.cpp
+        src/Listas/ListaNexoSimple.h
         src/Polinomios/NodoPoli.cpp
         src/Polinomios/NodoPoli.h
         src/Polinomios/ListaPolinomios.cpp
