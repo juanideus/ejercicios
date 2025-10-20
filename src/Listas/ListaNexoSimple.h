@@ -8,9 +8,16 @@
 using namespace std;
 #include "Nodos/NodoSimple.h"
 
-
+template <typename T>
 class ListaNexoSimple {
-
+    private:
+        NodoSimple<T>* cabecera;
+    public:
+        ListaNexoSimple();
+        NodoSimple<T>* getCabecera();
+        void setCabecera(NodoSimple<T>* nuevaCabecera);
+        bool isVacia();
+        void agregarAlFinal(T dato);
 };
 
 

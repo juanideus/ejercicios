@@ -11,9 +11,12 @@ class NodoSimple {
         T dato;
         NodoSimple* nodoSiguiente;
     public:
+        NodoSimple();
+        NodoSimple(T dato);
         T getDato();
         void setDato(T dato);
         NodoSimple* getSiguiente();
+        void setSiguiente(NodoSimple* nodoSiguiente);
 };
 
 

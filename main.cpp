@@ -1,4 +1,9 @@
-﻿/* // guía listas enlazadas
+﻿
+#include <iostream>
+using namespace std;
+
+int main() {
+    /* // guía listas enlazadas
 stack<int>* pila = new stack<int>();
     queue<int>* cola = new queue<int>();
 
@@ -14,10 +19,11 @@ stack<int>* pila = new stack<int>();
     delete cola; */
 
     ListaSimple<int>* lista = new ListaSimple<int>();
-lista->agregar(1);
-lista->agregar(2);
-lista->agregar(3);
+    lista->agregar(1);
+    lista->agregar(2);
+    lista->agregar(3);
 
-GuiaListasEnlazadas::imprimirRecursivamente(lista->getCabecera());
+    GuiaListasEnlazadas::imprimirRecursivamente(lista->getCabecera());
 
-delete lista->getCabecera();
+    lista.
+}
