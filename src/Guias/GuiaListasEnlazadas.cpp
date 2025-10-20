@@ -98,10 +98,4 @@ bool GuiaListasEnlazadas::isPalindromo(string str) {
 
     return true;
 } // #3
-
-int imprimirRecursivamente(NodoSimple<int>* cabecera) {
-    if (cabecera->getSiguiente() == nullptr) return cabecera->getDato();
-
-    return imprimirRecursivamente(cabecera->getSiguiente());
-} // #4
 //...

@@ -26,12 +26,15 @@ bool ListaNexoSimple<T>::isVacia() {
     return this->cabecera == nullptr;
 }
 
-
 template<typename T>
 void ListaNexoSimple<T>::agregarAlFinal(T dato) {
-    if (dato == nullptr) throw invalid_argument("El elemento a agregar es nulo");
+    NodoSimple<T>* nuevoNodo;
 
-    NodoSimple<T>* nuevoNodo = new NodoSimple<T>*(dato);
+    try {
+        nuevoNodo = new NodoSimple<T>(dato);
+    } catch (...) {
+        cerr << "No se puede instanciar el nuevo nodo";
+    }
 
     if (this->isVacia()) {
         this->cabecera = nuevoNodo;
@@ -51,12 +54,17 @@ void ListaNexoSimple<T>::agregarAlFinal(T dato) {
 
 template<typename T>
 void ListaNexoSimple<T>::agregarAlInicio(T dato) {
-    if (dato == nullptr) throw invalid_argument("El elemento a agregar es nulo");
+    NodoSimple<T>* nuevoNodo;
 
-    NodoSimple<T>* nuevoNodo = new NodoSimple<T>*(dato);
+    try {
+        nuevoNodo = new NodoSimple<T>(dato);
+    } catch (...) {
+        cerr << "No se puede instanciar el nuevo nodo";
+    }
 
     if (this->cabecera == nullptr) {
         this->cabecera == nuevoNodo;
+        return;
     }
 
     nuevoNodo->setSiguiente(this->cabecera);
@@ -65,13 +73,15 @@ void ListaNexoSimple<T>::agregarAlInicio(T dato) {
 
 template<typename T>
 void ListaNexoSimple<T>::imprimirEnOrden() {
-    if (this->cabecera == nullptr) cout << "No hay elementos!" << endl;
+    if (this->cabecera == nullptr) {
+        cout << "No hay elementos!" << endl;
+        return;
+    }
 
     NodoSimple<T>* aux = this->cabecera;
 
-    while (aux->getSiguiente() != nullptr) {
+    while (aux != nullptr) {
         cout << aux->getDato() << endl;
         aux = aux->getSiguiente();
     }
 }
-

@@ -4,7 +4,8 @@
 
 #ifndef EJERCICIOS_LISTASIMPLE_H
 #define EJERCICIOS_LISTASIMPLE_H
-#include <string>
+
+#include <iostream>
 using namespace std;
 #include "Nodos/NodoSimple.h"
 
@@ -22,6 +23,5 @@ class ListaNexoSimple {
         void imprimirEnOrden();
 };
 
-
-
+#include "ListaNexoSimple.cpp"
 #endif //EJERCICIOS_LISTASIMPLE_H

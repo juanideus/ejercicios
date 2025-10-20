@@ -22,9 +22,9 @@ stack<int>* pila = new stack<int>();
 
     ListaNexoSimple<int>* lista = new ListaNexoSimple<int>();
 
-    for (int i = 0; i < 3 ; i++) {
-        lista->agregarAlFinal(i);
-    }
+    lista->agregarAlFinal(1);
+    lista->agregarAlFinal(2);
+    lista->agregarAlFinal(3);
 
     lista->imprimirEnOrden();
 

@@ -16,8 +16,6 @@ class GuiaListasEnlazadas {
     void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E);
 
     bool isPalindromo(string str);
-
-    int imprimirRecursivamente(NodoSimple<int>* cabecera);
 };
 
 

@@ -19,5 +19,5 @@ class NodoSimple {
         void setSiguiente(NodoSimple* nodoSiguiente);
 };
 
-
+#include "NodoSimple.cpp"
 #endif //EJERCICIOS_NODO_H
