@@ -6,7 +6,7 @@
 #include <stack>
 #include <queue>
 
-#include "../Listas/NodoSimple.h"
+#include "../Listas/Nodos/NodoSimple.h"
 using namespace std;
 #include "GuiaListasEnlazadas.h"
 

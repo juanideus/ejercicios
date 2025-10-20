@@ -18,6 +18,8 @@ class ListaNexoSimple {
         void setCabecera(NodoSimple<T>* nuevaCabecera);
         bool isVacia();
         void agregarAlFinal(T dato);
+        void agregarAlInicio(T dato);
+        void imprimirEnOrden();
 };
 
 

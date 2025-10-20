@@ -1,5 +1,7 @@
 ﻿
 #include <iostream>
+
+#include "src/Listas/ListaNexoSimple.h"
 using namespace std;
 
 int main() {
@@ -18,12 +20,13 @@ stack<int>* pila = new stack<int>();
     delete pila;
     delete cola; */
 
-    ListaSimple<int>* lista = new ListaSimple<int>();
-    lista->agregar(1);
-    lista->agregar(2);
-    lista->agregar(3);
+    ListaNexoSimple<int>* lista = new ListaNexoSimple<int>();
 
-    GuiaListasEnlazadas::imprimirRecursivamente(lista->getCabecera());
+    for (int i = 0; i < 3 ; i++) {
+        lista->agregarAlFinal(i);
+    }
 
-    lista.
+    lista->imprimirEnOrden();
+
+    delete lista;
 }

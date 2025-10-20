@@ -31,23 +31,47 @@ template<typename T>
 void ListaNexoSimple<T>::agregarAlFinal(T dato) {
     if (dato == nullptr) throw invalid_argument("El elemento a agregar es nulo");
 
-    NodoSimple<T>* nuevoNodo;
+    NodoSimple<T>* nuevoNodo = new NodoSimple<T>*(dato);
 
     if (this->isVacia()) {
-        nuevoNodo = new NodoSimple<T>*();
         this->cabecera = nuevoNodo;
+        return;
     }
 
     NodoSimple<T>* aux;
 
     aux = this->cabecera;
 
-    while (!aux->getSiguiente() != nullptr) {
+    while (aux->getSiguiente() != nullptr) {
         aux = aux->getSiguiente();
     }
 
     aux->setSiguiente(nuevoNodo);
-    aux = nullptr;
-    delete aux;
+}
+
+template<typename T>
+void ListaNexoSimple<T>::agregarAlInicio(T dato) {
+    if (dato == nullptr) throw invalid_argument("El elemento a agregar es nulo");
+
+    NodoSimple<T>* nuevoNodo = new NodoSimple<T>*(dato);
+
+    if (this->cabecera == nullptr) {
+        this->cabecera == nuevoNodo;
+    }
+
+    nuevoNodo->setSiguiente(this->cabecera);
+    this->cabecera = nuevoNodo;
+}
+
+template<typename T>
+void ListaNexoSimple<T>::imprimirEnOrden() {
+    if (this->cabecera == nullptr) cout << "No hay elementos!" << endl;
+
+    NodoSimple<T>* aux = this->cabecera;
+
+    while (aux->getSiguiente() != nullptr) {
+        cout << aux->getDato() << endl;
+        aux = aux->getSiguiente();
+    }
 }
 
