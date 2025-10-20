@@ -4,10 +4,6 @@ project(Ejercicios)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Ejercicios main.cpp
-        src/MPP/NodoMPP.cpp
-        src/MPP/NodoMPP.h
-        src/MPP/MPP.cpp
-        src/MPP/MPP.h
         src/Listas/Nodos/NodoSimple.h
         src/Listas/ListaNexoSimple.h
         src/Polinomios/NodoPoli.cpp
@@ -37,4 +33,8 @@ add_executable(Ejercicios main.cpp
         src/Guias/GuiaListasEnlazadas.cpp
         src/Guias/GuiaListasEnlazadas.h
         src/Guias/GuiaComplejidadAlgoritmica.cpp
-        src/Guias/GuiaComplejidadAlgoritmica.h)
+        src/Guias/GuiaComplejidadAlgoritmica.h
+        src/MPP/NodoMPP.cpp
+        src/MPP/NodoMPP.h
+        src/MPP/MPP.cpp
+        src/MPP/MPP.h)
