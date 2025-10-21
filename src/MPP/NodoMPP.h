@@ -13,12 +13,13 @@ class NodoMPP {
         int row;
         int col;
     public:
+        NodoMPP();
         NodoMPP(int value, int row, int col);
-        int getValue;
-        void setValue(T Value);
-        int getRow;
+        int getValue();
+        void setValue(int value);
+        int getRow();
         void setRow(int row);
-        int getCol;
+        int getCol();
         void setCol(int col);
 };
 
