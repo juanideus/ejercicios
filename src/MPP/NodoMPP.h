@@ -21,6 +21,10 @@ class NodoMPP {
         void setRow(int row);
         int getCol();
         void setCol(int col);
+        NodoMPP* getLeft();
+        void setLeft(NodoMPP* left);
+        NodoMPP* getUp();
+        void setUp(NodoMPP* up);
 };
 
 

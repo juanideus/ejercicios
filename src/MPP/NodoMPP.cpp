@@ -46,6 +46,22 @@ void NodoMPP::setRow(int row) {
     this->row = row;
 }
 
+NodoMPP *NodoMPP::getLeft() {
+    return this->left;
+}
+
+void NodoMPP::setLeft(NodoMPP *left) {
+    this->left = left;
+}
+
+NodoMPP *NodoMPP::getUp() {
+    return this->up;
+}
+
+void NodoMPP::setUp(NodoMPP *up) {
+    this->up = up;
+}
+
 
 
 
