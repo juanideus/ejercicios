@@ -3,3 +3,9 @@
 //
 
 #include "NodoMPP.h"
+
+NodoMPP::NodoMPP(int value, int row, int col) {
+    this->value = value;
+    this->row = row;
+    this->col = col;
+}
