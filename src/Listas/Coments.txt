@@ -1,7 +1,8 @@
 Algunos comentarios importantes:
     -  Una variable de tipo puntero(Ej: int* intPtr) solo ocupa un espacio de memoria dinámico cuando se
-        instancia con new(int* intPtr = new int()), solo así se usa el metodo delete para liberar esapcio de memoria.
+       instancia con new(int* intPtr = new int()), solo así se usa el metodo delete para liberar ese espacio de memoria.
 
     - Para los templates dentro de la clase NodoSimple y ListaNexoSimple, el compilador falla y es necesario:
         1.- Agregar #include "/*la clase con template*.cpp" antes del endif en el header(.h) de esta.
-        2.- Eliminar en CMakeLists.txt las lineas que contengan las clases .cpp
+        2.- Eliminar en CMakeLists.txt las lineas que contengan las clases .cpp (ListaNexoSimple.cpp y NodoSimple.cpp).
+      Esto porque el compilador vee el la clase ListaNexoSimple en main y en CMakeLists.txt y lo compila 2 dos veces.

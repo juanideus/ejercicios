@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     /* // guía listas enlazadas
-stack<int>* pila = new stack<int>();
+    stack<int>* pila = new stack<int>();
     queue<int>* cola = new queue<int>();
 
     for (int i = 0; i < 3; i++) {
@@ -19,14 +19,4 @@ stack<int>* pila = new stack<int>();
 
     delete pila;
     delete cola; */
-
-    ListaNexoSimple<int>* lista = new ListaNexoSimple<int>();
-
-    lista->agregarAlFinal(1);
-    lista->agregarAlFinal(2);
-    lista->agregarAlFinal(3);
-
-    lista->imprimirEnOrden();
-
-    delete lista;
 }
