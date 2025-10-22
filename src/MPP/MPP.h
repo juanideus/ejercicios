@@ -10,9 +10,15 @@
 class MPP {
     private:
         NodoMPP** aRow; // lista de listas de filas
-        NodoMPP** aCol; // lista de lisats de columnas
+        NodoMPP** aCol; // lista de listas de columnas
         int filas;
         int columnas;
+    public:
+        MPP(int filas, int columnas);
+        int getFilas();
+        void setFilas(int filas);
+        int getColumnas();
+        void setColumnas(int columnas);
 };
 
 
