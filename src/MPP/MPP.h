@@ -5,7 +5,8 @@
 #ifndef EJERCICIOS_MPP_H
 #define EJERCICIOS_MPP_H
 #include "NodoMPP.h"
-
+#include <iostream>
+using namespace std;
 
 class MPP {
     private:
@@ -17,9 +18,12 @@ class MPP {
         MPP(int filas, int columnas);
         int getFilas();
         void setFilas(int filas);
+
         int getColumnas();
         void setColumnas(int columnas);
-        bool insertar(int value, int fila, int columna);
+
+        void insertar(int value, int fila, int columna);
+        void mostrarComoMatriz();
 };
 
 

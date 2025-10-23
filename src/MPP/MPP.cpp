@@ -4,7 +4,7 @@
 
 #include "MPP.h"
 #include <iostream>
-#include <stdint.h>
+#include <sstream>
 using namespace std;
 
 MPP::MPP(int filas, int columnas) {
@@ -39,14 +39,14 @@ void MPP::setColumnas(int columnas) {
     this->columnas = columnas;
 }
 
-bool MPP::insertar(int value, int fila, int columna) {
+void MPP::insertar(int value, int fila, int columna) {
     NodoMPP* nuevoNodo;
 
     try {
         nuevoNodo = new NodoMPP(value, fila, columna);
     } catch (...) {
         cerr << "No se pudo crear el nodo" << endl;
-        return false;
+        return;
     }
     // AROW[FILA]
     // si no hay datos en la fila
@@ -79,6 +79,26 @@ bool MPP::insertar(int value, int fila, int columna) {
 
         nuevoNodo->setUp(aux->getUp());
         aux->setUp(nuevoNodo);
+    }
+}
+
+void MPP::mostrarComoMatriz() {
+    int matriz[this->filas][this->columnas];
+
+    for (int i = 0 ; i < this->filas ; i++) {
+        for (int j = 0 ; i < this->columnas ; j++) {
+            matriz[i][j] = 0;
+        }
+    }
+
+    NodoMPP* aux;
+    // for para iteración del array de filas
+    for (int i = 0 ; i < this->filas ; i++) {
+        aux = this->aRow[i];
+        // iteramos por cada nodo del array en i fila
+        while (aux->getLeft() != this->aRow[i]) {
+
+        }
     }
 }
 
