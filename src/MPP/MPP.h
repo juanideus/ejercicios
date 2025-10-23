@@ -19,6 +19,7 @@ class MPP {
         void setFilas(int filas);
         int getColumnas();
         void setColumnas(int columnas);
+        bool insertar(int value, int fila, int columna);
 };
 
 
