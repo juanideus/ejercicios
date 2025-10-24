@@ -41,6 +41,12 @@ class MPP {
 
     void eliminar50();
 
+    int countarDiagonales();
+
+    NodoMPP **getRow();
+
+    NodoMPP **getCol();
+
 };
 
 
