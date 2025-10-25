@@ -62,6 +62,11 @@ void NodoMPP::setUp(NodoMPP *up) {
     this->up = up;
 }
 
+string NodoMPP::toString() {
+    return "Valor->" + std::to_string(this->value) +
+        "\nFila->" + std::to_string(this->row) +
+            "\nColumna->" + std::to_string(this->col);
+}
 
 
 

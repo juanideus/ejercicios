@@ -93,10 +93,10 @@ void MPP::mostrarComoMatriz() {
 
     NodoMPP* aux;
     // for para iteración del array de filas
-    for (int i = 0 ; i < this->filas ; i++) {
+    for (int i = 0 ; i < this->filas; i++) {
         aux = this->aRow[i]->getLeft();
         // iteramos por cada nodo del array en i fila
-        while (aux->getLeft() != this->aRow[i]) {
+        while (aux != this->aRow[i]) {
             matriz[aux->getRow()][aux->getCol()] = aux->getValue();
             aux = aux->getLeft();
         }

@@ -4,6 +4,8 @@
 
 #ifndef EJERCICIOS_NODOMPP_H
 #define EJERCICIOS_NODOMPP_H
+#include <iostream>
+using namespace std;
 
 class NodoMPP {
     private:
@@ -25,6 +27,7 @@ class NodoMPP {
         void setLeft(NodoMPP* left);
         NodoMPP* getUp();
         void setUp(NodoMPP* up);
+        string toString();
 };
 
 

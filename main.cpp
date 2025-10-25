@@ -23,12 +23,12 @@ int main() {
 
     MPP* matrizPocoPoblada = new MPP(5, 5);
 
-    matrizPocoPoblada->insertar(1, 1, 1);
-    matrizPocoPoblada->insertar(9, 1, 2);
-    matrizPocoPoblada->insertar(2, 2, 2);
-    matrizPocoPoblada->insertar(3, 3, 3);
-    matrizPocoPoblada->insertar(4, 4, 4);
-    matrizPocoPoblada->insertar(5, 5, 5);
+    matrizPocoPoblada->insertar(1, 0, 0);
+    matrizPocoPoblada->insertar(9, 0, 1);
+    matrizPocoPoblada->insertar(2, 1, 1);
+    matrizPocoPoblada->insertar(3, 2, 2);
+    matrizPocoPoblada->insertar(4, 3, 3);
+    matrizPocoPoblada->insertar(5, 4, 4);
 
     matrizPocoPoblada->mostrarComoMatriz();
 
