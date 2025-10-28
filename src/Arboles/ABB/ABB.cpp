@@ -1,5 +1,7 @@
 #include "ABB.h"
 
+#include <stack>
+
 using namespace std;
 #include <iostream>
 
@@ -232,6 +234,22 @@ NodoABB *ABB::maximo(NodoABB *aux) {
         aux = aux->getRight();
     }
     return aux;
+}
+
+void ABB::inorderIterativo() {
+    stack<NodoABB*> s;
+    NodoABB* aux = root;
+    while (true) {
+        while (aux) {
+            s.push(aux);
+            aux = aux->getLeft();
+        }
+        if (s.empty()) {return; }
+        aux = s.top();
+        s.pop();
+        cout<<aux->getDato()<<endl;
+        aux = aux->getRight();
+    }
 }
 
 

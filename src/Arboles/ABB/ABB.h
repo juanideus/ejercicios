@@ -27,6 +27,7 @@ class ABB {
     NodoABB* minimo(NodoABB*aux);
     NodoABB* maximo(NodoABB*aux);
 
+    void inorderIterativo();
 
 
     void toString(int opcion);
