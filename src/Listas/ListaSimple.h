@@ -15,12 +15,14 @@ class ListaSimple {
 
     Nodo *validarNodo(int dato);
     public:
+    Nodo *getInicio();
     ListaSimple();
     ~ListaSimple();
     bool estaVacia();
     bool insertar(int dato);
     string tostring();
     string tostringNormal();
+    string recursivo(Nodo* aux);
 
 };
 

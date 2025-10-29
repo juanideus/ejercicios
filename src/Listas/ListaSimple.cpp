@@ -17,6 +17,10 @@ Nodo *ListaSimple::validarNodo(int dato) {
 
 }
 
+Nodo * ListaSimple::getInicio() {
+    return inicio;
+}
+
 ListaSimple::ListaSimple() {
     this->inicio = nullptr;
 }
@@ -72,4 +76,11 @@ string ListaSimple::tostringNormal() {
         aux = aux->getProximo();
     }
     return ss.str();
+}
+
+string ListaSimple::recursivo(Nodo *aux) {
+    if (aux->getProximo()==nullptr) {
+        return to_string(aux->getDato());
+    }
+    return recursivo(aux->getProximo())+to_string(aux->getDato()) ;
 }

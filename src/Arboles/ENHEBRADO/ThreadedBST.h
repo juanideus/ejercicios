@@ -7,6 +7,7 @@ using namespace std;
 
 class ThreadedBST {
     NodoEn *root;
+    NodoEn *leftMost(NodoEn*);
     public:
     ThreadedBST();
     ~ThreadedBST();
@@ -19,5 +20,7 @@ class ThreadedBST {
     void eliminar(int dato);
 
     string toStringInOrder();
+    void InorderRecursivo(NodoEn* nodo);
+    void imprimir();
 };
 
