@@ -123,8 +123,10 @@ void ThreadedBST::InorderRecursivo(NodoEn *nodo) {
 
     if (!nodo->getRightThread()) {
         InorderRecursivo(nodo->getRightChild());
+
     }
     cout << nodo->getDato() << " ";
+
 }
 
 void ThreadedBST::imprimir() {

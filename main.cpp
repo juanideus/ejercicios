@@ -17,7 +17,7 @@ int main() {
 
 
 
-    ABB* bst=new ABB();
+    ThreadedBST *bst=new ThreadedBST();
     bst->insertar(50);
     bst->insertar(48);
     bst->insertar(53);
@@ -26,11 +26,12 @@ int main() {
     bst->insertar(60);
     bst->insertar(52);
     bst->insertar(1);
-    bst->toString(2);
-    cout<<endl;
-    bst->inorderIterativo();
+    // bst->toString(2);
+    // cout<<endl;
+    // bst->inorderIterativo();
     // cout<<bst->toStringInOrder()<<endl;
     // bst->imprimir();
+    bst->imprimir();
 
 
 }
