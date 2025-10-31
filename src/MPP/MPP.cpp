@@ -82,31 +82,34 @@ void MPP::insertar(int value, int fila, int columna) {
     }
 }
 
-void MPP::mostrarComoMatriz() {
-    int matriz[this->filas][this->columnas];
+NodoMPP *MPP::obtener(int fila, int columna) {
+    NodoMPP* nodoEncontrado = this->aRow[fila]->getLeft();
 
-    for (int i = 0 ; i < this->filas ; i++) {
-        for (int j = 0 ; i < this->columnas ; j++) {
-            matriz[i][j] = 0;
+    while (nodoEncontrado != this->aRow[fila]) {
+        if (nodoEncontrado->getCol() == columna) {
+            return nodoEncontrado;
         }
+        nodoEncontrado = nodoEncontrado->getLeft();
     }
 
-    NodoMPP* aux;
-    // for para iteración del array de filas
-    for (int i = 0 ; i < this->filas; i++) {
-        aux = this->aRow[i]->getLeft();
-        // iteramos por cada nodo del array en i fila
-        while (aux != this->aRow[i]) {
-            matriz[aux->getRow()][aux->getCol()] = aux->getValue();
-            aux = aux->getLeft();
-        }
-    }
+    return nullptr;
+}
+
+
+string MPP::mostrar() {
+    stringstream ss;
 
     for (int i = 0 ; i < this->filas ; i++) {
         for (int j = 0 ; j < this->columnas ; j++) {
-            cout << matriz[i][j] << " ";
+            if (this->obtener(i, j) != nullptr) {
+                ss << "[" << this->obtener(i, j)->getValue() << "] ";
+            } else {
+                ss << "[0] ";
+            }
         }
-        cout << endl;
+        ss << "\n";
     }
+
+    return ss.str();
 }
 

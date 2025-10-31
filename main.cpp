@@ -21,6 +21,7 @@ int main() {
     delete pila;
     delete cola; */
 
+    /* // MPP
     MPP* matrizPocoPoblada = new MPP(5, 5);
 
     matrizPocoPoblada->insertar(1, 0, 0);
@@ -30,7 +31,7 @@ int main() {
     matrizPocoPoblada->insertar(4, 3, 3);
     matrizPocoPoblada->insertar(5, 4, 4);
 
-    matrizPocoPoblada->mostrarComoMatriz();
+    cout << matrizPocoPoblada->mostrar() << endl;
 
-    delete matrizPocoPoblada;
+    delete matrizPocoPoblada; */
 }

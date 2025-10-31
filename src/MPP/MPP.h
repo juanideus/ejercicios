@@ -23,7 +23,8 @@ class MPP {
         void setColumnas(int columnas);
 
         void insertar(int value, int fila, int columna);
-        void mostrarComoMatriz();
+        NodoMPP* obtener(int fila, int columna);
+        string mostrar();
 };
 
 
