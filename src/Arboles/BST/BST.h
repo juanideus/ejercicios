@@ -19,6 +19,7 @@ class BST {
         // methods
         bool isEmpty();
         void insert(T* value);
+        int grade();
         // iterativos
         void iterativePrintPreOrder();
         void iterativePrintInOrder();

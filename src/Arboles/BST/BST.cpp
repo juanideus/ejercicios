@@ -128,14 +128,6 @@ void BST<T>::iterativePrintPostOrder() { // izq -> der -> raiz(imprimir)
 
 template<typename T>
 void BST<T>::inverseIterativePrintPreOrder() {
-    stack<BSTnode<T>> s;
-    BSTnode<T>* aux = this->root;
-
-    while (true) {
-        while (aux) {
-
-        }
-    }
 }
 
 template<typename T>
@@ -144,4 +136,35 @@ void BST<T>::inverseIterativePrintInOrder() {
 
 template<typename T>
 void BST<T>::inverseIterativePrintPostOrder() {
+}
+
+template<typename T>
+int BST<T>::grade() {
+    if (!this->isEmpty()) {
+        return 0;
+    }
+
+    int counter = 0;
+    stack<BSTnode<T>*> s;
+    BSTnode<T>* aux = this->root;
+
+    while (true) {
+        while (aux) {
+            s.push(aux);
+            aux = aux->getLeft();
+        }
+
+        if (!s.empty()) {
+            aux = s.top();
+            s.pop();
+
+            if (aux->getLeft() && aux->getRight()) {
+                counter++;
+            }
+
+            aux = aux->getRight();
+        } else {
+            break;
+        }
+    }
 }
