@@ -39,22 +39,25 @@ void BST<T>::insert(T *value) {
     }
 
     BSTnode<T>* aux = this->root;
-    // si es mayor a la raíz
-    if (value > this->root->getValue()) {
-        if (!this->root->getRight()) {
-            this->root->setRight(newNode);
-            return;
+
+    while (true) {
+        // lado izq de la raíz
+        if (*value < *aux->getValue()) {
+            if (!aux->getLeft()) {
+                aux->setLeft(newNode);
+                return;
+            } else {
+                aux = aux->getLeft();
+                continue;
+            }
+        // lado der de la raíz
         } else {
-            while ()
-        }
-    }
-    // si es menor a la raíz
-    if (value < this->root->getValue()) {
-        if (!this->root->getRight()) {
-            this->root->setLeft(newNode);
-            return;
-        } else {
-            while ()
+            if (!aux->getRight()) {
+                aux->setRight(newNode);
+                return;
+            } else {
+                aux = aux->getRight();
+            }
         }
     }
 }
