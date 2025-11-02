@@ -16,10 +16,10 @@ add_executable(Ejercicios main.cpp
         src/template/ListaSimpleTemplate.tpp
         src/template/Persona.cpp
         src/template/Persona.h
-        src/Arboles/ABB/ABB.cpp
-        src/Arboles/ABB/ABB.h
-        src/Arboles/ABB/NodoABB.cpp
-        src/Arboles/ABB/NodoABB.h
+        src/Arboles/BST/BST.cpp
+        src/Arboles/BST/BST.h
+        src/Arboles/BST/BSTnode.cpp
+        src/Arboles/BST/BSTnode.h
         src/Funciones/Ejercicios.cpp
         src/Funciones/Ejercicios.h
         src/Heaps/MaxHeap.cpp

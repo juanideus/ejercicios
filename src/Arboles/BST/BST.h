@@ -1,0 +1,30 @@
+#pragma once
+#include <string>
+
+#include "BSTnode.h"
+
+#include "string"
+using namespace std;
+
+template <typename T>
+class BST {
+    private:
+        BSTnode<T>* root;
+
+    public:
+        BST();
+
+        BSTnode<T>* getRoot();
+        void setRoot(BSTnode<T>* newRoot);
+        // methods
+        bool isEmpty();
+        void insert(T* value);
+        // iterativos
+        void iterativePrintPreOrder();
+        void iterativePrintInOrder();
+        void iterativePrintPostOrder();
+        // iterativos inversos
+        void inverseIterativePrintPreOrder();
+        void inverseIterativePrintInOrder();
+        void inverseIterativePrintPostOrder();
+};
