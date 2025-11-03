@@ -16,9 +16,7 @@ add_executable(Ejercicios main.cpp
         src/template/ListaSimpleTemplate.tpp
         src/template/Persona.cpp
         src/template/Persona.h
-        src/Arboles/BST/BST.cpp
         src/Arboles/BST/BST.h
-        src/Arboles/BST/BSTnode.cpp
         src/Arboles/BST/BSTnode.h
         src/Funciones/Ejercicios.cpp
         src/Funciones/Ejercicios.h

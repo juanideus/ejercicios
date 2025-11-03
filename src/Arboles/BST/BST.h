@@ -1,8 +1,7 @@
 #pragma once
-#include <string>
-
+#ifndef EJERCICIOS_BST_H
+#define EJERCICIOS_BST_H
 #include "BSTnode.h"
-
 #include "string"
 using namespace std;
 
@@ -18,7 +17,7 @@ class BST {
         void setRoot(BSTnode<T>* newRoot);
         // methods
         bool isEmpty();
-        void insert(T* value);
+        void insert(T value);
         int grade();
         // iterativos
         void iterativePrintPreOrder();
@@ -29,3 +28,6 @@ class BST {
         void inverseIterativePrintInOrder();
         void inverseIterativePrintPostOrder();
 };
+
+#include "BST.tpp"
+#endif

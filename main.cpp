@@ -3,6 +3,7 @@
 
 #include "src/Listas/ListaNexoSimple.h"
 #include "src/MPP/MPP.h"
+#include "src/Arboles/BST/BST.h"
 using namespace std;
 
 int main() {
@@ -34,4 +35,13 @@ int main() {
     cout << matrizPocoPoblada->mostrar() << endl;
 
     delete matrizPocoPoblada; */
+
+    BST<int>* arbol = new BST<int>();
+
+    arbol->insert(1);
+    arbol->insert(2);
+    arbol->insert(3);
+    arbol->insert(4);
+
+    delete arbol;
 }

@@ -1,24 +1,28 @@
 #pragma once
+#ifndef EJERCICIOS_BSTNODE_H
+#define EJERCICIOS_BSTNODE_H
 
 template <typename T>
 class BSTnode {
     private:
-        T* value;
+        T value;
         BSTnode* left;
         BSTnode* right;
 
     public:
         BSTnode();
-        BSTnode(T* value);
+        BSTnode(T value);
 
-        T* getValue();
+        T getValue();
         BSTnode* getLeft();
         BSTnode* getRight();
 
-        void setValue(T* value);
+        void setValue(T value);
         void setLeft(BSTnode* left);
         void setRight(BSTnode* right);
 
         ~BSTnode();
 };
 
+#include "BSTnode.tpp"
+#endif

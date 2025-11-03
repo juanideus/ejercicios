@@ -1,4 +1,3 @@
-#include "BST.h"
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -20,11 +19,11 @@ void BST<T>::setRoot(BSTnode<T> *newRoot) {
 
 template<typename T>
 bool BST<T>::isEmpty() {
-    return this->root;
+    return this->root == nullptr;
 }
 
 template<typename T>
-void BST<T>::insert(T *value) {
+void BST<T>::insert(T value) {
     BSTnode<T>* newNode;
 
     try {
@@ -42,7 +41,7 @@ void BST<T>::insert(T *value) {
 
     while (true) {
         // lado izq de la raíz
-        if (*value < *aux->getValue()) {
+        if (value < aux->getValue()) {
             if (!aux->getLeft()) {
                 aux->setLeft(newNode);
                 return;
@@ -71,7 +70,7 @@ void BST<T>::iterativePrintPreOrder() { // raíz(imprimir) -> izq -> der
         while (aux) { // se imprime cada raiz mientras va avanzando por cada nodo izq
             cout << aux->getValue() << endl;
             s.push(aux);
-            aux->getLeft();
+            aux = aux->getLeft();
         }
 
         if (!s.empty()) { // sacamos los nodos der de cada nodo izq de abajo hacia arriba
@@ -93,7 +92,7 @@ void BST<T>::iterativePrintInOrder() { // izq -> raiz(imprimir) -> der
     while (true) {
         while (aux) {
             s.push(aux);
-            aux->getLeft();
+            aux = aux->getLeft();
         }
 
         if (!s.empty()) { // nos vamos el extremo izq de abajo y se imprime
@@ -140,7 +139,7 @@ void BST<T>::inverseIterativePrintPostOrder() {
 
 template<typename T>
 int BST<T>::grade() {
-    if (!this->isEmpty()) {
+    if (this->isEmpty()) {
         return 0;
     }
 

@@ -1,17 +1,14 @@
 //
 // Created by Juani on 05-10-2025.
 //
-
-#include "BSTnode.h"
-
 template<typename T>
 BSTnode<T>::BSTnode() : value(nullptr), left(nullptr), right(nullptr){}
 
 template<typename T>
-BSTnode<T>::BSTnode(T *value) : value(value), left(nullptr), right(nullptr){}
+BSTnode<T>::BSTnode(T value) : value(value), left(nullptr), right(nullptr){}
 
 template<typename T>
-T * BSTnode<T>::getValue() {
+T BSTnode<T>::getValue() {
     return this->value;
 }
 
@@ -26,7 +23,7 @@ BSTnode<T> * BSTnode<T>::getRight() {
 }
 
 template<typename T>
-void BSTnode<T>::setValue(T *value) {
+void BSTnode<T>::setValue(T value) {
     this->value = value;
 }
 
