@@ -5,19 +5,28 @@
 #ifndef EJERCICIOS_GUIALISTASENLAZADAS_H
 #define EJERCICIOS_GUIALISTASENLAZADAS_H
 
-
-class GuiaListasEnlazadas {
-    public:
+namespace GuiaListasEnlazadas {
         template <typename T>
-        static void invertirStack(stack<T>* S);
+        void invertirStack(stack<T>* S);
 
         template <typename T>
-        static void invertirQueue(queue<T>* Q);
+        void invertirQueue(queue<T>* Q);
 
-        static void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E);
+        void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E);
 
-        static bool isPalindromo(string str);
-};
+        bool isPalindromo(string str);
+
+        template <typename T>
+        void imprimirRecursivoInverso(NodoSimple<T>* nodo);
+
+        int sumarDiagonalPrincipalMPP(MPP* mpp);
+
+        void imprimirPosicionValor100(MPP* mpp);
+
+        int multiplicar4esquinas(MPP* mpp);
+
+        void eliminar50s(MPP* mpp);
+}
 
 #include "GuiaListasEnlazadas.tpp"
 #endif //EJERCICIOS_GUIALISTASENLAZADAS_H

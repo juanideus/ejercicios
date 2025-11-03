@@ -22,6 +22,9 @@ class MPP {
         int getColumnas();
         void setColumnas(int columnas);
 
+        NodoMPP** getAROW();
+        NodoMPP** getACOL();
+
         void insertar(int value, int fila, int columna);
         NodoMPP* obtener(int fila, int columna);
         string mostrar();

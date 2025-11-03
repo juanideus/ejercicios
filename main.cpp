@@ -9,8 +9,8 @@
 using namespace std;
 
 int main() {
-    // guía listas enlazadas
-    //stack<int>* pila = new stack<int>();
+    /* // guía listas enlazadas
+    stack<int>* pila = new stack<int>();
     queue<int>* cola = new queue<int>();
 
     for (int i = 0; i < 3; i++) {
@@ -18,13 +18,21 @@ int main() {
         cola->push(i);
     }
 
-    // GuiaListasEnlazadas::invertirStack(pila);
+    GuiaListasEnlazadas::invertirStack(pila);
     GuiaListasEnlazadas::invertirQueue(cola);
 
-    // delete pila;
+    delete pila;
     delete cola;
 
-    /* // MPP
+    ListaNexoSimple<int>* lista = new ListaNexoSimple<int>;
+
+    lista->agregarAlFinal(3);
+    lista->agregarAlFinal(2);
+    lista->agregarAlFinal(1);
+
+    GuiaListasEnlazadas::imprimirRecursivoInverso(lista->getCabecera()); */
+
+    // MPP
     MPP* matrizPocoPoblada = new MPP(5, 5);
 
     matrizPocoPoblada->insertar(1, 0, 0);
@@ -34,7 +42,23 @@ int main() {
     matrizPocoPoblada->insertar(4, 3, 3);
     matrizPocoPoblada->insertar(5, 4, 4);
 
+    matrizPocoPoblada->insertar(100, 4, 2);
+
+    matrizPocoPoblada->insertar(2, 0, 4);
+    matrizPocoPoblada->insertar(3, 4, 0);
+
+    matrizPocoPoblada->insertar(50, 0,3);
+    matrizPocoPoblada->insertar(50, 2,4);
+
     cout << matrizPocoPoblada->mostrar() << endl;
 
-    delete matrizPocoPoblada; */
+    cout << GuiaListasEnlazadas::sumarDiagonalPrincipalMPP(matrizPocoPoblada) << endl;
+    GuiaListasEnlazadas::imprimirPosicionValor100(matrizPocoPoblada);
+    cout << GuiaListasEnlazadas::multiplicar4esquinas(matrizPocoPoblada) << endl;
+
+    GuiaListasEnlazadas::eliminar50s(matrizPocoPoblada);
+
+    cout << matrizPocoPoblada->mostrar() << endl;
+
+    delete matrizPocoPoblada;
 }

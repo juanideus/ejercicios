@@ -39,6 +39,14 @@ void MPP::setColumnas(int columnas) {
     this->columnas = columnas;
 }
 
+NodoMPP ** MPP::getAROW() {
+    return this->aRow;
+}
+
+NodoMPP ** MPP::getACOL() {
+    return this->aCol;
+}
+
 void MPP::insertar(int value, int fila, int columna) {
     NodoMPP* nuevoNodo;
 
