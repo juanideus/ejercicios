@@ -1,26 +1,28 @@
 ﻿
 #include <iostream>
-
+#include <queue>
+#include <stack>
 #include "src/Listas/ListaNexoSimple.h"
 #include "src/MPP/MPP.h"
 #include "src/Arboles/BST/BST.h"
+#include "src/Guias/GuiaListasEnlazadas.h"
 using namespace std;
 
 int main() {
-    /* // guía listas enlazadas
-    stack<int>* pila = new stack<int>();
+    // guía listas enlazadas
+    //stack<int>* pila = new stack<int>();
     queue<int>* cola = new queue<int>();
 
     for (int i = 0; i < 3; i++) {
-        pila->push(i);
+        //pila->push(i);
         cola->push(i);
     }
 
-    GuiaListasEnlazadas::invertirStack<int>(pila);
-    GuiaListasEnlazadas::invertirQueue<int>(cola);
+    // GuiaListasEnlazadas::invertirStack(pila);
+    GuiaListasEnlazadas::invertirQueue(cola);
 
-    delete pila;
-    delete cola; */
+    // delete pila;
+    delete cola;
 
     /* // MPP
     MPP* matrizPocoPoblada = new MPP(5, 5);
@@ -35,13 +37,4 @@ int main() {
     cout << matrizPocoPoblada->mostrar() << endl;
 
     delete matrizPocoPoblada; */
-
-    BST<int>* arbol = new BST<int>();
-
-    arbol->insert(1);
-    arbol->insert(2);
-    arbol->insert(3);
-    arbol->insert(4);
-
-    delete arbol;
 }

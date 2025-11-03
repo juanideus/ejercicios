@@ -8,7 +8,6 @@
 
 #include "../Listas/Nodos/NodoSimple.h"
 using namespace std;
-#include "GuiaListasEnlazadas.h"
 
 // guía ejercicios listas enlazadas
 template <typename T>
@@ -23,11 +22,6 @@ void GuiaListasEnlazadas::invertirStack(stack<T>* S) {
     while (!aux.empty()) {
         S->push(aux.front());
         aux.pop();
-    }
-
-    while (!S->empty()) {
-        cout << S->top() << endl;
-        S->pop();
     }
 } // #2
 
@@ -44,39 +38,7 @@ void GuiaListasEnlazadas::invertirQueue(queue<T>* Q) {
         Q->push(aux.top());
         aux.pop();
     }
-
-    while (!Q->empty()) {
-        cout << Q->front() << " ";
-        Q->pop();
-    }
 } // #2
-
-void GuiaListasEnlazadas::clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E) {
-    while (!M->empty()) {
-        if (M->top() == 'C') {
-            C->push(M->top());
-            M->pop();
-            continue;
-        }
-
-        if (M->top() == 'D') {
-            D->push(M->top());
-            M->pop();
-            continue;
-        }
-
-        if (M->top() == 't') {
-            t->push(M->top());
-            M->pop();
-            continue;
-        }
-
-        if (M->top() == 'E') {
-            E->push(M->top());
-            M->pop();
-        }
-    }
-} // #3
 
 bool GuiaListasEnlazadas::isPalindromo(string str) {
     stack<char> pila;
@@ -98,4 +60,24 @@ bool GuiaListasEnlazadas::isPalindromo(string str) {
 
     return true;
 } // #3
+
+void GuiaListasEnlazadas::clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* T, stack<char>* E) {
+    while (!M->empty()) {
+        switch (M->top()) {
+            case 'C':
+                C->push(M->top());
+                break;
+            case 'D':
+                D->push(M->top());
+                break;
+            case 'T':
+                T->push(M->top());
+                break;
+            case 'E':
+                E->push(M->top());
+                break;
+        }
+        M->pop();
+    }
+} // #4
 //...

@@ -7,16 +7,17 @@
 
 
 class GuiaListasEnlazadas {
-    template <typename T>
-    void invertirStack(stack<T>* S);
+    public:
+        template <typename T>
+        static void invertirStack(stack<T>* S);
 
-    template <typename T>
-    void invertirQueue(queue<T>* Q);
+        template <typename T>
+        static void invertirQueue(queue<T>* Q);
 
-    void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E);
+        static void clasificarPintas(stack<char>* M, stack<char>* C, stack <char>* D, stack<char>* t, stack<char>* E);
 
-    bool isPalindromo(string str);
+        static bool isPalindromo(string str);
 };
 
-
+#include "GuiaListasEnlazadas.tpp"
 #endif //EJERCICIOS_GUIALISTASENLAZADAS_H
