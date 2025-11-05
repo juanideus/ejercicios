@@ -32,7 +32,7 @@ int main() {
 
     GuiaListasEnlazadas::imprimirRecursivoInverso(lista->getCabecera()); */
 
-    // MPP
+    /* // MPP
     MPP* matrizPocoPoblada = new MPP(5, 5);
 
     matrizPocoPoblada->insertar(1, 0, 0);
@@ -56,9 +56,5 @@ int main() {
     GuiaListasEnlazadas::imprimirPosicionValor100(matrizPocoPoblada);
     cout << GuiaListasEnlazadas::multiplicar4esquinas(matrizPocoPoblada) << endl;
 
-    GuiaListasEnlazadas::eliminar50s(matrizPocoPoblada);
-
-    cout << matrizPocoPoblada->mostrar() << endl;
-
-    delete matrizPocoPoblada;
+    delete matrizPocoPoblada; */
 }

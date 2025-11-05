@@ -16,7 +16,9 @@ add_executable(Ejercicios main.cpp
         src/template/ListaSimpleTemplate.tpp
         src/template/Persona.cpp
         src/template/Persona.h
+        src/Arboles/BST/BST.tpp
         src/Arboles/BST/BST.h
+        src/Arboles/BST/BSTnode.tpp
         src/Arboles/BST/BSTnode.h
         src/Funciones/Ejercicios.cpp
         src/Funciones/Ejercicios.h
@@ -24,10 +26,10 @@ add_executable(Ejercicios main.cpp
         src/Heaps/MaxHeap.h
         src/Heaps/NodoHeap.cpp
         src/Heaps/NodoHeap.h
-        src/Arboles/ENHEBRADO/nodoEn.cpp
-        src/Arboles/ENHEBRADO/nodoEn.h
-        src/Arboles/ENHEBRADO/ThreadedBST.cpp
-        src/Arboles/ENHEBRADO/ThreadedBST.h
+        src/Arboles/ThreadedBST/ThreadedNode.tpp
+        src/Arboles/ThreadedBST/ThreadedNode.h
+        src/Arboles/ThreadedBST/ThreadedBST.cpp
+        src/Arboles/ThreadedBST/ThreadedBST.h
         src/Guias/GuiaListasEnlazadas.h
         src/Guias/GuiaComplejidadAlgoritmica.cpp
         src/Guias/GuiaComplejidadAlgoritmica.h
