@@ -72,7 +72,7 @@ void ThreadedBST<T>::insert(T value) {
         }
         // lado der del nodo/subarbol
         // logica invertida
-        if (value > current->getValue()) {
+        if (value >= current->getValue()) {
             // si el puntero der es hebra(apunta de vuelta a la raiz)
             if (current->isRightThread()) {
                 current->setRightChild(newNode);
