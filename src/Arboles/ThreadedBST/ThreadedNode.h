@@ -6,8 +6,8 @@ class ThreadedNode {
         T value;
         ThreadedNode* leftChild;
         ThreadedNode* rightChild;
-        bool leftTread;
-        bool rightTread;
+        bool leftThread;
+        bool rightThread;
 
     public:
         ThreadedNode();
@@ -16,12 +16,12 @@ class ThreadedNode {
         T getValue();
         ThreadedNode* getLeftChild();
         ThreadedNode* getRightChild();
-        bool isLeftTread();
-        bool isRightTread();
+        bool isLeftThread();
+        bool isRightThread();
 
         void setValue(T value);
         void setLeftChild(ThreadedNode* leftChild);
         void setRightChild(ThreadedNode* rightChild);
-        void setLeftTread(bool isLeftTread);
-        void setRightTread(bool isRightTread);
+        void setLeftThread(bool isLeftTread);
+        void setRightThread(bool isRightTread);
 };

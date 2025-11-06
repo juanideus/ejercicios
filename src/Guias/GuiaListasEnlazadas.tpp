@@ -185,6 +185,12 @@ void GuiaListasEnlazadas::eliminar50s(MPP *mpp) {
                         break;
                     }
                 }
+
+                delete nodoAeliminar;
+
+                if (aux->getLeft() == mpp->getAROW()[i]) {
+                    break;
+                }
             }
             aux = aux->getLeft();
         }

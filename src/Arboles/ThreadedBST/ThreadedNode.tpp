@@ -2,11 +2,11 @@
 #include "ThreadedNode.h"
 
 template<typename T>
-ThreadedNode<T>::ThreadedNode() : value(T()), leftChild(nullptr), rightChild(nullptr), leftTread(true), rightTread(true){
+ThreadedNode<T>::ThreadedNode() : value(T()), leftChild(nullptr), rightChild(nullptr), leftThread(true), rightThread(true){
 }
 
 template<typename T>
-ThreadedNode<T>::ThreadedNode(T value) : value(value), leftChild(nullptr), rightChild(nullptr), leftTread(true), rightTread(true){}
+ThreadedNode<T>::ThreadedNode(T value) : value(value), leftChild(nullptr), rightChild(nullptr), leftThread(true), rightThread(true){}
 
 template<typename T>
 T ThreadedNode<T>::getValue() {
@@ -24,13 +24,13 @@ ThreadedNode<T> * ThreadedNode<T>::getRightChild() {
 }
 
 template<typename T>
-bool ThreadedNode<T>::isLeftTread() {
-    return this->leftTread;
+bool ThreadedNode<T>::isLeftThread() {
+    return this->leftThread;
 }
 
 template<typename T>
-bool ThreadedNode<T>::isRightTread() {
-    return this->rightTread;
+bool ThreadedNode<T>::isRightThread() {
+    return this->rightThread;
 }
 
 template<typename T>
@@ -49,11 +49,11 @@ void ThreadedNode<T>::setRightChild(ThreadedNode *rightChild) {
 }
 
 template<typename T>
-void ThreadedNode<T>::setLeftTread(bool isLeftTread) {
-    this->leftTread = isLeftTread;
+void ThreadedNode<T>::setLeftThread(bool isLeftTread) {
+    this->leftThread = isLeftTread;
 }
 
 template<typename T>
-void ThreadedNode<T>::setRightTread(bool isRightTread) {
-    this->rightTread = isRightTread;
+void ThreadedNode<T>::setRightThread(bool isRightTread) {
+    this->rightThread = isRightTread;
 }
