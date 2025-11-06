@@ -5,6 +5,7 @@
 #include "src/Listas/ListaNexoSimple.h"
 #include "src/MPP/MPP.h"
 #include "src/Arboles/BST/BST.h"
+#include "src/Guias/GuiaArboles.h"
 #include "src/Guias/GuiaListasEnlazadas.h"
 using namespace std;
 
@@ -57,4 +58,19 @@ int main() {
     cout << GuiaListasEnlazadas::multiplicar4esquinas(matrizPocoPoblada) << endl;
 
     delete matrizPocoPoblada; */
+
+    // guia arboles
+    BST<int>* abb = new BST<int>();
+
+    abb->insert(2);
+    abb->insert(1);
+    abb->insert(3);
+
+    abb->iterativePrintInOrder();
+
+    cout << GuiaArboles::contarNodosABBrecursivo(abb->getRoot()) << endl;
+
+    GuiaArboles::seEncuentraX(abb->getRoot(), 3);
+
+    delete abb;
 }

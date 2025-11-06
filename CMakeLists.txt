@@ -36,4 +36,6 @@ add_executable(Ejercicios main.cpp
         src/MPP/NodoMPP.cpp
         src/MPP/NodoMPP.h
         src/MPP/MPP.cpp
-        src/MPP/MPP.h)
+        src/MPP/MPP.h
+        src/Guias/GuiaArboles.tpp
+        src/Guias/GuiaArboles.h)

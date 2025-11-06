@@ -3,6 +3,7 @@
 //
 
 #include "BSTnode.h"
+
 template<typename T>
 BSTnode<T>::BSTnode() : value(T()), left(nullptr), right(nullptr){}
 

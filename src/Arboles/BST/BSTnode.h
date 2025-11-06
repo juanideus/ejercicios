@@ -1,4 +1,6 @@
 #pragma once
+#ifndef EJERCICIOS_BSTNODE_H
+#define EJERCICIOS_BSTNODE_H
 
 template <typename T>
 class BSTnode {
@@ -19,4 +21,7 @@ class BSTnode {
         void setLeft(BSTnode* left);
         void setRight(BSTnode* right);
 };
+
+#include "BSTnode.tpp"
+#endif
 

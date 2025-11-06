@@ -10,6 +10,8 @@ class BST {
     private:
         BSTnode<T>* root;
 
+        void deleteTree(BSTnode<T>* node);
+
     public:
         BST();
         ~BST();
@@ -20,7 +22,6 @@ class BST {
         bool isEmpty();
         void insert(T value);
         int grade();
-        void deleteTree(BSTnode<T>* node);
         // iterativos
         void iterativePrintPreOrder();
         void iterativePrintInOrder();
