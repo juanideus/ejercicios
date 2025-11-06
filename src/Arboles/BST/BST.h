@@ -12,6 +12,7 @@ class BST {
 
     public:
         BST();
+        ~BST();
 
         BSTnode<T>* getRoot();
         void setRoot(BSTnode<T>* newRoot);
@@ -19,6 +20,7 @@ class BST {
         bool isEmpty();
         void insert(T value);
         int grade();
+        void deleteTree(BSTnode<T>* node);
         // iterativos
         void iterativePrintPreOrder();
         void iterativePrintInOrder();

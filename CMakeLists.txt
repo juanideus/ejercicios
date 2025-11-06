@@ -28,7 +28,7 @@ add_executable(Ejercicios main.cpp
         src/Heaps/NodoHeap.h
         src/Arboles/ThreadedBST/ThreadedNode.tpp
         src/Arboles/ThreadedBST/ThreadedNode.h
-        src/Arboles/ThreadedBST/ThreadedBST.cpp
+        src/Arboles/ThreadedBST/ThreadedBST.tpp
         src/Arboles/ThreadedBST/ThreadedBST.h
         src/Guias/GuiaListasEnlazadas.h
         src/Guias/GuiaComplejidadAlgoritmica.cpp

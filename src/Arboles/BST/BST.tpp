@@ -1,3 +1,4 @@
+#include "BST.h"
 #include <iostream>
 #include <stack>
 using namespace std;
@@ -6,6 +7,12 @@ template<typename T>
 BST<T>::BST() {
     this->root = nullptr;
 }
+
+template<typename T>
+BST<T>::~BST() {
+    this->deleteTree(this->root);
+}
+
 
 template<typename T>
 BSTnode<T> *BST<T>::getRoot() {
@@ -166,4 +173,19 @@ int BST<T>::grade() {
             break;
         }
     }
+}
+
+template<typename T>
+void BST<T>::deleteTree(BSTnode<T>* node) {
+    // metodo de eliminación recursivo in order (izq -> der -> raiz)
+    if (!node) {
+        return;
+    }
+    // recorremos hasta el ultimo nodo izq
+    deleteTree(node->getLeft());
+    // si no hay nodo izq del nodo actual
+    // recorremos el nodo der del nodo actual
+    deleteTree(node->getRight());
+    // si tampoco hay nodo der del nodo actual, eliminamos raiz
+    delete node;
 }

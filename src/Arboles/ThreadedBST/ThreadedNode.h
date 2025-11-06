@@ -12,7 +12,6 @@ class ThreadedNode {
     public:
         ThreadedNode();
         ThreadedNode(T value);
-        ~ThreadedNode();
 
         T getValue();
         ThreadedNode* getLeftChild();

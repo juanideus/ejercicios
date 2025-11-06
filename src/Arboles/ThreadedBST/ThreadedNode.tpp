@@ -2,26 +2,11 @@
 #include "ThreadedNode.h"
 
 template<typename T>
-ThreadedNode<T>::ThreadedNode() {
-    this->value = nullptr;
-    this->leftChild = nullptr;
-    this->rightChild = nullptr;
-    this->leftTread = true;
-    this->rightTread = true;
+ThreadedNode<T>::ThreadedNode() : value(T()), leftChild(nullptr), rightChild(nullptr), leftTread(true), rightTread(true){
 }
 
 template<typename T>
-ThreadedNode<T>::ThreadedNode(T value) {
-    this->value = value;
-    this->leftChild = nullptr;
-    this->rightChild = nullptr;
-    this->leftTread = true;
-    this->rightTread = true;
-}
-
-template<typename T>
-ThreadedNode<T>::~ThreadedNode() {
-}
+ThreadedNode<T>::ThreadedNode(T value) : value(value), leftChild(nullptr), rightChild(nullptr), leftTread(true), rightTread(true){}
 
 template<typename T>
 T ThreadedNode<T>::getValue() {
