@@ -12,6 +12,9 @@ namespace GuiaArboles {
 
     template <typename T>
     void seEncuentraX(BSTnode<T>* nodo, T x);
+
+    template <typename T>
+    int contarHojas(BSTnode<T>* nodo);
 }
 
 #include "GuiaArboles.tpp"
