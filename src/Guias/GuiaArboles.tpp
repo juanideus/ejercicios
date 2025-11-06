@@ -24,3 +24,14 @@ void GuiaArboles::seEncuentraX(BSTnode<T>* nodo, T x) {
 
     seEncuentraX(nodo->getLeft()) + seEncuentraX(nodo->getRight());
 }
+
+template<typename T>
+int contarHojas(BSTnode<T>* nodo) {
+    if (!nodo) return 0;
+
+    if (!nodo->getLeft() && !nodo->getRight()) {
+        return 1;
+    }
+
+    return contarHojas(nodo->getLeft()) + contarHojas(nodo->getRight());
+}
