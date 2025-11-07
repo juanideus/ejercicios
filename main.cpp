@@ -1,8 +1,10 @@
 ﻿
 #include "iostream"
+#include "src/Arboles/AVL.h"
 #include "src/Arboles/ABB/ABB.h"
 #include "src/Arboles/ENHEBRADO/ThreadedBST.h"
 #include "src/Funciones/Ejercicios.h"
+#include "src/Heaps/MaxHeap.h"
 #include "src/MPP/MPP.h"
 
 
@@ -12,26 +14,11 @@ using namespace std;
 
 
 //**Ejecuta aqui tu codigo**
-int main() {
-
-
-
-
-    ThreadedBST *bst=new ThreadedBST();
-    bst->insertar(50);
-    bst->insertar(48);
-    bst->insertar(53);
-    bst->insertar(35);
-    bst->insertar(51);
-    bst->insertar(60);
-    bst->insertar(52);
-    bst->insertar(1);
-    // bst->toString(2);
-    // cout<<endl;
-    // bst->inorderIterativo();
-    // cout<<bst->toStringInOrder()<<endl;
-    // bst->imprimir();
-    bst->imprimir();
-
-
+int main()
+{
+    AVL*avl=new AVL();
+    avl->insertar(50);
+    avl->insertar(30);
+    avl->insertar(20);
+    avl->inorden(avl->root);
 }
