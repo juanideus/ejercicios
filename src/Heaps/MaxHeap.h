@@ -8,24 +8,13 @@
 
 
 class MaxHeap {
-    NodoHeap* root;
-    NodoHeap* crearNodo(int key);
-    bool isEmpty();
+    NodoHeap* heap;
     public:
     MaxHeap();
-    ~MaxHeap();
-    void insert(int key[]);
-    bool isHeapify();
-    void swap(int a[]);
-
-
-
-
-
-
-
-
-
+    bool isEmpty();
+    bool isHeap(int* datos);
+    void insert(int* datos, int n);
+    void inorder(NodoHeap* datos);
 };
 
 

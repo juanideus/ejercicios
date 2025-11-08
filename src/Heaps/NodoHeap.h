@@ -12,22 +12,13 @@ class NodoHeap {
     NodoHeap* right;
     public:
     NodoHeap();
-    ~NodoHeap();
-    NodoHeap(int data);
-    void setData(int data);
-    int getData();
-    void setLeft(NodoHeap* left);
+    NodoHeap(int dato);
+    void setLeft(NodoHeap* nodo);
+    void setRight(NodoHeap* nodo);
+    int getDato();
     NodoHeap* getLeft();
-    void setRight(NodoHeap* right);
     NodoHeap* getRight();
-
-
-
-
-
-
-
-
+    void setDato(int dato);
 
 
 
