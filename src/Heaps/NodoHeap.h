@@ -10,6 +10,27 @@ class NodoHeap {
     int dato;
     NodoHeap* left;
     NodoHeap* right;
+    public:
+    NodoHeap();
+    ~NodoHeap();
+    NodoHeap(int data);
+    void setData(int data);
+    int getData();
+    void setLeft(NodoHeap* left);
+    NodoHeap* getLeft();
+    void setRight(NodoHeap* right);
+    NodoHeap* getRight();
+
+
+
+
+
+
+
+
+
+
+
 };
 
 

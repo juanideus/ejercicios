@@ -54,7 +54,7 @@ NodoEn* ThreadedBST::predecesorInorden(NodoEn* nodo) {
 
 void ThreadedBST::insertar(int dato) {
     NodoEn*aux=this->root;
-    NodoEn *nuevoNodo = new NodoEn(dato),*padre=aux;
+    NodoEn *nuevoNodo = new NodoEn(dato);
     if (aux->getLeftThread()) {
         nuevoNodo->setLeftChild(aux);
         nuevoNodo->setRightChild(aux);
@@ -67,11 +67,9 @@ void ThreadedBST::insertar(int dato) {
     while (true) {
 
         if (dato>aux->getDato() && !aux->getRightThread()) {
-            padre=aux;
             aux=aux->getRightChild();
         }
         else if (dato<aux->getDato() && !aux->getLeftThread()) {
-            padre=aux;
             aux=aux->getLeftChild();
         }else {
             break;
@@ -110,8 +108,6 @@ string ThreadedBST::toStringInOrder() {
         ss<<aux->getDato()<<" ";
         if (aux->getDato()==root->getLeftChild()->getDato()) {
             aux=leftMost(aux->getRightChild());
-
-
 
         }else {
             aux=aux->getRightChild();
