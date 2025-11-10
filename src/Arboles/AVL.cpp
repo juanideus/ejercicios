@@ -7,22 +7,40 @@
 #include <algorithm>
 #include <iostream>
 
-void AVL::RR(NodoAVL* nodo){
+NodoAVL *AVL::RR(NodoAVL *nodo){
+    NodoAVL* newRoot = nodo->getRight();
+    NodoAVL* temp = newRoot->getLeft();
+
+    newRoot->setLeft(nodo);
+    nodo->setRight(temp);
+
+    nodo->setAltura(1 + std::max(obtenerAltura(nodo->getLeft()), obtenerAltura(nodo->getRight())));
+    newRoot->setAltura(1 + std::max(obtenerAltura(newRoot->getLeft()), obtenerAltura(newRoot->getRight())));
+    return newRoot;
+}
+//TODO
+NodoAVL *AVL::LR(NodoAVL *nodo){
+    NodoAVL* aux=nodo->getLeft();
+    NodoAVL* temp=aux->getRight();
+    nodo->setLeft(temp->getRight());
+    aux->setRight(temp->getLeft());
+    temp->setLeft(aux);
+    temp->setRight(nodo);
+    return temp;
+
 }
 
-void AVL::LR(NodoAVL* nodo){
-
-
-}
-
-void AVL::RL(NodoAVL* nodo){
+NodoAVL *AVL::RL(NodoAVL *nodo){
+    NodoAVL* aux=nodo->getRight();
+    NodoAVL* temp=aux->getLeft();
+    nodo->setRight(temp->getLeft());
+    aux->setLeft(temp->getRight());
+    temp->setRight(aux);
+    temp->setLeft(nodo);
+    return temp;
 }
 
 NodoAVL* AVL::LL(NodoAVL* nodo){
-    if (nodo == nullptr || nodo->getLeft() == nullptr) {
-        std::cout << "❌ LL inválida: nodo o hijo izquierdo nulo" << std::endl;
-        return nodo; // no rota
-    }
 
     NodoAVL* newRoot = nodo->getLeft();
     NodoAVL* temp = newRoot->getRight();
@@ -30,7 +48,6 @@ NodoAVL* AVL::LL(NodoAVL* nodo){
     newRoot->setRight(nodo);
     nodo->setLeft(temp);
 
-    // recalcular alturas
     nodo->setAltura(1 + std::max(obtenerAltura(nodo->getLeft()), obtenerAltura(nodo->getRight())));
     newRoot->setAltura(1 + std::max(obtenerAltura(newRoot->getLeft()), obtenerAltura(newRoot->getRight())));
 
@@ -85,16 +102,18 @@ NodoAVL* AVL::insertar(NodoAVL* N, int dato)
     int fb = FactorBalance(N);
 
     // 🔹 Casos de rotación
-    if (fb > 1 && dato < N->getLeft()->getDato())
-        return LL(N); // rotación simple izquierda
-    // if (fb < -1 && dato > N->getRight()->getDato())
-    //     return RR(N);
-    // if (fb > 1 && dato > N->getLeft()->getDato())
-    //     return LR(N);
-    // if (fb < -1 && dato < N->getRight()->getDato())
-    //     return RL(N);
+    if (fb > 1 && dato < N->getLeft()->getDato())        // Caso LL
+        return LL(N);
 
-    // 🔹 Si está balanceado, retornar el nodo actual
+    if (fb < -1 && dato > N->getRight()->getDato())      // Caso RR
+        return RR(N);
+
+    if (fb > 1 && dato > N->getLeft()->getDato())        // Caso LR
+        return LR(N);
+
+    if (fb < -1 && dato < N->getRight()->getDato())      // Caso RL
+        return RL(N);
+
     return N;
 }
 

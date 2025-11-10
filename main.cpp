@@ -17,8 +17,16 @@ using namespace std;
 int main()
 {
     AVL*avl=new AVL();
-    avl->insertar(50);
-    avl->insertar(30);
-    avl->insertar(20);
+    avl->insertar(100);
+    avl->insertar(90);
+    avl->insertar(120);
+    avl->insertar(93);
+    avl->insertar(92);
+    avl->insertar(95);
+    avl->insertar(110);
+    avl->insertar(140);
+
+
+
     avl->inorden(avl->root);
 }

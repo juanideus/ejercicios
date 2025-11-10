@@ -12,9 +12,11 @@ class AVL{
     NodoAVL* root;
 
     //Metodos
-    void RR(NodoAVL*nodo);
-    void LR(NodoAVL*nodo);
-    void RL(NodoAVL*nodo);
+    NodoAVL *RR(NodoAVL *nodo);
+
+    NodoAVL *LR(NodoAVL *nodo);
+
+    NodoAVL *RL(NodoAVL *nodo);
     NodoAVL* LL(NodoAVL* nodo);
     int obtenerAltura(NodoAVL* nodo);
     int FactorBalance(NodoAVL* nodo);
