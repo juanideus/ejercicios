@@ -1,13 +1,13 @@
 ﻿
 #include "iostream"
 #include "src/Arboles/AVL.h"
-#include "src/Arboles/ABB/ABB.h"
-#include "src/Arboles/ENHEBRADO/ThreadedBST.h"
+#include "src/Arboles/AVL.h"
 #include "src/Funciones/Ejercicios.h"
 #include "src/Heaps/MaxHeap.h"
 #include "src/MPP/MPP.h"
 
 
+class AVL;
 using namespace Ejercicios;
 using namespace std;
 
@@ -16,17 +16,11 @@ using namespace std;
 //**Ejecuta aqui tu codigo**
 int main()
 {
-    AVL*avl=new AVL();
-    avl->insertar(100);
-    avl->insertar(90);
-    avl->insertar(120);
-    avl->insertar(93);
-    avl->insertar(92);
-    avl->insertar(95);
-    avl->insertar(110);
-    avl->insertar(140);
-
-
-
-    avl->inorden(avl->root);
+    AVL*bst=new AVL();
+    bst->insertar(100);
+    bst->insertar(90);
+    bst->insertar(95);
+    bst->insertar(80);
+    bst->insertar(85);
+    bst->inorden(bst->root);
 }

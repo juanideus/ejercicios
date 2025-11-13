@@ -243,16 +243,16 @@ void ABB::inorderIterativo() {
         while (aux) {
             s.push(aux);
             //pre
-            // cout<<aux->getDato()<<endl;
+            cout<<aux->getDato()<<endl;
 
-            aux = aux->getLeft();
+            aux = aux->getRight();
         }
         if (s.empty()) {return; }
         aux = s.top();
         s.pop();
-        //in
-        cout<<aux->getDato()<<endl;
-        aux = aux->getRight();
+        // //in
+        // cout<<aux->getDato()<<endl;
+        aux = aux->getLeft();
 
 
     }

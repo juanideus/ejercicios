@@ -20,13 +20,12 @@ NodoAVL *AVL::RR(NodoAVL *nodo){
 }
 //TODO
 NodoAVL *AVL::LR(NodoAVL *nodo){
-    NodoAVL* aux=nodo->getLeft();
-    NodoAVL* temp=aux->getRight();
-    nodo->setLeft(temp->getRight());
-    aux->setRight(temp->getLeft());
-    temp->setLeft(aux);
-    temp->setRight(nodo);
-    return temp;
+    NodoAVL*aux=nodo->getLeft();
+    NodoAVL* temp=aux->getRight()->getLeft();
+    nodo->setLeft(aux->getRight());
+    aux->getRight()->setLeft(aux);
+    aux->setRight(temp);
+    return LL(nodo);
 
 }
 
