@@ -22,7 +22,7 @@ void GuiaArboles::seEncuentraX(BSTnode<T>* nodo, T x) {
         return;
     }
 
-    seEncuentraX(nodo->getLeft()) + seEncuentraX(nodo->getRight());
+    seEncuentraX(nodo->getLeft(), x) + seEncuentraX(nodo->getRight(), x);
 }
 
 template<typename T>

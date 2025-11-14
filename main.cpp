@@ -70,7 +70,5 @@ int main() {
 
     cout << GuiaArboles::contarNodosABBrecursivo(abb->getRoot()) << endl;
 
-    GuiaArboles::seEncuentraX(abb->getRoot(), 3);
-
     delete abb;
 }
