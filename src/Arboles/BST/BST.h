@@ -21,7 +21,8 @@ class BST {
         // methods
         bool isEmpty();
         void insert(T value);
-        int grade();
+        int getGrade();
+        int getTreeHeight(BSTnode<T>* node);
         // iterativos
         void iterativePrintPreOrder();
         void iterativePrintInOrder();

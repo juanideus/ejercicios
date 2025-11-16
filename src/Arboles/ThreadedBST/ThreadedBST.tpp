@@ -25,7 +25,7 @@ ThreadedBST<T>::~ThreadedBST() {
 
 template<typename T>
 bool ThreadedBST<T>::isEmpty() {
-    // se valida la hebra izq porque por ese lado se insertar los nodos
+    // se valida la hebra izq porque por ese lado se insertan los nodos
     // si es hebra(true) no se ha insertado ningun nodo(la raiz se apunta a si misma)
     return this->dummyRoot->isLeftThread();
 }
@@ -53,38 +53,72 @@ void ThreadedBST<T>::insert(T value) {
     ThreadedNode<T>* current = this->dummyRoot->getLeftChild();
 
     while (true) {
-        // lado izq del nodo/subarbol
+        // lado izq del (sub)arbol
         if (value < current->getValue()) {
-            // si el puntero izq es hebra(apunta de vuelta a la raiz)
             if (current->isLeftThread()) {
                 current->setLeftChild(newNode);
-                // ahora newNode es hijo de current
                 current->setLeftThread(false);
-                // newNode al ser el ultimo nodo izq apunta de vuelta a la raiz
-                newNode->setLeftChild(this->dummyRoot);
-                // newNode por la der apunta de vuelta a su predecesor(current)
                 newNode->setRightChild(current);
-                return;
+                // si la hebra izq es la raiz
+                if (current->getLeftChild() == this->dummyRoot) {
+                    newNode->setLeftChild(this->dummyRoot);
+                    return;
+                } else {
+                    // si no es la raiz
+                    // apunta al predecesor de current
+                    ThreadedNode<T>* currentFather = this->getCurrentFather(current);
+
+                    newNode->setLeftChild(currentFather);
+                    return;
+                }
             } else {
                 current = current->getLeftChild();
                 continue;
             }
         }
-        // lado der del nodo/subarbol
-        // logica invertida
+        // lado der del (sub)arbol
         if (value >= current->getValue()) {
-            // si el puntero der es hebra(apunta de vuelta a la raiz)
             if (current->isRightThread()) {
                 current->setRightChild(newNode);
-                // ahora newNode es hijo de current
                 current->setRightThread(false);
-                // newNode al ser el ultimo nodo der apunta de vuelta a la raiz
-                newNode->setRightChild(this->dummyRoot);
-                //newNode por la izq apunta de vuelta a su predecesor(current)
                 newNode->setLeftChild(current);
-                return;
+                // si la hebra der es la raiz
+                if (current->getRightChild() == this->dummyRoot) {
+                    newNode->setRightChild(this->dummyRoot);
+                } else {
+                    // si no es la raiz
+                    // apunta al predecesor de current
+                    ThreadedNode<T>* currentFather = this->getCurrentFather(current);
+
+                    newNode->setRightChild(currentFather);
+                    return;
+                }
+            }
+        } else {
+            current = current->getRightChild();
+        }
+    }
+}
+
+template<typename T>
+ThreadedNode<T> * ThreadedBST<T>::getCurrentFather(ThreadedNode<T> *currentNode) {
+    ThreadedNode<T>* aux = this->dummyRoot->getLeftChild();
+
+    while (true) {
+        if (currentNode->getValue() < aux->getValue()) {
+            if (aux->getLeftChild()->getValue() == currentNode->getValue()) {
+                return aux;
             } else {
-                current = current->getRightChild();
+                aux = aux->getLeftChild();
+                continue;
+            }
+        }
+
+        if (currentNode->getValue() > aux->getValue()) {
+            if (aux->getRightChild()->getValue() == currentNode->getValue()) {
+                return aux;
+            } else {
+                aux = aux->getRightChild();
             }
         }
     }

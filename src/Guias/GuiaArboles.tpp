@@ -18,15 +18,16 @@ void GuiaArboles::seEncuentraX(BSTnode<T>* nodo, T x) {
     }
 
     if (nodo->getValue() == x) {
-        cout << "El valor " + to_string(x) + " si se encuentra en el arbol";
+        cout << "El valor " << x << " si se encuentra en el arbol" << endl;
         return;
     }
 
-    seEncuentraX(nodo->getLeft(), x) + seEncuentraX(nodo->getRight(), x);
+    seEncuentraX(nodo->getLeft(), x);
+    seEncuentraX(nodo->getRight(), x);
 }
 
 template<typename T>
-int contarHojas(BSTnode<T>* nodo) {
+int GuiaArboles::contarHojas(BSTnode<T> *nodo) {
     if (!nodo) return 0;
 
     if (!nodo->getLeft() && !nodo->getRight()) {

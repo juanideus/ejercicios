@@ -145,7 +145,22 @@ void BST<T>::inverseIterativePrintPostOrder() {
 }
 
 template<typename T>
-int BST<T>::grade() {
+void BST<T>::deleteTree(BSTnode<T>* node) {
+    // metodo de eliminación recursivo in order (izq -> der -> raiz)
+    if (!node) {
+        return;
+    }
+    // recorremos hasta el ultimo nodo izq
+    deleteTree(node->getLeft());
+    // si no hay nodo izq del nodo actual
+    // recorremos el nodo der del nodo actual
+    deleteTree(node->getRight());
+    // si tampoco hay nodo der del nodo actual, eliminamos raiz
+    delete node;
+}
+
+template<typename T>
+int BST<T>::getGrade() {
     if (this->isEmpty()) {
         return 0;
     }
@@ -176,16 +191,14 @@ int BST<T>::grade() {
 }
 
 template<typename T>
-void BST<T>::deleteTree(BSTnode<T>* node) {
-    // metodo de eliminación recursivo in order (izq -> der -> raiz)
-    if (!node) {
-        return;
+int BST<T>::getTreeHeight(BSTnode<T> *node) {
+    if (!node) return 0;
+
+    if (!node->getLeft() && !node->getRight()) return 1;
+
+    if (this->getTreeHeight(node->getLeft()) > this->getTreeHeight(node->getRight())) {
+        return this->getTreeHeight(node->getLeft());
+    } else {
+        return this->getTreeHeight(node->getRight());
     }
-    // recorremos hasta el ultimo nodo izq
-    deleteTree(node->getLeft());
-    // si no hay nodo izq del nodo actual
-    // recorremos el nodo der del nodo actual
-    deleteTree(node->getRight());
-    // si tampoco hay nodo der del nodo actual, eliminamos raiz
-    delete node;
 }

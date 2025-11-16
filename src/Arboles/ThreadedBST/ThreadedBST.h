@@ -14,5 +14,6 @@ class ThreadedBST {
 
         bool isEmpty();
         void insert(T value);
+        ThreadedNode<T>* getCurrentFather(ThreadedNode<T>* currentNode);
 };
 
