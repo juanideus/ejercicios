@@ -88,6 +88,8 @@ string MPP::toString() {
 
 
 
+void MPP::insertar(int fila, int col) {
+}
 
 void MPP::eliminar(int fila, int col) {
 }
@@ -207,10 +209,6 @@ void MPP::eliminar50() {
 
 
     }
-}
-
-NodoMPP ** MPP::getRow() {
-
 }
 
 
