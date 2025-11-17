@@ -7,6 +7,8 @@
 #include <sstream>
 #include <vector>
 #include "../Polinomios/ListaPolinomios.h"
+#include "../MPP/NodoMPP.h"
+#include "../MPP/MPP.h"
 
 namespace Ejercicios {
 
@@ -134,6 +136,77 @@ void sumar(ListaPolinomios *A, ListaPolinomios *B, ListaPolinomios *C) {
 // --- Otras funciones ---
 void duplicar(int *numero) { *numero *= 2; }
 
+void ejercicio3(MPP *matriz, int n) {
+    int counter = 0,i;
+    NodoMPP* nodo;
+    for (i = 1; i <= n; i++) {
+        nodo=matriz->getRow()[i]->getLeft();
+        while (nodo->getCol()!=0) {
+            if (nodo->getCol()==i) {
+                counter++;
+            }
+            if (nodo->getCol()==matriz->GetLargo()-i+1) {
+                counter++;
+            }
+            nodo=nodo->getLeft();
+        }
+    }
+    if (matriz->GetLargo()%2!=0) {
+        nodo=matriz->getRow()[n+1/2]->getLeft();
+        while (nodo->getCol()!=0) {
+            if (nodo->getCol()==(n+1)/2) {
+                counter--;
+            }
+            nodo=nodo->getLeft();
+        }
+    }
+    cout << counter << endl;
+}
+
+void sumarBordesMPP(MPP *matriz, int n) {
+    int counter = 0;
+    NodoMPP* nodo;
+    nodo=matriz->getRow()[1]->getLeft();
+    while (nodo->getCol()!=0) {
+        counter=counter+nodo->getValor();
+        nodo=nodo->getLeft();
+    }
+    nodo=matriz->getRow()[n]->getLeft();
+    while (nodo->getCol()!=0) {
+        counter=counter+nodo->getValor();
+        nodo=nodo->getLeft();
+    }
+    for (int i = 2; i < n; i++) {
+        nodo=matriz->getRow()[i]->getLeft();
+        while (nodo->getCol()!=0) {
+            if (nodo->getCol()==1 || nodo->getCol()==n) {
+                counter=counter+nodo->getValor();
+            }
+            nodo=nodo->getLeft();
+        }
+    }
+    cout << counter << endl;
+}
+
+void contarFilaConMasNodos(MPP *matriz, int n) {
+    int counter = 0,aux=0,fil=0;
+    NodoMPP* nodo;
+    for (int i = 1; i <= n; ++i) {
+        nodo=matriz->getRow()[i]->getLeft();
+        while (nodo->getCol()!=0) {
+            aux++;
+            nodo=nodo->getLeft();
+        }
+        if (aux>counter) {
+            counter=aux;
+            fil=i;
+            aux=0;
+        }
+
+    }
+    cout << "La fila con mas nodos es la " << fil << "con: "<< counter << endl;
+}
+
 void sumarDiagonales(int **M, int N, int &suma) {
     for (int i = 0; i < N; i++) {
         suma += M[i][i] + M[i][N - i - 1];
@@ -141,3 +214,7 @@ void sumarDiagonales(int **M, int N, int &suma) {
 }
 
 } // namespace Ejercicios
+
+
+
+

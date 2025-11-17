@@ -210,7 +210,7 @@ void MPP::eliminar50() {
 }
 
 NodoMPP ** MPP::getRow() {
-    return this->AROW;
+
 }
 
 

@@ -21,7 +21,7 @@ class MPP {
 
     string toString();
 
-
+    void insertar(int fila, int col);
 
     void eliminar(int fila, int col);
 
@@ -41,7 +41,11 @@ class MPP {
 
     void eliminar50();
 
-    NodoMPP**getRow();
+    int countarDiagonales();
+
+    NodoMPP **getRow();
+
+    NodoMPP **getCol();
 
 };
 
