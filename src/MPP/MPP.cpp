@@ -211,6 +211,17 @@ void MPP::eliminar50() {
     }
 }
 
+int MPP::countarDiagonales() {
+}
+
+NodoMPP ** MPP::getRow() {
+    return this->AROW;
+}
+
+NodoMPP ** MPP::getCol() {
+    return this->ACOL;
+}
+
 
 
 
