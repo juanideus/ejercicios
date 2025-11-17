@@ -155,8 +155,6 @@ void ABB::eliminar(int dato) {
             remplazante->setRight(subArbolDer);
             remplazante->setLeft(subArbolizq);
         }
-
-
         delete NodoEliminar;
 
     }

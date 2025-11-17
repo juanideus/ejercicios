@@ -31,12 +31,11 @@ NodoAVL *AVL::LR(NodoAVL *nodo){
 
 NodoAVL *AVL::RL(NodoAVL *nodo){
     NodoAVL* aux=nodo->getRight();
-    NodoAVL* temp=aux->getLeft();
+    NodoAVL* temp=aux->getLeft()->getRight();
     nodo->setRight(temp->getLeft());
     aux->setLeft(temp->getRight());
-    temp->setRight(aux);
-    temp->setLeft(nodo);
-    return temp;
+    aux->setLeft(temp);
+    return RR(nodo);
 }
 
 NodoAVL* AVL::LL(NodoAVL* nodo){
@@ -84,13 +83,12 @@ void AVL::insertar(int dato){
 
 NodoAVL* AVL::insertar(NodoAVL* N, int dato)
 {
-    if (N == nullptr)
-        return new NodoAVL(dato);
+    if (N == nullptr) return new NodoAVL(dato);
 
-    if (dato < N->getDato())
-        N->setLeft(insertar(N->getLeft(), dato));
-    else if (dato > N->getDato())
-        N->setRight(insertar(N->getRight(), dato));
+    if (dato < N->getDato()) N->setLeft(insertar(N->getLeft(), dato));
+
+    else if (dato > N->getDato()) N->setRight(insertar(N->getRight(), dato));
+
     else
         return N; // dato duplicado
 

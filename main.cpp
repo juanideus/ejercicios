@@ -16,11 +16,18 @@ using namespace std;
 //**Ejecuta aqui tu codigo**
 int main()
 {
-    AVL*bst=new AVL();
-    bst->insertar(100);
-    bst->insertar(90);
-    bst->insertar(95);
-    bst->insertar(80);
-    bst->insertar(85);
-    bst->inorden(bst->root);
+    AVL*avl=new AVL();
+    avl->insertar(90);
+    avl->insertar(45);
+    avl->insertar(95);
+    avl->insertar(20);
+    avl->insertar(70);
+    avl->insertar(60);
+    avl->insertar(80);
+    avl->insertar(65);
+    // ← este causa el LR exótico
+    // ← aquí ocurre el LR
+
+
+   avl->inorden(avl->root);
 }
