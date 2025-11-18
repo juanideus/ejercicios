@@ -96,17 +96,19 @@ void ThreadedBST::eliminar(int dato) {
 int ThreadedBST::buscar(int dato) {
     NodoEn *aux = this->root->getLeftChild();
     while (true) {
-        if (dato > aux->getDato() && !aux->getRightThread()) {
-            aux=aux->getRightChild();
-        }
-        if (dato < aux->getDato() && !aux->getLeftThread()) {
-            aux=aux->getLeftChild();
-        }
         if (aux->getDato() == dato) {
             return aux->getDato();
         }
+        if (dato > aux->getDato() && !aux->getRightThread()) {
+            aux=aux->getRightChild();
+        }
+        else if (dato < aux->getDato() && !aux->getLeftThread()) {
+            aux=aux->getLeftChild();
+        }else {
+            return -1;
+        }
     }
-    return -1;
+
 }
 
 

@@ -18,15 +18,18 @@ using namespace std;
 int main()
 {
     ThreadedBST*bst=new ThreadedBST();
-    bst->insertar(10);
-    bst->insertar(20);
-    bst->insertar(15);
-    bst->insertar(30);
-    bst->insertar(29);
-    bst->insertar(100);
-    bst->insertar(0);
-    bst->insertar(60);
-   cout<< bst->buscar(100);
+    bst->insertar(50);
+bst->insertar(25);
+bst->insertar(75);
+bst->insertar(10);
+bst->insertar(33);
+bst->insertar(60);
+bst->insertar(80);
+bst->insertar(5);
+bst->insertar(15);
+bst->insertar(70);
+
+   cout<< bst->buscar(70);
     // ← este causa el LR exótico
     // ← aquí ocurre el LR
 
