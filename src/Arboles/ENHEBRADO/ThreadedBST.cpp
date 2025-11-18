@@ -93,6 +93,22 @@ void ThreadedBST::insertar(int dato) {
 void ThreadedBST::eliminar(int dato) {
 }
 
+int ThreadedBST::buscar(int dato) {
+    NodoEn *aux = this->root->getLeftChild();
+    while (true) {
+        if (dato > aux->getDato() && !aux->getRightThread()) {
+            aux=aux->getRightChild();
+        }
+        if (dato < aux->getDato() && !aux->getLeftThread()) {
+            aux=aux->getLeftChild();
+        }
+        if (aux->getDato() == dato) {
+            return aux->getDato();
+        }
+    }
+    return -1;
+}
+
 
 string ThreadedBST::toStringInOrder() {
     stringstream ss;

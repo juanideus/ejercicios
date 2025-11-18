@@ -19,7 +19,7 @@ class ThreadedBST {
 
     void insertar(int dato);
     void eliminar(int dato);
-
+    int buscar(int dato);
     string toStringInOrder();
     void InorderRecursivo(NodoEn* nodo);
     void imprimir();
