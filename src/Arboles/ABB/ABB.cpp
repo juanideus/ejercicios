@@ -60,6 +60,7 @@ bool ABB::existe(NodoABB *nodo, int dato) {
 }
 
 NodoABB *ABB::getRoot() {
+    return this->root;
 }
 
 bool ABB::isEmpty() {

@@ -40,4 +40,6 @@ add_executable(Ejercicios main.cpp
         src/Arboles/AVL.h
         src/Arboles/NodoAVL.cpp
         src/Arboles/NodoAVL.h
-        src/Arboles/NodoAVL.cpp)
+        src/Arboles/NodoAVL.cpp
+        src/Funciones/guia2.cpp
+        src/Funciones/guia2.h)
