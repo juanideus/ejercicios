@@ -32,7 +32,7 @@ int main()
     bst->insertar(15);
     bst->insertar(70);
 
-    cout << contarHojas(bst->getRoot());
+    cout<< susecorPreOrden(bst->obtener(15,bst->getRoot()),bst);
 
 
 

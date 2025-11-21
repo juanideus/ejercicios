@@ -30,3 +30,9 @@ void guia2::deleteAbb(NodoABB *N) {
     delete N;
 
 }
+
+int guia2::susecorPreOrden(NodoABB *N,ABB*A) {
+
+
+
+}

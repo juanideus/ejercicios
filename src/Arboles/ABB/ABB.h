@@ -33,4 +33,6 @@ class ABB {
     void toString(int opcion);
 
 
+
+    NodoABB * obtener(int i, NodoABB * nodoAbb);
 };

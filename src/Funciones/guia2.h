@@ -8,6 +8,7 @@ namespace guia2 {
     int contarHojas(NodoABB *N);
     int contarVeces(NodoABB *N);
     void deleteAbb(NodoABB *N);
+    int susecorPreOrden(NodoABB *N, ABB *A);
 
 };
 

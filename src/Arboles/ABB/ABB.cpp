@@ -281,3 +281,12 @@ void ABB::toString(int opcion) {
         default: break;
     }
 }
+
+NodoABB * ABB::obtener(int i, NodoABB *nodoAbb) {
+    if (nodoAbb->getDato()==i)return nodoAbb;
+    if (nodoAbb==nullptr)return nullptr;
+    if (i<nodoAbb->getDato())return obtener(i, nodoAbb->getLeft());
+    return obtener(i, nodoAbb->getRight());
+}
+
+
