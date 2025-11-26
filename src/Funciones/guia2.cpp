@@ -4,6 +4,40 @@
 
 #include "guia2.h"
 
+#include <queue>
+
+NodoHeap * guia2::padreSucesor(NodoHeap *N) {
+
+
+        if (N == nullptr) return nullptr;
+        if (N->getLeft() == nullptr && N->getRight() == nullptr)
+            return nullptr; // solo raíz, no hay padre del último
+
+        queue<NodoHeap*> q;
+        q.push(N);
+
+        NodoHeap* padre = nullptr;
+
+        while (!q.empty()) {
+            NodoHeap* actual = q.front();
+            q.pop();
+
+            // Si tiene hijo izquierdo, ese es hijo → actual es su padre
+            if (actual->getLeft()) {
+                padre = actual;
+                q.push(actual->getLeft());
+            }
+
+            // Si tiene hijo derecho, ese es hijo → actual es su padre
+            if (actual->getRight()) {
+                padre = actual;
+                q.push(actual->getRight());
+            }
+        }
+
+        return padre; // el último padre visitado es el padre del último nodo
+    }
+
 int guia2::contarNodos(NodoABB*root) {
     if (root==nullptr)return 0;
     return 1+contarNodos(root->getLeft())+contarNodos(root->getRight());
@@ -36,3 +70,77 @@ int guia2::susecorPreOrden(NodoABB *N,ABB*A) {
 
 
 }
+
+bool guia2::eliminarHeap(NodoHeap *&N) {
+    NodoHeap *NE = N;
+    NodoHeap *subArbolIzq = N->getLeft();
+    NodoHeap *subArbolDer = N->getRight();
+    //BUSCAR EL ULTIMO NODO INSERTADO
+    NodoHeap *padre = padreSucesor(N);
+    NodoHeap *sucesor;
+    if (padre == nullptr) {
+        delete N;
+        return true;
+    }
+    if (padre->getRight()) {
+        sucesor = padre->getRight();
+        padre->setRight(nullptr);
+    } else {
+        sucesor = padre->getLeft();
+        padre->setLeft(nullptr);
+    }
+
+    sucesor->setLeft(subArbolIzq);
+    sucesor->setRight(subArbolDer);
+    delete NE;
+    N = sucesor;
+    return true;
+}
+
+bool guia2::eliminarHeap(NodoHeap *&N, NodoHeap *hijo) {
+    NodoHeap *NE = N;
+    NodoHeap *subArbolIzq = N->getLeft();
+    NodoHeap *subArbolDer = N->getRight();
+    //BUSCAR EL ULTIMO NODO INSERTADO
+    NodoHeap *padre = buscarPadre(N,hijo);
+    NodoHeap *sucesor;
+    if (padre == nullptr) {
+        delete N;
+        N=nullptr;
+        return true;
+    }
+    if (padre->getRight()) {
+        sucesor = padre->getRight();
+        padre->setRight(nullptr);
+    } else {
+        sucesor = padre->getLeft();
+        padre->setLeft(nullptr);
+    }
+
+    sucesor->setLeft(subArbolIzq);
+    sucesor->setRight(subArbolDer);
+    delete NE;
+    N = sucesor;
+    return true;
+}
+
+
+NodoHeap *guia2::buscarPadre(NodoHeap *N, NodoHeap *hijo) {
+    queue<NodoHeap *> q;
+    q.push(N);
+    while (!q.empty()) {
+        NodoHeap *actual = q.front();
+        q.pop();
+        if (actual->getLeft() == hijo || actual->getRight() == hijo)return actual;
+
+        if (actual->getLeft())q.push(actual->getLeft());
+
+        if (actual->getRight())q.push(actual->getRight());
+    }
+    return nullptr;
+
+}
+
+
+
+
