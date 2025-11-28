@@ -15,8 +15,10 @@ namespace guia2 {
     bool eliminarHeap(NodoHeap *&N);
     bool eliminarHeap(NodoHeap *&N,NodoHeap* hijo);
 
+    void inorden(NodoABB *N, int x);
 
     NodoHeap *buscarPadre(NodoHeap *N, NodoHeap *hijo);
+    void imprimirMayoresX(NodoABB *N, int x);
 
 
 };

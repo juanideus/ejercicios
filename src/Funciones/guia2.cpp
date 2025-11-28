@@ -4,6 +4,8 @@
 
 #include "guia2.h"
 
+#include <iostream>
+#include <ostream>
 #include <queue>
 
 NodoHeap * guia2::padreSucesor(NodoHeap *N) {
@@ -124,6 +126,15 @@ bool guia2::eliminarHeap(NodoHeap *&N, NodoHeap *hijo) {
     return true;
 }
 
+void guia2::inorden(NodoABB *N,int x) {
+    if (N==nullptr)return;
+    inorden(N->getLeft(), x);
+    // if (N->getDato()<x) {
+    cout<<N->getDato()<<endl;
+//}
+    inorden(N->getRight(), x);
+}
+
 
 NodoHeap *guia2::buscarPadre(NodoHeap *N, NodoHeap *hijo) {
     queue<NodoHeap *> q;
@@ -140,6 +151,21 @@ NodoHeap *guia2::buscarPadre(NodoHeap *N, NodoHeap *hijo) {
     return nullptr;
 
 }
+
+void guia2::imprimirMayoresX(NodoABB *N, int x) {
+    NodoABB *aux=N;
+        if (N==nullptr)return;
+        if (aux->getDato()>x) {
+
+            imprimirMayoresX(N->getLeft(), x);
+
+            imprimirMayoresX(N->getRight(), x);
+            cout<<aux->getDato()<<endl  ;
+        }else {
+            imprimirMayoresX(N->getRight(), x);
+        }
+    }
+
 
 
 

@@ -18,6 +18,9 @@ class ABB {
     NodoABB* getRoot();
     bool isEmpty();
     void eliminar(int dato);
+    void eliminarOptimo(int dato);
+
+    NodoABB *eliminarRecursivo(NodoABB *N, int dato);
     void inorder(NodoABB *nodo);
     void preorder(NodoABB *nodo);
     void postorder(NodoABB *nodo);

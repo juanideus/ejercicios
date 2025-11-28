@@ -22,17 +22,23 @@ int main()
 {
     ABB*bst=new ABB();
     bst->insertar(50);
-    bst->insertar(25);
+    bst->insertar(20);
     bst->insertar(75);
     bst->insertar(10);
-    bst->insertar(33);
+    bst->insertar(30);
     bst->insertar(60);
+    bst->insertar(90);
+    bst->insertar(35);
     bst->insertar(80);
-    bst->insertar(5);
-    bst->insertar(15);
-    bst->insertar(70);
 
-    cout<< susecorPreOrden(bst->obtener(15,bst->getRoot()),bst);
+    bst->eliminarOptimo(75);
+    NodoABB *nodo=bst->getRoot();
+
+
+
+
+
+imprimirMayoresX(bst->getRoot(),50);
 
 
 

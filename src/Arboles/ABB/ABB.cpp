@@ -164,6 +164,82 @@ void ABB::eliminar(int dato) {
 
 }
 
+void ABB::eliminarOptimo(int dato) {
+    eliminarRecursivo(this->root,dato);
+}
+
+NodoABB* ABB::eliminarRecursivo(NodoABB *N, int dato) {
+    if (N==nullptr)return nullptr;
+    //caso raiz
+    NodoABB* NodoEliminar=nullptr;
+    NodoABB*sucesor=nullptr;
+    NodoABB*padre=nullptr;
+
+
+    //BUSCAMOS AL PADRE DLE NODO A ELIMINAR
+    if (N->getLeft()->getDato()==dato || N->getRight()->getDato()==dato && N->getLeft()!=nullptr && N->getRight()!=nullptr) {
+         //caso 1 hijo
+
+        if (N->getLeft()->getDato()==dato) {
+            NodoEliminar=N->getLeft();
+        }else {
+            NodoEliminar=N->getRight();
+        }
+        //caso hoja
+        if (NodoEliminar->getLeft()==nullptr && NodoEliminar->getRight()==nullptr) {
+            if (N->getLeft()==NodoEliminar) {
+                N->setLeft(nullptr);
+            }else {
+                N->setRight(nullptr);
+            }
+            delete NodoEliminar;
+            return N;
+        }
+        //CASO 1 HIJO
+        if (NodoEliminar->getLeft()!=nullptr && NodoEliminar->getRight()==nullptr && N->getLeft()==NodoEliminar) {
+            N->setLeft(NodoEliminar->getLeft());
+            NodoEliminar->setLeft(nullptr);
+            delete NodoEliminar;
+            return N;
+        }
+        if (NodoEliminar->getRight()!=nullptr && NodoEliminar->getLeft()==nullptr && N->getRight()==NodoEliminar) {
+            N->setRight(NodoEliminar->getRight());
+            NodoEliminar->setLeft(nullptr);
+            delete NodoEliminar;
+            return N;
+        }
+        sucesor=buscarRemplazo(NodoEliminar);
+        padre=padreRemplazo(sucesor,NodoEliminar);
+        if (sucesor->getRight()!=nullptr) {
+            padre->setLeft(sucesor->getRight());
+        }else {
+            padre->setLeft(nullptr);
+        }
+        sucesor->setRight(NodoEliminar->getRight());
+        sucesor->setLeft(NodoEliminar->getLeft());
+
+        NodoEliminar->setLeft(nullptr);
+        NodoEliminar->setRight(nullptr);
+        if (N->getLeft()==NodoEliminar) {
+            N->setLeft(sucesor);
+            delete NodoEliminar;
+            return N;
+        }
+        N->setRight(sucesor);
+        return N;
+
+    }
+    if (N->getDato()<dato) {
+            N->setRight(eliminarRecursivo(N->getRight(),dato));
+            return N;
+        }
+        if (N->getDato()>dato) {
+            N->setLeft(eliminarRecursivo(N->getLeft(),dato));
+            return N;
+        }
+
+}
+
 void ABB::inorder(NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
