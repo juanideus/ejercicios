@@ -62,7 +62,11 @@ string ListaPolinomios::toString(const string &var) {
         if (aux->getExp() == 0 ){
             str += to_string(aux->getCoef());
         }else {
-            str += to_string(aux->getCoef()) +var+"^"+ to_string(aux->getExp()) + " + ";
+            if (aux->getSig()!=nullptr &&aux->getSig()->getCoef()<0) {
+                str += to_string(aux->getCoef()) +var+"^"+ to_string(aux->getExp()) + " ";
+            }else{
+                str += to_string(aux->getCoef()) +var+"^"+ to_string(aux->getExp()) + " + ";
+            }
         }
 
         aux = aux->getSig();

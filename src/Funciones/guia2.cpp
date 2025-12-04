@@ -135,6 +135,64 @@ void guia2::inorden(NodoABB *N,int x) {
     inorden(N->getRight(), x);
 }
 
+void guia2::ejercicio1(ListaPolinomios **lista, int x) {
+
+    ListaPolinomios*p = nullptr;
+    ListaPolinomios*aux;
+    int idx=0;
+    int contador=0;
+    p=lista[idx];
+    while (lista[idx]!=nullptr) {
+
+        NodoPoli*i=p->getInicio();
+        while (i!=nullptr) {
+            if (i->getExp()==x) {
+                contador++;
+            }
+            i=i->getSig();
+        }
+        idx++;
+        p=lista[idx];
+    }
+    cout<<"La cantidad de veces que se esncuentra x es"<<contador;
+
+
+
+
+
+}
+
+void guia2::ejercicio2(NodoABB *P, NodoABB *raiz) {
+        if (raiz==nullptr)return;
+        if (P->getRight()!=nullptr) {
+            NodoABB*aux=P->getRight();
+            while (aux->getLeft()!=nullptr) {
+                aux=aux->getLeft();
+            }
+            cout<<aux->getDato()<<endl;
+            return;
+        }
+        else {
+            NodoABB* antecesor = nullptr;
+            NodoABB* actual = raiz;
+
+            while (actual != nullptr) {
+                if (P->getDato() < actual->getDato()) {
+                    // P está en el SUBÁRBOL IZQUIERDO de actual
+                    // ENTONCES este "actual" ES un ANTECESOR válido
+                    antecesor = actual;
+                    actual = actual->getLeft();
+                }
+                else if (P->getDato() > actual->getDato()) {
+                    actual = actual->getRight();
+                }
+                else break; // encontrado el nodo
+            }
+            cout << antecesor->getDato();
+
+        }
+    }
+
 
 NodoHeap *guia2::buscarPadre(NodoHeap *N, NodoHeap *hijo) {
     queue<NodoHeap *> q;

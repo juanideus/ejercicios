@@ -14,8 +14,6 @@ NodoAVL *AVL::RR(NodoAVL *nodo){
     newRoot->setLeft(nodo);
     nodo->setRight(temp);
 
-    nodo->setAltura(1 + std::max(obtenerAltura(nodo->getLeft()), obtenerAltura(nodo->getRight())));
-    newRoot->setAltura(1 + std::max(obtenerAltura(newRoot->getLeft()), obtenerAltura(newRoot->getRight())));
     return newRoot;
 }
 //TODO
@@ -36,6 +34,8 @@ NodoAVL *AVL::RL(NodoAVL *nodo){
     aux->setLeft(temp->getRight());
     aux->setLeft(temp);
     return RR(nodo);
+
+
 }
 
 NodoAVL* AVL::LL(NodoAVL* nodo){
