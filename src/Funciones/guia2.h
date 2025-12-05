@@ -24,6 +24,10 @@ namespace guia2 {
     NodoHeap *buscarPadre(NodoHeap *N, NodoHeap *hijo);
     void imprimirMayoresX(NodoABB *N, int x);
 
+    //Mi propio ordenamiento
+    void ordenamiento(int*A,int N);
+
+
 
 };
 

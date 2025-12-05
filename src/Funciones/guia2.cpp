@@ -224,6 +224,40 @@ void guia2::imprimirMayoresX(NodoABB *N, int x) {
         }
     }
 
+void guia2::ordenamiento(int *A, int N) {
+    int menorSubAnterior = 10000000;
+
+
+    for (int i=1;i<N;i++) {
+
+        while (A[i-1]>A[i]|| A[i]>A[i+1]) {
+            if (A[i-1]>A[i]) {
+                cout<<A[i-1]<<endl;
+                int aux=A[i-1];
+                A[i-1]=A[i];
+                cout<<A[i-1]<<endl;
+                A[i]=aux;
+            }
+            if (A[i]>A[i+1]) {
+                int aux=A[i+1];
+                A[i+1]=A[i];
+                A[i]=aux;
+            }
+
+
+            if (i > 1 && A[i] < menorSubAnterior) {
+                i--;
+            }
+
+        }
+
+
+
+
+
+    }
+}
+
 
 
 
