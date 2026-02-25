@@ -36,10 +36,12 @@ add_executable(Ejercicios main.cpp
         src/Arboles/ENHEBRADO/nodoEn.h
         src/Arboles/ENHEBRADO/ThreadedBST.cpp
         src/Arboles/ENHEBRADO/ThreadedBST.h
-        src/Arboles/AVL.cpp
-        src/Arboles/AVL.h
-        src/Arboles/NodoAVL.cpp
-        src/Arboles/NodoAVL.h
-        src/Arboles/NodoAVL.cpp
+        src/Arboles/AVL/AVL.cpp
+        src/Arboles/AVL/AVL.h
+        src/Arboles/AVL/NodoAVL.cpp
+        src/Arboles/AVL/NodoAVL.h
+        src/Arboles/AVL/NodoAVL.cpp
         src/Funciones/guia2.cpp
-        src/Funciones/guia2.h)
+        src/Funciones/guia2.h
+        src/Funciones/Hilos.cpp
+        src/Funciones/Hilos.h)

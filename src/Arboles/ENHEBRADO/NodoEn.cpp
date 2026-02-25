@@ -1,26 +1,23 @@
-
-
 #include "NodoEn.h"
 
 NodoEn::NodoEn() {
-    this->dato=0;
-    this->leftChild=nullptr;
-    this->rightChild=nullptr;
-    this->leftThread=true;
-    this->rightThread=true;
-
+    this->dato = 0;
+    this->leftChild = nullptr;
+    this->rightChild = nullptr;
+    this->leftThread = true;
+    this->rightThread = true;
 }
 
 NodoEn::NodoEn(int dato) {
-    this->dato=dato;
-    this->leftChild=nullptr;
-    this->rightChild=nullptr;
-    this->leftThread=true;
-    this->rightThread=true;
+    this->dato = dato;
+    this->leftChild = nullptr;
+    this->rightChild = nullptr;
+    this->leftThread = true;
+    this->rightThread = true;
 }
 
 void NodoEn::setDato(int dato) {
-    this->dato=dato;
+    this->dato = dato;
 }
 
 int NodoEn::getDato() {
@@ -28,7 +25,7 @@ int NodoEn::getDato() {
 }
 
 void NodoEn::setLeftThread(bool leftThread) {
-    this->leftThread=leftThread;
+    this->leftThread = leftThread;
 }
 
 bool NodoEn::getLeftThread() {
@@ -36,26 +33,25 @@ bool NodoEn::getLeftThread() {
 }
 
 void NodoEn::setRightThread(bool rightThread) {
-    this->rightThread=rightThread;
+    this->rightThread = rightThread;
 }
 
 bool NodoEn::getRightThread() {
     return this->rightThread;
 }
 
-NodoEn * NodoEn::getLeftChild() {
+NodoEn *NodoEn::getLeftChild() {
     return this->leftChild;
 }
 
-NodoEn * NodoEn::getRightChild() {
+NodoEn *NodoEn::getRightChild() {
     return this->rightChild;
 }
 
 void NodoEn::setLeftChild(NodoEn *leftChild) {
-    this->leftChild=leftChild;
+    this->leftChild = leftChild;
 }
 
 void NodoEn::setRightChild(NodoEn *rightChild) {
-    this->rightChild=rightChild;
+    this->rightChild = rightChild;
 }
-

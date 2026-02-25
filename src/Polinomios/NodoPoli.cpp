@@ -7,13 +7,13 @@
 NodoPoli::NodoPoli() {
     this->coef = 0;
     this->exp = 0;
-    this->sig=nullptr;
+    this->sig = nullptr;
 }
 
 NodoPoli::NodoPoli(int coef, int exp) {
     this->coef = coef;
     this->exp = exp;
-    this->sig=nullptr;
+    this->sig = nullptr;
 }
 
 void NodoPoli::setCoef(int coef) {
@@ -38,6 +38,6 @@ void NodoPoli::setSig(NodoPoli *sig) {
     this->sig = sig;
 }
 
-NodoPoli * NodoPoli::getSig() {
+NodoPoli *NodoPoli::getSig() {
     return this->sig;
 }

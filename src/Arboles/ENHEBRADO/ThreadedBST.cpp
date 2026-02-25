@@ -100,15 +100,13 @@ int ThreadedBST::buscar(int dato) {
             return aux->getDato();
         }
         if (dato > aux->getDato() && !aux->getRightThread()) {
-            aux=aux->getRightChild();
-        }
-        else if (dato < aux->getDato() && !aux->getLeftThread()) {
-            aux=aux->getLeftChild();
-        }else {
+            aux = aux->getRightChild();
+        } else if (dato < aux->getDato() && !aux->getLeftThread()) {
+            aux = aux->getLeftChild();
+        } else {
             return -1;
         }
     }
-
 }
 
 
@@ -131,7 +129,7 @@ string ThreadedBST::toStringInOrder() {
 }
 
 void ThreadedBST::InorderRecursivo(NodoEn *nodo) {
-    if (nodo==root) {
+    if (nodo == root) {
         return;
     }
 
@@ -141,7 +139,6 @@ void ThreadedBST::InorderRecursivo(NodoEn *nodo) {
     cout << nodo->getDato() << " ";
     if (!nodo->getRightThread()) {
         InorderRecursivo(nodo->getRightChild());
-
     }
 }
 

@@ -1,23 +1,20 @@
-
-
 #include "ListaSimple.h"
 
 #include <iostream>
 #include <sstream>
 #include <stack>
 
-Nodo * ListaSimple::recorrer(Nodo* aux) {
-    while (aux->getProximo()!=nullptr) {
+Nodo *ListaSimple::recorrer(Nodo *aux) {
+    while (aux->getProximo() != nullptr) {
         aux = aux->getProximo();
     }
     return aux;
 }
 
 Nodo *ListaSimple::validarNodo(int dato) {
-
 }
 
-Nodo * ListaSimple::getInicio() {
+Nodo *ListaSimple::getInicio() {
     return inicio;
 }
 
@@ -26,7 +23,6 @@ ListaSimple::ListaSimple() {
 }
 
 ListaSimple::~ListaSimple() {
-
 }
 
 bool ListaSimple::estaVacia() {
@@ -34,19 +30,17 @@ bool ListaSimple::estaVacia() {
 }
 
 bool ListaSimple::insertar(int dato) {
-    Nodo* nuevoNodo=nullptr;
+    Nodo *nuevoNodo = nullptr;
     try {
-        nuevoNodo=new Nodo(dato);
-
+        nuevoNodo = new Nodo(dato);
     } catch (...) {
         cerr << "Error al insertar elementos" << endl;
-
     }
     if (estaVacia()) {
         this->inicio = nuevoNodo;
         return true;
     }
-    Nodo* aux = recorrer(this->inicio);
+    Nodo *aux = recorrer(this->inicio);
 
     aux->setProximo(nuevoNodo);
     return true;
@@ -54,9 +48,9 @@ bool ListaSimple::insertar(int dato) {
 
 string ListaSimple::tostring() {
     std::stringstream ss;
-    stack <int> s;
-    Nodo* aux=this->inicio;
-    while (aux!=nullptr) {
+    stack<int> s;
+    Nodo *aux = this->inicio;
+    while (aux != nullptr) {
         s.push(aux->getDato());
         aux = aux->getProximo();
     }
@@ -65,12 +59,11 @@ string ListaSimple::tostring() {
         s.pop();
     }
     return ss.str();
-
 }
 
 string ListaSimple::tostringNormal() {
     stringstream ss;
-    Nodo* aux=this->inicio;
+    Nodo *aux = this->inicio;
     while (aux != nullptr) {
         ss << aux->getDato() << " ";
         aux = aux->getProximo();
@@ -79,8 +72,8 @@ string ListaSimple::tostringNormal() {
 }
 
 string ListaSimple::recursivo(Nodo *aux) {
-    if (aux->getProximo()==nullptr) {
+    if (aux->getProximo() == nullptr) {
         return to_string(aux->getDato());
     }
-    return recursivo(aux->getProximo())+to_string(aux->getDato()) ;
+    return recursivo(aux->getProximo()) + to_string(aux->getDato());
 }

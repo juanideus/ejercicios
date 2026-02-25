@@ -9,19 +9,25 @@
 class NodoPoli {
     int coef;
     int exp;
-    NodoPoli* sig;
-    public:
+    NodoPoli *sig;
+
+public:
     NodoPoli();
+
     NodoPoli(int coef, int exp);
 
 
     void setCoef(int coef);
-    int getCoef();
-    void setExp(int exp);
-    int getExp();
-    void setSig(NodoPoli* sig);
-    NodoPoli* getSig();
 
+    int getCoef();
+
+    void setExp(int exp);
+
+    int getExp();
+
+    void setSig(NodoPoli *sig);
+
+    NodoPoli *getSig();
 };
 
 

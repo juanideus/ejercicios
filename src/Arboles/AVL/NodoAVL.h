@@ -6,22 +6,30 @@
 #define EJERCICIOS_NODOAVL_H
 
 
-class NodoAVL{
+class NodoAVL {
     int dato;
     NodoAVL *LEFT;
     NodoAVL *RIGHT;
     int altura;
-    public:
-    NodoAVL();
-    NodoAVL(int dato);
-    NodoAVL *getLeft();
-    NodoAVL *getRight();
-    int getAltura();
-    void setAltura(int altura);
-    void setLeft(NodoAVL *nodo);
-    void setRight(NodoAVL *nodo);
-    int getDato();
 
+public:
+    NodoAVL();
+
+    NodoAVL(int dato);
+
+    NodoAVL *getLeft();
+
+    NodoAVL *getRight();
+
+    int getAltura();
+
+    void setAltura(int altura);
+
+    void setLeft(NodoAVL *nodo);
+
+    void setRight(NodoAVL *nodo);
+
+    int getDato();
 };
 
 

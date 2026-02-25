@@ -12,12 +12,12 @@ ListaPolinomios::ListaPolinomios() {
 }
 
 void ListaPolinomios::insertar(int coef, int exp) {
-    NodoPoli* nodo = new NodoPoli(coef, exp);
+    NodoPoli *nodo = new NodoPoli(coef, exp);
     if (this->inicio == nullptr) {
         this->inicio = nodo;
         return;
     }
-    NodoPoli* aux = this->inicio;
+    NodoPoli *aux = this->inicio;
     while (aux->getSig() != nullptr) {
         aux = aux->getSig();
     }
@@ -25,47 +25,42 @@ void ListaPolinomios::insertar(int coef, int exp) {
 }
 
 ListaPolinomios ListaPolinomios::sumar(ListaPolinomios lista) {
-
-    NodoPoli* aux  = this->inicio;
-    NodoPoli* aux2 = lista.inicio;
+    NodoPoli *aux = this->inicio;
+    NodoPoli *aux2 = lista.inicio;
     ListaPolinomios listaPolinomios;
 
 
-        while (aux != nullptr && aux2 != nullptr) {
-            if (aux->getExp() == aux2->getExp()) {
-                int suma = aux->getCoef() + aux2->getCoef();
-                listaPolinomios.insertar(suma, aux->getExp());
-                aux  = aux->getSig();
-                aux2 = aux2->getSig();
-            }
-            else if (aux->getExp() < aux2->getExp()) {
-                listaPolinomios.insertar(aux2->getCoef(), aux2->getExp());
-                aux2 = aux2->getSig();
-            }
-            else { // aux->getExp() > aux2->getExp()
-                listaPolinomios.insertar(aux->getCoef(), aux->getExp());
-                aux = aux->getSig();
-            }
+    while (aux != nullptr && aux2 != nullptr) {
+        if (aux->getExp() == aux2->getExp()) {
+            int suma = aux->getCoef() + aux2->getCoef();
+            listaPolinomios.insertar(suma, aux->getExp());
+            aux = aux->getSig();
+            aux2 = aux2->getSig();
+        } else if (aux->getExp() < aux2->getExp()) {
+            listaPolinomios.insertar(aux2->getCoef(), aux2->getExp());
+            aux2 = aux2->getSig();
+        } else {
+            // aux->getExp() > aux2->getExp()
+            listaPolinomios.insertar(aux->getCoef(), aux->getExp());
+            aux = aux->getSig();
         }
-
-
+    }
 
 
     return listaPolinomios;
-
 }
 
 string ListaPolinomios::toString(const string &var) {
-    NodoPoli* aux = this->inicio;
+    NodoPoli *aux = this->inicio;
     string str = "";
     while (aux != nullptr) {
-        if (aux->getExp() == 0 ){
+        if (aux->getExp() == 0) {
             str += to_string(aux->getCoef());
-        }else {
-            if (aux->getSig()!=nullptr &&aux->getSig()->getCoef()<0) {
-                str += to_string(aux->getCoef()) +var+"^"+ to_string(aux->getExp()) + " ";
-            }else{
-                str += to_string(aux->getCoef()) +var+"^"+ to_string(aux->getExp()) + " + ";
+        } else {
+            if (aux->getSig() != nullptr && aux->getSig()->getCoef() < 0) {
+                str += to_string(aux->getCoef()) + var + "^" + to_string(aux->getExp()) + " ";
+            } else {
+                str += to_string(aux->getCoef()) + var + "^" + to_string(aux->getExp()) + " + ";
             }
         }
 
@@ -74,6 +69,6 @@ string ListaPolinomios::toString(const string &var) {
     return str;
 }
 
-NodoPoli * ListaPolinomios::getInicio() {
+NodoPoli *ListaPolinomios::getInicio() {
     return this->inicio;
 }

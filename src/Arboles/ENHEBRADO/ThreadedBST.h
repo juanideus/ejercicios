@@ -6,11 +6,13 @@ using namespace std;
 
 
 class ThreadedBST {
+    NodoEn *leftMost(NodoEn *);
 
-    NodoEn *leftMost(NodoEn*);
-    public:
+public:
     NodoEn *root;
+
     ThreadedBST();
+
     ~ThreadedBST();
 
     NodoEn *sucesorInorden(NodoEn *nodo);
@@ -18,10 +20,14 @@ class ThreadedBST {
     NodoEn *predecesorInorden(NodoEn *nodo);
 
     void insertar(int dato);
+
     void eliminar(int dato);
+
     int buscar(int dato);
+
     string toStringInOrder();
-    void InorderRecursivo(NodoEn* nodo);
+
+    void InorderRecursivo(NodoEn *nodo);
+
     void imprimir();
 };
-

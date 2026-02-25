@@ -16,9 +16,7 @@ NodoABB::NodoABB(int dato) {
     this->RIGHT = nullptr;
 }
 
-NodoABB::~NodoABB()=default;
-
-
+NodoABB::~NodoABB() = default;
 
 
 int NodoABB::getDato() const {
@@ -29,11 +27,11 @@ void NodoABB::setDato(int dato) {
     this->DATO = dato;
 }
 
-NodoABB * NodoABB::getLeft() const {
+NodoABB *NodoABB::getLeft() const {
     return this->LEFT;
 }
 
-NodoABB * NodoABB::getRight() const {
+NodoABB *NodoABB::getRight() const {
     return this->RIGHT;
 }
 

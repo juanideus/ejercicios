@@ -2,29 +2,24 @@
 #include "NodoSimple.h"
 using namespace std;
 #include <string>
-template <class T>
+
+template<class T>
 
 class ListaSimpleTemplate {
-    NodoSimple<T>* HEAD;
-    public:
+    NodoSimple<T> *HEAD;
+
+public:
     ListaSimpleTemplate();
+
     ~ListaSimpleTemplate();
-    void insertar(T* dato);
-    bool buscar(T* dato);
+
+    void insertar(T *dato);
+
+    bool buscar(T *dato);
+
     string tostring();
-    bool eliminar(T* dato);
 
-
-
-
-
-
-
-
+    bool eliminar(T *dato);
 };
 
 #include "ListaSimpleTemplate.tpp"
-
-
-
-

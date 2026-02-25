@@ -3,39 +3,55 @@
 
 #include "NodoABB.h"
 
-#include "string"
 using namespace std;
+
 class ABB {
-    NodoABB* root;
-    NodoABB* buscarRemplazo(NodoABB*aux);
-    NodoABB* padreRemplazo(NodoABB*remplazante,NodoABB*inicio);
-    public:
+    NodoABB *root;
+
+    static NodoABB *buscarRemplazo(NodoABB *aux);
+
+    static NodoABB *padreRemplazo(const NodoABB *remplazante, NodoABB *inicio);
+
+public:
     ABB();
 
-    NodoABB *insertarRecursivo(NodoABB *nodo, int dato);
+    static NodoABB *insertarRecursivo(NodoABB *nodo, int dato);
+
     void insertar(int dato);
-    bool existe(NodoABB*nodo,int dato);
-    NodoABB* getRoot();
-    bool isEmpty();
-    void eliminar(int dato);
-    void eliminarOptimo(int dato);
 
-    NodoABB *eliminarRecursivo(NodoABB *N, int dato);
-    void inorder(NodoABB *nodo);
-    void preorder(NodoABB *nodo);
-    void postorder(NodoABB *nodo);
-    void inorderInverso(NodoABB *nodo);
-    void preorderInverso(NodoABB *nodo);
-    void postorderInverso(NodoABB *nodo);
-    NodoABB* minimo(NodoABB*aux);
-    NodoABB* maximo(NodoABB*aux);
+    static bool existe(const NodoABB *nodo, int dato);
 
-    void inorderIterativo();
+    NodoABB *getRoot() const;
+
+    bool isEmpty() const;
+
+    void eliminar(int dato) const;
+
+    void eliminarOptimo(int dato) const;
+
+    static NodoABB *eliminarRecursivo(NodoABB *N, int dato);
+
+    static void inorder(const NodoABB *nodo);
+
+    static void preorder(const NodoABB *nodo);
+
+    static void postorder(const NodoABB *nodo);
+
+    static void inorderInverso(const NodoABB *nodo);
+
+    static void preorderInverso(const NodoABB *nodo);
+
+    static void postorderInverso(const NodoABB *nodo);
+
+    static NodoABB *minimo(NodoABB *aux);
+
+    static NodoABB *maximo(NodoABB *aux);
+
+    void inorderIterativo() const;
 
 
-    void toString(int opcion);
+    void toString(int opcion) const;
 
 
-
-    NodoABB * obtener(int i, NodoABB * nodoAbb);
+    static NodoABB *obtener(int i, NodoABB *nodoAbb);
 };

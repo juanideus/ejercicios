@@ -10,22 +10,29 @@ using namespace std;
 
 
 class ListaSimple {
-    Nodo* inicio;
-    Nodo* recorrer(Nodo* aux);
+    Nodo *inicio;
+
+    Nodo *recorrer(Nodo *aux);
 
     Nodo *validarNodo(int dato);
-    public:
+
+public:
     Nodo *getInicio();
+
     ListaSimple();
+
     ~ListaSimple();
+
     bool estaVacia();
+
     bool insertar(int dato);
+
     string tostring();
+
     string tostringNormal();
-    string recursivo(Nodo* aux);
 
+    string recursivo(Nodo *aux);
 };
-
 
 
 #endif //EJERCICIOS_LISTASIMPLE_H

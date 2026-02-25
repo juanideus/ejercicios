@@ -85,7 +85,7 @@ namespace Ejercicios {
 
     void insertar(ListaPolinomios *s, const string &poli2);
 
-    void sumar(ListaPolinomios *A, ListaPolinomios *B, ListaPolinomios *C);
+    void sumar(ListaPolinomios *A, ListaPolinomios *B);
 
     // --- Funciones adicionales ---
 
@@ -94,6 +94,8 @@ namespace Ejercicios {
     void ejercicio3(MPP *matriz, int n);
 
     void sumarBordesMPP(MPP *matriz, int n);
+
     void contarFilaConMasNodos(MPP *matriz, int n);
 
+    void sumarInteriorYesquinas(MPP *matriz, int n);
 };

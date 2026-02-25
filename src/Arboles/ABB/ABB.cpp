@@ -13,12 +13,12 @@ NodoABB *ABB::buscarRemplazo(NodoABB *aux) {
     return aux;
 }
 
-NodoABB * ABB::padreRemplazo(NodoABB *remplazante, NodoABB *inicio) {
+NodoABB *ABB::padreRemplazo(const NodoABB *remplazante, NodoABB *inicio) {
     inicio = inicio->getRight();
-    NodoABB *aux =inicio;
-    while (inicio->getLeft() != remplazante && inicio->getLeft()!=nullptr) {
+    NodoABB *aux = inicio;
+    while (inicio->getLeft() != remplazante && inicio->getLeft() != nullptr) {
         aux = inicio;
-        inicio=inicio->getLeft();
+        inicio = inicio->getLeft();
     }
     return aux;
 }
@@ -43,7 +43,7 @@ void ABB::insertar(int dato) {
     this->root = insertarRecursivo(this->root, dato);
 }
 
-bool ABB::existe(NodoABB *nodo, int dato) {
+bool ABB::existe(const NodoABB *nodo, int dato) {
     if (nodo == nullptr) {
         return false;
     }
@@ -54,24 +54,24 @@ bool ABB::existe(NodoABB *nodo, int dato) {
     if (dato < nodo->getDato()) {
         return existe(nodo->getLeft(), dato);
     }
-    if (dato > nodo->getDato()) {
-        return existe(nodo->getRight(), dato);
-    }
+    return existe(nodo->getRight(), dato);
 }
 
-NodoABB *ABB::getRoot() {
+NodoABB *ABB::getRoot() const {
     return this->root;
 }
 
-bool ABB::isEmpty() {
+bool ABB::isEmpty() const {
+    return this->root == nullptr;
 }
 
-void ABB::eliminar(int dato) {
+void ABB::eliminar(int dato) const {
     if (!existe(this->root, dato)) {
         return;
     }
 
     NodoABB *NodoEliminar = this->root, *padre = nullptr;
+
 
     while (NodoEliminar != nullptr && NodoEliminar->getDato() != dato) {
         padre = NodoEliminar;
@@ -81,11 +81,8 @@ void ABB::eliminar(int dato) {
             NodoEliminar = NodoEliminar->getLeft();
         }
     }
-    if (NodoEliminar == nullptr) {
-        return; //No existe el dato
-    }
-    //si es una hoja 🌿
 
+    //si es una hoja 🌿
     if (NodoEliminar->getLeft() == nullptr && NodoEliminar->getRight() == nullptr) {
         if (padre->getLeft() == NodoEliminar) {
             padre->setLeft(nullptr);
@@ -118,101 +115,95 @@ void ABB::eliminar(int dato) {
         delete NodoEliminar;
         return;
     }
-    if (NodoEliminar->getLeft()!= nullptr && NodoEliminar->getRight() != nullptr) {
-        NodoABB* remplazante=buscarRemplazo(NodoEliminar);
+    if (NodoEliminar->getLeft() != nullptr && NodoEliminar->getRight() != nullptr) {
+        NodoABB *remplazante = buscarRemplazo(NodoEliminar);
 
-        NodoABB* subArbolizq=NodoEliminar->getLeft();
+        NodoABB *subArbolizq = NodoEliminar->getLeft();
 
-        NodoABB* subArbolDer=NodoEliminar->getRight();
+        NodoABB *subArbolDer = NodoEliminar->getRight();
 
-        NodoABB* padreRemplazante=padreRemplazo(remplazante,NodoEliminar);
+        NodoABB *padreRemplazante = padreRemplazo(remplazante, NodoEliminar);
 
 
+        if (remplazante == NodoEliminar->getRight()) {
+            remplazante->setLeft(subArbolizq);
+            if (padre->getRight() == NodoEliminar) {
+                padre->setRight(remplazante);
+            }
+            if (padre->getLeft() == NodoEliminar) {
+                padre->setLeft(remplazante);
 
-        if (remplazante==NodoEliminar->getRight()) {
-
-                remplazante->setLeft(subArbolizq);
-                if (padre->getRight()==NodoEliminar) {
-                    padre->setRight(remplazante);
-
-                }
-                if (padre->getLeft()==NodoEliminar) {
-                    padre->setLeft(remplazante);
-
-                    remplazante->setRight(remplazante->getRight());
-
-                }
+                remplazante->setRight(remplazante->getRight());
+            }
             return;
         }
         //DESCONECTAR AL REMPLAZANTE
         //PADRE APUNTE AL REMPLAZANTE
         padreRemplazante->setLeft(nullptr);
-        if (padre->getRight()==NodoEliminar) {
+        if (padre->getRight() == NodoEliminar) {
             padre->setRight(remplazante);
             remplazante->setRight(subArbolDer);
             remplazante->setLeft(subArbolizq);
-        }else {
+        } else {
             padre->setLeft(remplazante);
             remplazante->setRight(subArbolDer);
             remplazante->setLeft(subArbolizq);
         }
         delete NodoEliminar;
-
     }
-
-
-
 }
 
-void ABB::eliminarOptimo(int dato) {
-    eliminarRecursivo(this->root,dato);
+void ABB::eliminarOptimo(int dato) const {
+    eliminarRecursivo(this->root, dato);
 }
 
-NodoABB* ABB::eliminarRecursivo(NodoABB *N, int dato) {
-    if (N==nullptr)return nullptr;
+NodoABB *ABB::eliminarRecursivo(NodoABB *N, int dato) {
+    if (N == nullptr)return nullptr;
     //caso raiz
-    NodoABB* NodoEliminar=nullptr;
-    NodoABB*sucesor=nullptr;
-    NodoABB*padre=nullptr;
 
 
     //BUSCAMOS AL PADRE DLE NODO A ELIMINAR
-    if (N->getLeft()->getDato()==dato || N->getRight()->getDato()==dato && N->getLeft()!=nullptr && N->getRight()!=nullptr) {
-         //caso 1 hijo
+    if (N->getLeft()->getDato() == dato || N->getRight()->getDato() == dato && N->getLeft() != nullptr && N->getRight()
+        != nullptr) {
+        NodoABB *padre = nullptr;
+        NodoABB *sucesor = nullptr;
+        NodoABB *NodoEliminar = nullptr;
+        //caso 1 hijo
 
-        if (N->getLeft()->getDato()==dato) {
-            NodoEliminar=N->getLeft();
-        }else {
-            NodoEliminar=N->getRight();
+        if (N->getLeft()->getDato() == dato) {
+            NodoEliminar = N->getLeft();
+        } else {
+            NodoEliminar = N->getRight();
         }
         //caso hoja
-        if (NodoEliminar->getLeft()==nullptr && NodoEliminar->getRight()==nullptr) {
-            if (N->getLeft()==NodoEliminar) {
+        if (NodoEliminar->getLeft() == nullptr && NodoEliminar->getRight() == nullptr) {
+            if (N->getLeft() == NodoEliminar) {
                 N->setLeft(nullptr);
-            }else {
+            } else {
                 N->setRight(nullptr);
             }
             delete NodoEliminar;
             return N;
         }
         //CASO 1 HIJO
-        if (NodoEliminar->getLeft()!=nullptr && NodoEliminar->getRight()==nullptr && N->getLeft()==NodoEliminar) {
+        if (NodoEliminar->getLeft() != nullptr && NodoEliminar->getRight() == nullptr && N->getLeft() == NodoEliminar) {
             N->setLeft(NodoEliminar->getLeft());
             NodoEliminar->setLeft(nullptr);
             delete NodoEliminar;
             return N;
         }
-        if (NodoEliminar->getRight()!=nullptr && NodoEliminar->getLeft()==nullptr && N->getRight()==NodoEliminar) {
+        if (NodoEliminar->getRight() != nullptr && NodoEliminar->getLeft() == nullptr && N->getRight() ==
+            NodoEliminar) {
             N->setRight(NodoEliminar->getRight());
             NodoEliminar->setLeft(nullptr);
             delete NodoEliminar;
             return N;
         }
-        sucesor=buscarRemplazo(NodoEliminar);
-        padre=padreRemplazo(sucesor,NodoEliminar);
-        if (sucesor->getRight()!=nullptr) {
+        sucesor = buscarRemplazo(NodoEliminar);
+        padre = padreRemplazo(sucesor, NodoEliminar);
+        if (sucesor->getRight() != nullptr) {
             padre->setLeft(sucesor->getRight());
-        }else {
+        } else {
             padre->setLeft(nullptr);
         }
         sucesor->setRight(NodoEliminar->getRight());
@@ -220,27 +211,26 @@ NodoABB* ABB::eliminarRecursivo(NodoABB *N, int dato) {
 
         NodoEliminar->setLeft(nullptr);
         NodoEliminar->setRight(nullptr);
-        if (N->getLeft()==NodoEliminar) {
+        if (N->getLeft() == NodoEliminar) {
             N->setLeft(sucesor);
             delete NodoEliminar;
             return N;
         }
         N->setRight(sucesor);
         return N;
-
     }
-    if (N->getDato()<dato) {
-            N->setRight(eliminarRecursivo(N->getRight(),dato));
-            return N;
-        }
-        if (N->getDato()>dato) {
-            N->setLeft(eliminarRecursivo(N->getLeft(),dato));
-            return N;
-        }
-
+    if (N->getDato() < dato) {
+        N->setRight(eliminarRecursivo(N->getRight(), dato));
+        return N;
+    }
+    if (N->getDato() > dato) {
+        N->setLeft(eliminarRecursivo(N->getLeft(), dato));
+        return N;
+    }
+    return nullptr;
 }
 
-void ABB::inorder(NodoABB *nodo) {
+void ABB::inorder(const NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
     }
@@ -252,7 +242,7 @@ void ABB::inorder(NodoABB *nodo) {
     inorder(nodo->getRight());
 }
 
-void ABB::preorder(NodoABB *nodo) {
+void ABB::preorder(const NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
     }
@@ -261,7 +251,7 @@ void ABB::preorder(NodoABB *nodo) {
     preorder(nodo->getRight());
 }
 
-void ABB::postorder(NodoABB *nodo) {
+void ABB::postorder(const NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
     }
@@ -270,7 +260,7 @@ void ABB::postorder(NodoABB *nodo) {
     cout << nodo->getDato() << endl;
 }
 
-void ABB::inorderInverso(NodoABB *nodo) {
+void ABB::inorderInverso(const NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
     }
@@ -279,7 +269,7 @@ void ABB::inorderInverso(NodoABB *nodo) {
     cout << nodo->getDato() << endl;
 }
 
-void ABB::preorderInverso(NodoABB *nodo) {
+void ABB::preorderInverso(const NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
     }
@@ -288,7 +278,7 @@ void ABB::preorderInverso(NodoABB *nodo) {
     preorderInverso(nodo->getLeft());
 }
 
-void ABB::postorderInverso(NodoABB *nodo) {
+void ABB::postorderInverso(const NodoABB *nodo) {
     if (nodo == nullptr) {
         return;
     }
@@ -311,30 +301,28 @@ NodoABB *ABB::maximo(NodoABB *aux) {
     return aux;
 }
 
-void ABB::inorderIterativo() {
-    stack<NodoABB*> s;
-    NodoABB* aux = root;
+void ABB::inorderIterativo() const {
+    stack<NodoABB *> s;
+    NodoABB *aux = root;
     while (true) {
         while (aux) {
             s.push(aux);
             //pre
-            cout<<aux->getDato()<<endl;
+            cout << aux->getDato() << endl;
 
             aux = aux->getRight();
         }
-        if (s.empty()) {return; }
+        if (s.empty()) { return; }
         aux = s.top();
         s.pop();
         // //in
         // cout<<aux->getDato()<<endl;
         aux = aux->getLeft();
-
-
     }
 }
 
 
-void ABB::toString(int opcion) {
+void ABB::toString(int opcion) const {
     switch (opcion) {
         case 1:
             preorder(this->root);
@@ -358,11 +346,8 @@ void ABB::toString(int opcion) {
     }
 }
 
-NodoABB * ABB::obtener(int i, NodoABB *nodoAbb) {
-    if (nodoAbb->getDato()==i)return nodoAbb;
-    if (nodoAbb==nullptr)return nullptr;
-    if (i<nodoAbb->getDato())return obtener(i, nodoAbb->getLeft());
+NodoABB *ABB::obtener(int i, NodoABB *nodoAbb) {
+    if (nodoAbb->getDato() == i)return nodoAbb;
+    if (i < nodoAbb->getDato())return obtener(i, nodoAbb->getLeft());
     return obtener(i, nodoAbb->getRight());
 }
-
-

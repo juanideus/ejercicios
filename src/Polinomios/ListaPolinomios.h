@@ -11,14 +11,18 @@
 using namespace std;
 
 class ListaPolinomios {
-    NodoPoli * inicio;
-    public:
+    NodoPoli *inicio;
 
+public:
     ListaPolinomios();
+
     void insertar(int coef, int exp);
+
     ListaPolinomios sumar(ListaPolinomios lista);
+
     string toString(const string &var);
-    NodoPoli* getInicio();
+
+    NodoPoli *getInicio();
 };
 
 

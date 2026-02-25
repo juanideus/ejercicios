@@ -7,9 +7,9 @@
 #include "NodoAVL.h"
 
 
-class AVL{
-    public:
-    NodoAVL* root;
+class AVL {
+public:
+    NodoAVL *root;
 
     //Metodos
     NodoAVL *RR(NodoAVL *nodo);
@@ -17,15 +17,21 @@ class AVL{
     NodoAVL *LR(NodoAVL *nodo);
 
     NodoAVL *RL(NodoAVL *nodo);
-    NodoAVL* LL(NodoAVL* nodo);
-    int obtenerAltura(NodoAVL* nodo);
-    int FactorBalance(NodoAVL* nodo);
-    public:
-    AVL();
-    void insertar(int dato);
-    NodoAVL* insertar(NodoAVL*N,int dato);
-    void inorden(NodoAVL* nodo);
 
+    NodoAVL *LL(NodoAVL *nodo);
+
+    int obtenerAltura(NodoAVL *nodo);
+
+    int FactorBalance(NodoAVL *nodo);
+
+public:
+    AVL();
+
+    void insertar(int dato);
+
+    NodoAVL *insertar(NodoAVL *N, int dato);
+
+    void inorden(NodoAVL *nodo);
 };
 
 

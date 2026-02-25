@@ -22,7 +22,7 @@ void Nodo::setDato(int dato) {
     this->dato = dato;
 }
 
-Nodo * Nodo::getProximo() {
+Nodo *Nodo::getProximo() {
     return this->proximo;
 }
 

@@ -7,13 +7,16 @@
 #include <string>
 
 using namespace std;
+
 class Persona {
     string nombre;
     int edad;
 
-    public:
+public:
     Persona(string nombre, int edad);
+
     string getNombre();
+
     int getEdad();
 
     string toString();

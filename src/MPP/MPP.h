@@ -4,13 +4,15 @@ using namespace std;
 
 
 class MPP {
-    private:
-    NodoMPP**AROW;
-    NodoMPP**ACOL;
+private:
+    NodoMPP **AROW;
+    NodoMPP **ACOL;
     int alto;
     int largo;
-    public:
+
+public:
     MPP();
+
     MPP(int alto, int largo);
 
     int GetAlto();
@@ -29,7 +31,7 @@ class MPP {
 
     NodoMPP *buscar(int fila, int col);
 
-    bool mover(int Nuevafila,int Nuevacol, int dato);
+    bool mover(int Nuevafila, int Nuevacol, int dato);
 
     void mostrarMatriz();
 
@@ -46,7 +48,4 @@ class MPP {
     NodoMPP **getRow();
 
     NodoMPP **getCol();
-
 };
-
-

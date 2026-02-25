@@ -19,5 +19,5 @@ int Persona::getEdad() {
 
 string Persona::toString() {
     return "mi nombre es: " + nombre + "\n" +
-    "edad: " + to_string(edad) + "\n";
+           "edad: " + to_string(edad) + "\n";
 }

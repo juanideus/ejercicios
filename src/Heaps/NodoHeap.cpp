@@ -4,39 +4,38 @@
 
 #include "NodoHeap.h"
 
-NodoHeap::NodoHeap(){
+NodoHeap::NodoHeap() {
     this->dato = 0;
     this->left = nullptr;
     this->right = nullptr;
 }
 
-NodoHeap::NodoHeap(int dato){
+NodoHeap::NodoHeap(int dato) {
     this->dato = dato;
     this->left = nullptr;
     this->right = nullptr;
 }
 
-void NodoHeap::setLeft(NodoHeap* nodo){
+void NodoHeap::setLeft(NodoHeap *nodo) {
     this->left = nodo;
 }
 
-void NodoHeap::setRight(NodoHeap* nodo){
+void NodoHeap::setRight(NodoHeap *nodo) {
     this->right = nodo;
 }
 
-int NodoHeap::getDato(){
+int NodoHeap::getDato() {
     return this->dato;
 }
 
-NodoHeap* NodoHeap::getLeft(){
+NodoHeap *NodoHeap::getLeft() {
     return this->left;
 }
 
-NodoHeap* NodoHeap::getRight(){
+NodoHeap *NodoHeap::getRight() {
     return this->right;
-
 }
 
-void NodoHeap::setDato(int dato){
+void NodoHeap::setDato(int dato) {
     this->dato = dato;
 }
